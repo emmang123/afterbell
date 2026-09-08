@@ -77,7 +77,7 @@ kbd.action-key.space-key{width:calc(88px * var(--prompt-scale));font-size:calc(1
   <div class="compass-dial"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="44" class="compass-rim"/><circle cx="50" cy="50" r="36" class="compass-inner"/><path class="compass-ticks" d="M50 7v9M93 50h-8M50 93v-8M7 50h8M20 20l5 5M80 20l-5 5M80 80l-5-5M20 80l5-5"/><path class="compass-forward" d="M45 4h10l-5 6z"/><g id="compassNeedle"><path class="needle-tail" d="M50 81l-6-28h12z"/><path class="needle-tip" d="M50 19L61 58 50 51 39 58z"/><circle cx="50" cy="50" r="3.1" class="needle-hub"/></g></svg></div>
   <span id="compassCaption">직선 방향</span>
  </aside>
- <div class="objective-panel"><div class="goal-line"><svg viewBox="0 0 24 28"><path d="M4 2h12l4 4v20H4z M8 10h8 M8 15h8 M8 20h5"/></svg><span>봉인된 출석부</span><b id="objectiveCount">0 / 3</b></div><div id="objectiveText">사물함을 열어 명단 찾기</div></div>
+ <div class="objective-panel"><div class="goal-line"><svg viewBox="0 0 24 28"><path d="M4 2h12l4 4v20H4z M8 10h8 M8 15h8 M8 20h5"/></svg><span>봉인된 출석부</span><b id="objectiveCount">0 / 3</b></div><div id="objectiveText">교탁과 사물함에서 명단 찾기</div></div>
  <nav class="quickbar" aria-label="사용 도구"><div class="slots"><div id="slotCamera" class="tool-slot selected"><kbd>1</kbd><svg viewBox="0 0 32 32"><path d="M3 8h7l2-4h9l2 4h6v20H3z" fill="#626d69"/><rect x="5" y="10" width="6" height="4" fill="#dfd4af"/><circle cx="18" cy="18" r="7" fill="#253334" stroke="#b7bcae"/><circle cx="18" cy="18" r="4" fill="#819da3"/><path d="M15 16l4-2" stroke="#dfe9db"/></svg><span>섬광</span><b id="cameraCount">0</b></div><div id="slotWatch" class="tool-slot"><kbd>2</kbd><svg viewBox="0 0 32 32"><path d="M12 2h8v4h-8z" fill="#aa9866"/><circle cx="16" cy="18" r="12" fill="#9e8b5b"/><circle cx="16" cy="18" r="9.3" fill="#d0c8aa"/><path d="M16 10v8l5 3" stroke="#4f5346" stroke-width="1.6"/><circle cx="16" cy="18" r="1.2" fill="#675d49"/></svg><span>시계</span><b id="watchCount">0</b></div><div id="slotBandage" class="tool-slot"><kbd>3</kbd><svg viewBox="0 0 32 32"><rect x="5" y="7" width="22" height="22" rx="4" fill="#c9c4b1"/><path d="M10 2h12v6H10z" fill="#8c9688"/><path d="M13 12h6v5h5v6h-5v5h-6v-5H8v-6h5z" fill="#995747" stroke="none"/></svg><span>붕대</span><b id="bandageCount">0</b></div><div id="slotMirror" class="tool-slot"><kbd>4</kbd><svg viewBox="0 0 32 32"><path fill="#b19b65" d="M12 19h5v12h-5z"/><ellipse cx="14.5" cy="11" rx="9" ry="10" fill="#aa935f"/><ellipse cx="14.5" cy="11" rx="6.8" ry="7.8" fill="#8dafb5"/><path d="M14 3l-2 8 6 3-4 5" fill="none" stroke="#293738"/></svg><span>손거울</span><b id="mirrorCount">0</b></div><div id="slotSurvey" class="tool-slot"><kbd>5</kbd><svg viewBox="0 0 32 32"><path fill="#81a4ad" d="M3 3l25 2-2 24-24-3z"/><path d="M6 8h17v8H11v8M17 5v8h9" fill="none" stroke="#d7d7c6" stroke-width="1.4"/><circle cx="11" cy="16" r="2" fill="#ad6650"/></svg><span>순찰도</span><b id="surveyCount">0</b></div><div id="slotLure" class="tool-slot"><kbd>6</kbd><svg viewBox="0 0 32 32"><rect x="3" y="8" width="23" height="19" rx="2" fill="#9a7350"/><rect x="6" y="11" width="12" height="12" fill="#303d3b"/><path d="M8 14h9m-9 3h9m-9 3h9M26 13h4V8" fill="none" stroke="#b6b5a1" stroke-width="1.5"/><circle cx="22" cy="15" r="2" fill="#caba7c"/></svg><span>방송기</span><b id="lureCount">0</b></div></div><div id="toolUsePrompt" class="action-prompt" data-state="empty"><kbd id="toolUseKey" class="action-key">Q</kbd><div class="action-copy"><strong id="selectedToolName">섬광 카메라</strong><span id="toolUseLabel">소지품 없음 · 1–6 선택</span></div></div><small class="slot-select-hint"><kbd>1–6</kbd> 선택 <span>·</span> <kbd>I</kbd> 효과 보기</small></nav><div id="crosshair">·</div><div id="interaction" hidden><kbd>E</kbd><span id="interactionLabel"></span></div><div id="searchUI" hidden></div>
  <div id="toast" role="status"></div><div id="subtleTip"></div><div id="timeFreeze"></div>
  <div class="health-center"><span>체력</span><div id="healthTrack" role="meter" aria-label="체력" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><i id="healthFill"></i></div></div><div class="stamina-center"><div id="staminaTrack" role="meter" aria-label="스태미나" aria-valuemin="0" aria-valuemax="125" aria-valuenow="125"><i id="staminaFill"></i></div><span id="posture"></span></div>
@@ -86,7 +86,7 @@ kbd.action-key.space-key{width:calc(88px * var(--prompt-scale));font-size:calc(1
 </section>
 <section id="pause" class="screen dim" hidden><div class="pause-content"><div class="eyebrow">아직 끝나지 않은 밤</div><h2>숨을 고르다</h2><button id="resumeBtn" class="primary">계속 걷기 <span>↗</span></button><button id="pauseSettings" class="plain-row">설정 · 소리 확인</button><button id="pauseHelp" class="plain-row">생존 수칙</button><button id="backMenu" class="plain-row muted">처음 화면으로</button><p id="pauseSeed" class="micro"></p><p id="saveNotice" class="micro"></p></div></section>
 <section id="settings" class="overlay" hidden><div class="panel"><div class="panel-head"><h2>설정</h2><button data-close="settings" aria-label="닫기">×</button></div><label>밝기 <output id="brightnessValue"></output><input id="brightness" type="range" min=".7" max="1.5" step=".05"></label><label>전체 음량 <output id="volumeValue"></output><input id="volume" type="range" min="0" max="1" step=".01"></label><label>환경·배회자 소리 <output id="sfxValue"></output><input id="sfx" type="range" min="0" max="1.5" step=".05"></label><label>심장 소리 <output id="heartbeatValue"></output><input id="heartbeat" type="range" min="0" max="1.5" step=".05"></label><div class="sound-check"><button data-sound-test="front">정면 종소리</button><button data-sound-test="right">오른쪽</button><button data-sound-test="back">뒤쪽</button><button data-sound-test="left">왼쪽</button><button data-sound-test="steps">발걸음</button><button data-sound-test="heart">심장</button></div><label>감도 <output id="sensitivityValue"></output><input id="sensitivity" type="range" min=".3" max="2" step=".05"></label><label>렌더링 해상도<select id="quality"><option value="1">100% · 원본 해상도</option><option value=".8">80%</option><option value=".6">60%</option></select></label><label class="check"><input id="adaptive" type="checkbox" checked>프레임 우선 자동 해상도 (최저 80%)</label><label>조작 안내 크기<select id="promptScale"><option value="1">기본 · 크게 보이는 키 안내</option><option value="1.25">125%</option><option value="1.5">150%</option></select></label><label class="check"><input id="motion" type="checkbox" checked>시야 흔들림 줄이기</label><p class="micro">아주 낮은 음량에서는 접근하는 소리를 놓칠 수 있습니다.<br>이번 버전의 원음과 모델은 직접 제작한 생성형 리소스입니다.</p><button class="primary" data-close="settings">돌아가기 <span>↗</span></button></div></section>
-<section id="help" class="overlay" hidden><div class="panel wide"><div class="panel-head"><h2>밤의 학교에서</h2><button data-close="help" aria-label="닫기">×</button></div><p class="intro-copy">명단 <b>3 / 4 / 5장</b>을 각 미로에서 회수한다.<br>각 미로에는 목표의 두 배인 6 / 8 / 10장이 있다. 필요한 수만 찾으면 된다. 회수를 마치면 오른쪽 나침반이 출구의 실제 방향만 가리킨다. 벽이나 층을 돌아가는 길은 직접 찾아야 한다. 시작 명단은 지급되지 않는다.<br>생명은 전체 캠페인에서 3개. 사망하면 같은 시드·스테이지·수집 상태로 부활한다. 세 번째 사망에는 새 시드의 1스테이지로 다시 시작한다.</p><div class="controls"><p><kbd>W A S D</kbd> 이동 · 마우스 시점</p><p><kbd>SHIFT</kbd> 달리기</p><p><kbd>C / CTRL</kbd> 웅크리기</p><p><kbd>E 한 번</kbd> 사물함 열기 / 가져가기</p><p><kbd>E</kbd> 문 · 청소함</p><p><kbd>F / G</kbd> 손전등 / 라이터</p><p><kbd>R</kbd> 건전지 교체</p><p><kbd>1–6 → Q</kbd> 선택한 도구 사용</p><p><kbd>M / V</kbd> 탐색 지도 / 위아래</p><p><kbd>I / H / ESC</kbd> 도구 / 수칙 / 정지</p></div><div class="rules"><p><span>장착 1칸 / 교환</span>새 장비를 가져가면 기존 장비는 그 사물함에 남는다. 이름표·끈·리본·장갑 중 하나만 착용. 열쇠와 붕대는 별도 소비품이다.</p><p><span>먹선 / 바닥</span>떨리는 검은 선을 밟으면 발이 느려지고 체력을 잃는다. 피해 걷거나 라이터로 가까이 내려다봐 물러나게 한다. 카메라도 통한다.</p><p><span>결석표 떼 / 벽</span>접힌 종이에 빛을 오래 비추거나 가까이 뛰면 떨리다가 날아오른다. 빛을 끄고 조용히 통과한다. 달아나거나 카메라로 흩뜨릴 수 있다.</p><p><span>05 / 육중한 배회자</span>느린 종 대신 쿵쿵거리는 달리기. 길을 비키고 문 뒤에 숨는다. 카메라와 시계로 멈출 수 있다.</p><p><span>01 / 하나만 더?</span>E 한 번으로 사물함을 연다. 안에 물건이 있으면 E 한 번으로 줍는다. 빈 칸도 있으며, 여는 소리는 적에게 들린다.</p><p><span>02 / 모습보다 먼저 오는 소리</span>종·구두·숨소리가 커지면 같은 방에 들어오기 전이다. 문을 닫고 빛을 끄거나, 키 큰 ‘청소함’ 안에 숨는다. 들어가는 것을 봤다면 안전하지 않다.</p><p><span>03 / 마지막 수단</span>카메라는 직접 보이는 적만 4.5초 멈춘다. 시계는 6초를 번다. 이름표는 한 번의 포획을 대신한다. I를 눌러 효과를 확인한다.</p><p><span>04 / 숨을 죽이기</span>청소함에서는 SPACE를 누르고 있어 숨을 참는다. 가득 찬 상태에서 약 10.5초. 키를 놓으면 호흡이 회복된다. 지도와 도구 설명을 여는 동안에도 시간은 흐른다.</p></div></div></section>
+<section id="help" class="overlay" hidden><div class="panel wide"><div class="panel-head"><h2>밤의 학교에서</h2><button data-close="help" aria-label="닫기">×</button></div><p class="intro-copy">명단 <b>3 / 4 / 5장</b>을 각 미로에서 회수한다.<br>각 미로에는 목표의 두 배인 6 / 8 / 10장이 있다. 필요한 수만 찾으면 된다. 회수를 마치면 오른쪽 나침반이 출구의 실제 방향만 가리킨다. 벽이나 층을 돌아가는 길은 직접 찾아야 한다. 명단 대부분은 미색으로 빛나는 교탁 위에, 일부는 사물함에 있다. 출구는 시작방이 아니라 맵 가장자리의 무작위 위치에 있고 2층일 수도 있다. 시작 명단은 지급되지 않는다.<br>생명은 전체 캠페인에서 3개. 사망하면 같은 시드·스테이지·수집 상태로 부활한다. 세 번째 사망에는 새 시드의 1스테이지로 다시 시작한다.</p><div class="controls"><p><kbd>W A S D</kbd> 이동 · 마우스 시점</p><p><kbd>SHIFT</kbd> 달리기</p><p><kbd>C / CTRL</kbd> 웅크리기</p><p><kbd>E 한 번</kbd> 사물함 열기 / 가져가기</p><p><kbd>E</kbd> 문 · 청소함</p><p><kbd>F / G</kbd> 손전등 / 라이터</p><p><kbd>R</kbd> 건전지 교체</p><p><kbd>1–6 → Q</kbd> 선택한 도구 사용</p><p><kbd>M / V</kbd> 탐색 지도 / 위아래</p><p><kbd>I / H / ESC</kbd> 도구 / 수칙 / 정지</p></div><div class="rules"><p><span>우는 기록지기 / 교탁</span>방 한가운데 앉아 명단을 지킨다. 방송기를 다른 위치에 놓으면 그쪽으로 천천히 이동한다. 유인 중에는 걷고, 달리지 말 것. 방송기가 멎으면 원래 자리로 돌아간다. 무방비로 가까이 가면 매우 빠르게 추격한다.</p><p><span>장착 1칸 / 교환</span>새 장비를 가져가면 기존 장비는 그 사물함에 남는다. 이름표·끈·리본·장갑 중 하나만 착용. 열쇠와 붕대는 별도 소비품이다.</p><p><span>먹선 / 바닥</span>떨리는 검은 선을 밟으면 발이 느려지고 체력을 잃는다. 피해 걷거나 라이터로 가까이 내려다봐 물러나게 한다. 카메라도 통한다.</p><p><span>결석표 떼 / 벽</span>접힌 종이에 빛을 오래 비추거나 가까이 뛰면 떨리다가 날아오른다. 빛을 끄고 조용히 통과한다. 달아나거나 카메라로 흩뜨릴 수 있다.</p><p><span>05 / 육중한 배회자</span>느린 종 대신 쿵쿵거리는 달리기. 길을 비키고 문 뒤에 숨는다. 카메라와 시계로 멈출 수 있다.</p><p><span>01 / 하나만 더?</span>E 한 번으로 사물함을 연다. 안에 물건이 있으면 E 한 번으로 줍는다. 빈 칸도 있으며, 여는 소리는 적에게 들린다.</p><p><span>02 / 모습보다 먼저 오는 소리</span>종·구두·숨소리가 커지면 같은 방에 들어오기 전이다. 문을 닫고 빛을 끄거나, 키 큰 ‘청소함’ 안에 숨는다. 들어가는 것을 봤다면 안전하지 않다.</p><p><span>03 / 마지막 수단</span>카메라는 직접 보이는 적만 4.5초 멈춘다. 시계는 6초를 번다. 이름표는 한 번의 포획을 대신한다. I를 눌러 효과를 확인한다.</p><p><span>04 / 숨을 죽이기</span>청소함에서는 SPACE를 누르고 있어 숨을 참는다. 가득 찬 상태에서 약 10.5초. 키를 놓으면 호흡이 회복된다. 지도와 도구 설명을 여는 동안에도 시간은 흐른다.</p></div></div></section>
 <section id="inventoryPanel" hidden><div class="inventory-card"><h3>가지고 있는 것들의 쓰임새</h3><div id="inventoryText"></div><small>I 닫기 · 시간은 계속 흐른다</small></div></section>
 <section id="mapPanel" hidden><div class="map-sheet"><header><h3 id="mapTitle"></h3><span>M 닫기</span></header><canvas id="mapCanvas" width="620" height="620"></canvas><footer><span>● 나 · □ 수색 완료 / 사물함 수</span><span>V 위아래 · 시간은 흐른다</span></footer></div></section>
 <section id="story" class="screen dim" hidden><div class="story-content"><div class="eyebrow" id="storyOverline"></div><h2 id="storyTitle"></h2><p id="storyText"></p><div id="storyStats"></div><button id="storyBtn" class="primary"></button><button id="storyMenu" class="plain-row muted">처음 화면으로</button></div></section>
@@ -414,6 +414,9 @@ class School {
   // Farthest-point sampling in graph distance scatters goals without A→B→C sequencing.
   const upper=candidates.filter(r=>r.level===1).sort((a,b)=>(rds.get(b.id)||0)-(rds.get(a.id)||0));if(upper[0])objectives.push(upper[0]);
   this.pageSupply=this.required*2;
+  const guardianRoom=candidates.filter(r=>!['hall','gallery'].includes(r.kind)&&!r.level&&Math.min(r.hw,r.hd)>=3&&r.doors.length>=1).sort((a,b)=>(b.hw*b.hd)-(a.hw*a.hd))[0];
+  if(!guardianRoom)throw Error('No guardian chamber');
+  guardianRoom.weeperRoom=true;if(!objectives.includes(guardianRoom))objectives.push(guardianRoom);
   while(objectives.length<this.pageSupply){let best=null,score=-1;
    for(const r of candidates){if(objectives.includes(r))continue;let d=rds.get(r.id);for(const o of objectives)d=Math.min(d,this.roomDistances(o.id).get(r.id)||0);const s=d+R()*.3;if(s>score){score=s;best=r;}}
    if(!best)throw Error('Not enough objective rooms');objectives.push(best);
@@ -488,10 +491,10 @@ class School {
   // Navigation anchors are selected from physically clear cells after furniture placement.
   for(const r of this.rooms){const cells=this.walkable.filter(id=>this.cells[id]===r.id);cells.sort((a,b)=>{const p=this.center(a),q=this.center(b);return Math.hypot(p.x-r.x,p.z-r.z)-Math.hypot(q.x-r.x,q.z-r.z);});const id=cells.find(id=>{const p=this.center(id);return this.canStand(p.x,p.z,.23,true,p.level);});if(id==null)throw Error('No room anchor');r.anchor=id;this.nodes.push(id);}
   this.start=this.rooms.find(r=>r.id===this.startRoom).anchor;this.startPos=this.center(this.start);const openingGroup=this.groups.find(g=>g.room===this.startRoom);this.startYaw=Math.atan2(openingGroup.x-this.startPos.x,-(openingGroup.z-this.startPos.z));
-  this.exit=this.start;this.exitPos={...this.startPos,x:(foyer.gx+.06)*CELL,z:(foyer.gz+1.65)*CELL};this.exitRot=-Math.PI/2;
+  this.arrangeRecords();this.selectPeripheralExit();
   this.terminals=[];this.upperNodes=this.rooms.filter(r=>r.level===1).map(r=>r.anchor);this.coarseEdges=this.roomLinks;
   this.intro={cells:new Set(this.walkable.filter(id=>this.cells[id]===this.startRoom)),coreCells:new Set(this.walkable.filter(id=>this.cells[id]!==this.startRoom)),refuge:this.hides.find(h=>h.room!==this.startRoom)||this.hides[0],patrolRoute:[]};
-  const far=this.rooms.filter(r=>r.id!==this.startRoom&&!r.vault).sort((a,b)=>(rds.get(b.id)||0)-(rds.get(a.id)||0));this.spawns=[0,1,2,3,4].map((type,i)=>({...this.center(far[Math.min(far.length-1,i*3)].anchor),type,id:far[Math.min(far.length-1,i*3)].anchor}));
+  const far=this.rooms.filter(r=>r.id!==this.startRoom&&!r.vault).sort((a,b)=>(rds.get(b.id)||0)-(rds.get(a.id)||0));this.spawns=[0,1,2,3,4].map((type,i)=>type===1?{...this.guardian.home,type,id:this.cellOf(this.guardian.home),guardRoom:this.guardian.room,guardItem:this.guardian.itemId}:{...this.center(far[Math.min(far.length-1,i*3)].anchor),type,id:far[Math.min(far.length-1,i*3)].anchor});
   // Small motivated pools, not omnidirectional global fill.
   for(const r of this.rooms){
    const on=r.kind==='foyer'||r.kind==='infirmary'&&R()<.45;
@@ -499,7 +502,7 @@ class School {
    if(r.kind==='ritual'){for(const x of[-.5,.5])this.lights.push({x:r.x+x,z:r.z-1,y:r.y+1.3,level:r.level,on:true,power:.22,radius:3.0,color:[1,.19,.04],room:r.id,kind:'candle'});}
    if(r.kind==='hall'){this.lights.push({x:r.x,z:r.z-r.hd+.3,y:3.0,level:0,on:true,power:.23,radius:7,color:[.37,.47,.51],room:r.id,kind:'projector'});}
   }
-  for(const id of this.walkable){const[x,z,l]=this.coords(id);if(this.ramps.has(id)||this.cells[id]<=0||this.inAtrium(x,z))continue;for(const[dx,dz]of DIRS){if(this.at(x+dx,z+dz,l)>=0)continue;if(this.wings.some(w=>(x===w.x0&&dx===-1)||(x===w.x1-1&&dx===1))){if((z%3)!==0)continue;this.windowEdges.add(id+':'+dx+':'+dz);const p=this.center(id);this.lights.push({...p,x:p.x+dx*.85,y:p.y+1.8,on:true,power:.014,radius:2.8,color:[.25,.36,.48],room:this.cells[id],kind:'window'});}}}
+  for(const id of this.walkable){const[x,z,l]=this.coords(id);if(this.ramps.has(id)||this.cells[id]<=0||this.inAtrium(x,z))continue;for(const[dx,dz]of DIRS){if(this.at(x+dx,z+dz,l)>=0)continue;if(this.wings.some(w=>(x===w.x0&&dx===-1)||(x===w.x1-1&&dx===1))){if((z%3)!==0)continue;if(this.exitEdge===id+':'+dx+':'+dz)continue;this.windowEdges.add(id+':'+dx+':'+dz);const p=this.center(id);this.lights.push({...p,x:p.x+dx*.85,y:p.y+1.8,on:true,power:.014,radius:2.8,color:[.25,.36,.48],room:this.cells[id],kind:'window'});}}}
   for(const r of this.rooms.filter(r=>r.kind==='corridor')){const ids=this.walkable.filter(id=>this.cells[id]===r.id);for(let k=4;k<ids.length;k+=7){const p=this.center(ids[k]);this.lights.push({...p,y:p.y+2.47,on:false,power:0,radius:3,color:[.8,.81,.64],room:r.id,kind:'fluorescent'});}}
   for(const a of this.courtyards)for(let z=a.z0-1;z<=a.z1+1;z++)for(let x=a.x0-1;x<=a.x1+1;x++){const id=this.id(x,z);if(this.cells[id]<0)continue;for(const[dx,dz]of DIRS){const X=x+dx,Z=z+dz;if(X>=a.x0&&X<=a.x1&&Z>=a.z0&&Z<=a.z1&&this.at(X,Z)<0){this.windowEdges.add(id+':'+dx+':'+dz);}}}
   this.placeGateHazards();
@@ -511,6 +514,66 @@ class School {
   this.rebalanceSupplies();
   this.version++;
  }
+ // The floor graph is unchanged: only real furniture, exposed records, and an exterior exit are placed.
+ arrangeRecords(){
+  const R=rng(this.seed+this.stage*150787),records=this.items.filter(i=>i.type==='page'),guard=records.find(i=>this.rooms[i.room-1].weeperRoom);
+  const sorted=[guard,...shuffle(records.filter(i=>i!==guard),R)],openCount=Math.ceil(records.length*.75);
+  for(let j=0;j<openCount;j++){
+   const item=sorted[j],r=this.rooms[item.room-1],isGuard=j===0;
+   // An actual wooden lectern must have a reachable side, and may not block a doorway or locker.
+   const candidates=isGuard?[{x:r.x,z:r.z+.86,rot:0},{x:r.x,z:r.z-.86,rot:Math.PI},{x:r.x+.86,z:r.z,rot:Math.PI/2},{x:r.x-.86,z:r.z,rot:-Math.PI/2}]:
+     [{x:r.x,z:r.z,rot:0},{x:r.x,z:r.z+1.1,rot:0},{x:r.x,z:r.z-1.1,rot:Math.PI},{x:r.x+1.0,z:r.z,rot:Math.PI/2},{x:r.x-1.0,z:r.z,rot:-Math.PI/2}];
+   // Remove movable clutter in a guard room; permanent lockers and shelter keep their original anchors.
+   if(isGuard){const old=new Set(r.setpieces);this.props=this.props.filter(v=>!old.has(v));r.setpieces=[];r.desks=[];}
+   let chosen=null;
+   for(const c of candidates){const q=Math.abs(Math.sin(c.rot))>.5,w=q?.66:1.28,d=q?1.28:.66;
+    if(Math.abs(c.x-r.x)+w/2>r.hw-.4||Math.abs(c.z-r.z)+d/2>r.hd-.4)continue;
+    if(r.doors.some(v=>Math.hypot(c.x-v.x,c.z-v.z)<1.75))continue;
+    if(this.props.some(v=>v.room===r.id&&Math.abs(c.x-v.x)<(v.w+w)/2+.30&&Math.abs(c.z-v.z)<(v.d+d)/2+.30))continue;
+    if(this.containers.some(v=>v.room===r.id&&Math.abs(c.x-v.ax)<w/2+.40&&Math.abs(c.z-v.az)<d/2+.40)||this.hides.some(v=>v.room===r.id&&Math.hypot(c.x-v.ax,c.z-v.az)<1.2))continue;
+    const access=[[0,-1.1],[0,1.1],[-1.15,0],[1.15,0]].map(([dx,dz])=>({x:c.x+dx,z:c.z+dz,level:r.level})).filter(v=>this.regionOf(v)===r.id&&this.canStand(v.x,v.z,.24,true,r.level));
+    if(!access.length)continue;chosen={...c,y:r.y,w,d,access};break;
+   }
+   if(!chosen){ // central region is reserved by the layout; clear only local moveable desks, never portals.
+    const clutter=new Set(r.setpieces.filter(v=>Math.hypot(v.x-r.x,v.z-r.z)<2.4));r.setpieces=r.setpieces.filter(v=>!clutter.has(v));this.props=this.props.filter(v=>!clutter.has(v));
+    const c={x:r.x,z:r.z+(isGuard?.86:0),rot:0,y:r.y,w:1.28,d:.66};const access={x:c.x,z:c.z-1.1,level:r.level};
+    if(!this.canStand(access.x,access.z,.24,true,r.level))throw Error('No record lectern access');chosen={...c,access:[access]};
+   }
+   const table={x:chosen.x,z:chosen.z,y:r.y,w:chosen.w,d:chosen.d,height:.91,kind:'recordLectern',rot:chosen.rot,room:r.id};r.setpieces.push(table);this.props.push(table);
+   const box=this.containers.find(c=>c.id===item.containerId);if(box)box.loot=null;
+   Object.assign(item,{containerId:null,placement:'lectern',x:chosen.x,z:chosen.z,y:r.y+.931,rot:chosen.rot,ax:chosen.access[0].x,az:chosen.access[0].z});
+   if(isGuard){item.guardian=1;r.name='울음이 새는 교실';this.guardian={room:r.id,itemId:item.id,home:{x:r.x,z:r.z,y:r.y,level:r.level},protectedRadius:2.65};
+    if(!this.canStand(r.x,r.z,.25,true,r.level))throw Error('Guardian seat obstructed');
+   }
+  }
+  this.recordStats={total:records.length,exposed:records.filter(i=>!i.containerId).length,inLockers:records.filter(i=>i.containerId).length,guarded:1};
+ }
+ selectPeripheralExit(){
+  const R=rng(this.seed+this.stage*240667),ds=this.distances(this.start,'nav');
+  const bounds=this.walkable.reduce((a,id)=>{const[x,z]=this.coords(id);return[Math.min(a[0],x),Math.max(a[1],x),Math.min(a[2],z),Math.max(a[3],z)];},[999,0,999,0]);
+  const [xmin,xmax,zmin,zmax]=bounds,outer=new Set(),q=[0];outer.add(0);
+  // Exterior flood uses the union of floors: an internal courtyard or an upper void is not an outer edge.
+  for(let j=0;j<q.length;j++){const id=q[j],x=id%this.w,z=Math.floor(id/this.w);for(const[dx,dz]of DIRS){const X=x+dx,Z=z+dz,n=Z*this.w+X;if(!this.inside(X,Z)||outer.has(n)||this.at(X,Z,0)>=0||this.at(X,Z,1)>=0)continue;outer.add(n);q.push(n);}}
+  const candidates=[];const minDirect=Math.hypot(xmax-xmin,zmax-zmin)*CELL*.30;
+  for(const id of this.walkable){const[x,z,l]=this.coords(id),r=this.rooms[this.cells[id]-1];if(!r||r.vault||r.weeperRoom||r.id===this.startRoom||this.ramps.has(id)||ds[id]<26)continue;
+   for(const[dx,dz]of DIRS){const X=x+dx,Z=z+dz;if(!outer.has(Z*this.w+X))continue;
+    // In addition to topological exterior, demand the extreme 10% rim of the whole map.
+    let side=dx<0?'west':dx>0?'east':dz<0?'north':'south';if(side==='west'&&x>xmin+(xmax-xmin)*.1||side==='east'&&x<xmax-(xmax-xmin)*.1||side==='north'&&z>zmin+(zmax-zmin)*.1||side==='south'&&z<zmax-(zmax-zmin)*.1)continue;
+    const c=this.center(id),ep={x:c.x+dx*(CELL/2-.15),z:c.z+dz*(CELL/2-.15),y:c.y,level:l},a={x:ep.x-dx*.9,z:ep.z-dz*.9,level:l};
+    if(Math.hypot(ep.x-this.startPos.x,ep.z-this.startPos.z)<minDirect||!this.canStand(a.x,a.z,.24,true,l))continue;
+    const rot=Math.atan2(dx,dz);let clear=true;for(const t of[-.4,0,.4]){const p={x:a.x+t*dz,z:a.z-t*dx,level:l};if(!this.canStand(p.x,p.z,.22,true,l))clear=false;}if(!clear)continue;
+    if(this.props.some(p=>p.room===r.id&&Math.abs(p.x-ep.x)<p.w/2+.66&&Math.abs(p.z-ep.z)<p.d/2+.66))continue;
+    candidates.push({id,ep,a,rot,side,room:r.id,pathM:ds[id]*CELL});
+   }
+  }
+  if(!candidates.length)throw Error('No distant exterior exit');
+  const upper=R()<.35;let pool=candidates.filter(c=>c.ep.level===(upper?1:0));if(!pool.length)pool=candidates;
+  const sides=[...new Set(pool.map(v=>v.side))],side=sides[Math.floor(R()*sides.length)];pool=pool.filter(v=>v.side===side).sort((a,b)=>b.pathM-a.pathM);pool=pool.slice(0,Math.max(1,Math.ceil(pool.length*.65)));
+  const e=pool[Math.floor(R()*pool.length)];this.exit=e.id;this.exitPos=e.ep;this.exitRot=e.rot;this.exitApproach=e.a;this.exitRoom=e.room;this.exitDiscovered=false;
+  this.exitInfo={side:e.side,level:e.ep.level,room:e.room,pathM:e.pathM,straightM:Math.hypot(e.ep.x-this.startPos.x,e.ep.z-this.startPos.z),exterior:true};
+  // Reserve this edge for the final door; window recesses must never overlap it.
+  const[x,z,l]=this.coords(e.id);this.exitEdge=e.id+':'+Math.round(Math.sin(e.rot))+':'+Math.round(Math.cos(e.rot));this.windowEdges.delete(this.exitEdge);
+ }
  rebalanceSupplies(){
   // Global budgets, not a roll in every room. Preserve goals, keys, and exactly two equipment pieces.
   const keep=new Set(['page','key','shoes','ribbon','decoy','gloves']),R=rng(this.seed+this.stage*971891);
@@ -520,12 +583,16 @@ class School {
   const put=(type,prefer=null)=>{let choices=unused.filter(c=>(rooms.get(c.room)||0)<1&&(!prefer||prefer(c)));if(!choices.length)choices=unused.filter(c=>!prefer||prefer(c));if(!choices.length)return false;const c=choices[Math.floor(R()*choices.length)];unused=unused.filter(v=>v!==c);rooms.set(c.room,(rooms.get(c.room)||0)+1);const i={id:'loot-'+c.id,type,containerId:c.id,x:c.x,z:c.z,y:c.y+.98,level:c.level,room:c.room,taken:false,label:labels[type]};this.items.push(i);c.loot=i.id;return true;};
   // One usable first aid and battery near the entrance, no free escape tool at spawn.
   put('bandage',c=>c.room===this.startRoom);put('battery',c=>c.room===this.startRoom);
-  const budget={camera:3+this.stage,watch:this.stage===3?2:1,bandage:3+this.stage,battery:5+this.stage,survey:2,lure:this.stage===3?3:2,mirror:R()<(.16+this.stage*.04)?1:0};
+  const budget={camera:5+this.stage,watch:1,bandage:3+this.stage,battery:5+this.stage,survey:2,lure:5+this.stage,mirror:R()<(.06+this.stage*.04)?1:0};
+  // One discoverable early broadcaster and another outside the guardian chamber. Not auto-granted.
+  const gd=this.roomDistances(this.guardian.room);
+  if(put('lure',c=>!this.rooms[c.room-1].vault&&c.room!==this.startRoom&&c.room!==this.guardian.room&&(ds.get(c.room)||99)<=3))budget.lure--;
+  if(put('lure',c=>!this.rooms[c.room-1].vault&&c.room!==this.guardian.room&&gd.get(c.room)>=1&&gd.get(c.room)<=3))budget.lure--;
   for(const type of ['watch','camera'])for(const v of this.vaults.slice(0,1))if(budget[type]&&put(type,c=>c.room===v.room))budget[type]--;
   budget.bandage--;budget.battery--;
   for(const [type,count] of Object.entries(budget))for(let j=0;j<count;j++)put(type,c=>c.room!==this.startRoom&&(type!=='mirror'||(ds.get(c.room)||0)>=6));
   this.lootStats={};for(const i of this.items)this.lootStats[i.type]=(this.lootStats[i.type]||0)+1;
-  this.supplyBudget={...this.lootStats,occupied:this.items.length,slots:this.containers.length,mirrorMapChance:.16+this.stage*.04};
+  this.supplyBudget={...this.lootStats,occupied:this.items.length,slots:this.containers.length,mirrorMapChance:.06+this.stage*.04};
  }
  // Each floor hazard is a true cut across a lane. The alternative is a graph detour, not a side-step.
  placeGateHazards(){
@@ -563,9 +630,9 @@ class School {
   if(this.items.filter(i=>['shoes','ribbon','decoy','gloves'].includes(i.type)).length!==2)throw Error('Equipment rarity budget violated');
   if(this.items.filter(i=>i.type==='page').length!==this.pageSupply)throw Error('Incorrect goal count');
   for(const i of this.items){if(nav[this.cellOf(i)]<0&&!this.rooms[i.room-1].vault)throw Error('Inaccessible unlocked loot');if(i.type==='page'&&nav[this.cellOf(i)]<0)throw Error('Required page behind lock');if(i.type==='page'&&i.room===this.startRoom)throw Error('Free opening page');}
-  if(nav[this.exit]<0)throw Error('Exit requires key');for(const v of this.vaults)if(this.rooms[v.room-1].doors.length!==1)throw Error('Vault not optional leaf');
+  if(nav[this.exit]<0)throw Error('Exit requires key');if(this.exitRoom===this.startRoom||!this.exitInfo.exterior)throw Error('Invalid exit');if(this.recordStats.exposed<Math.ceil(this.pageSupply*.75))throw Error('Record display quota');for(const v of this.vaults)if(this.rooms[v.room-1].doors.length!==1)throw Error('Vault not optional leaf');
   const corridorSet=new Set(this.connectorRooms);const roomCells=this.walkable.filter(id=>this.cells[id]>0&&!corridorSet.has(this.cells[id])).length;
-  this.validation={clusterMetrics:this.layoutMetrics,modules:this.modules.length,templatesUsed:[...new Set(this.modules.map(m=>m.style))].length,rareEquipment:this.gearPlacements.length,doorlessPassages:this.doors.filter(d=>d.openPassage).length,realDoors:this.doors.filter(d=>!d.openPassage).length,macroLoops:this.moduleLinks.length-this.modules.length+1,hazardBudget:this.hazardBudget,valid:true,seed:this.seed,stage:this.stage,hazards:this.hazards.length,ink:this.hazards.filter(h=>h.kind==='ink').length,paper:this.hazards.filter(h=>h.kind==='paper').length,rooms:this.rooms.length,corridorRooms:this.connectorRooms.length,roomCells,walkable:this.walkable.length,roomFloorRatio:roomCells/this.walkable.length,connectors:this.walkable.length-roomCells,roomLinks:this.roomLinks.length,roomCycles:this.roomLinks.length-this.rooms.length+1,throughRooms:this.rooms.filter(r=>r.doors.length>=2).length,objectives:this.required,availablePages:this.items.filter(i=>i.type==='page').length,startingPages:0,lockerGroups:this.groups.length,containers:this.containers.length,hides:this.hides.length,verticalLinks:this.stairs.length,wings:this.wings.length,vaults:this.vaults.length,keys:this.keyPlacements.length,allRequiredReachableWithoutKeys:true,walkableAreaM2:this.walkable.length*CELL*CELL,furthestPathM:Math.max(...nav)*CELL};
+  this.validation={recordStats:this.recordStats,exit:this.exitInfo,supplies:this.supplyBudget,clusterMetrics:this.layoutMetrics,modules:this.modules.length,templatesUsed:[...new Set(this.modules.map(m=>m.style))].length,rareEquipment:this.gearPlacements.length,doorlessPassages:this.doors.filter(d=>d.openPassage).length,realDoors:this.doors.filter(d=>!d.openPassage).length,macroLoops:this.moduleLinks.length-this.modules.length+1,hazardBudget:this.hazardBudget,valid:true,seed:this.seed,stage:this.stage,hazards:this.hazards.length,ink:this.hazards.filter(h=>h.kind==='ink').length,paper:this.hazards.filter(h=>h.kind==='paper').length,rooms:this.rooms.length,corridorRooms:this.connectorRooms.length,roomCells,walkable:this.walkable.length,roomFloorRatio:roomCells/this.walkable.length,connectors:this.walkable.length-roomCells,roomLinks:this.roomLinks.length,roomCycles:this.roomLinks.length-this.rooms.length+1,throughRooms:this.rooms.filter(r=>r.doors.length>=2).length,objectives:this.required,availablePages:this.items.filter(i=>i.type==='page').length,startingPages:0,lockerGroups:this.groups.length,containers:this.containers.length,hides:this.hides.length,verticalLinks:this.stairs.length,wings:this.wings.length,vaults:this.vaults.length,keys:this.keyPlacements.length,allRequiredReachableWithoutKeys:true,walkableAreaM2:this.walkable.length*CELL*CELL,furthestPathM:Math.max(...nav)*CELL};
   return this.validation;
  }
 }
@@ -798,7 +865,7 @@ function legacyAtlas(){const atlas=document.createElement('canvas');atlas.width=
  tile(T.OUTSIDE,'#1b3036',(x,r)=>{let g=x.createLinearGradient(0,0,0,256);g.addColorStop(0,'#385760');g.addColorStop(.5,'#243e46');g.addColorStop(1,'#081818');x.fillStyle=g;x.fillRect(0,0,256,256);x.fillStyle='#102327';for(let i=0;i<9;i++){x.beginPath();let xx=r()*256;x.moveTo(xx,20+r()*90);x.lineTo(xx-20,256);x.lineTo(xx+25,256);x.fill();}for(let i=0;i<100;i++){x.strokeStyle=`rgba(124,157,155,${r()*.18})`;x.beginPath();let xx=r()*256,yy=r()*256;x.moveTo(xx,yy);x.lineTo(xx-1,yy+10+r()*45);x.stroke();}});
  tile(T.SHOE,'#222a26',dirt);tile(T.FACE2,'#0b1716',(x,r)=>{dirt(x,r,100);x.fillStyle='#b8cfb1';x.beginPath();x.ellipse(77,101,4,7,0,0,6.28);x.ellipse(180,104,4,7,0,0,6.28);x.fill();x.strokeStyle='#304e3e';x.lineWidth=4;x.beginPath();x.moveTo(97,200);x.lineTo(124,210);x.lineTo(158,195);x.stroke();});
  tile(T.CRACK,'#4f604f',dirt);tile(T.PLAN,'#b6b39b',x=>{txt(x,'본관 배치도',30,22,'#354d40');x.strokeStyle='#546150';x.lineWidth=3;for(let j=0;j<4;j++)for(let i=0;i<4;i++)x.strokeRect(20+i*55,60+j*43,40,28);txt(x,'현 위치 ●',249,15,'#77452f');});
- tile(T.EXITNAME,'#969c87',x=>{txt(x,'중 앙 계 단',103,44,'#354b3e');txt(x,'명단을 확인하세요',177,22,'#685341');});tile(T.PIPE,'#6d7565',dirt);
+ tile(T.EXITNAME,'#969c87',x=>{txt(x,'비 상 계 단',103,44,'#354b3e');txt(x,'명단을 확인하세요',177,22,'#685341');});tile(T.PIPE,'#6d7565',dirt);
  tile(T.ABSENT,'#bdb08e',(x,r)=>{txt(x,'결 석 통 보',48,24,'#40382a');for(let j=0;j<5;j++){x.fillStyle='#5e5946';x.fillRect(33,85+j*24,174-(j%3)*20,2);}x.strokeStyle='#712d26';x.lineWidth=7;x.strokeRect(156,182,65,48);txt(x,'未',220,29,'#712d26');dirt(x,r,25);});
  tile(48,'#2f4034',(x,r)=>{txt(x,'6 월 18 일 · 야간 당번',38,19,'#bac0a6');txt(x,'퇴실 전 확인',86,28,'#c4c5ad');txt(x,'명단은 책상 위에',145,24,'#c7c7ac');txt(x,'남은 이름을 확인한 뒤',187,18,'#afb99e');txt(x,'방화문 옆 명단함으로',221,18,'#afb99e');});
  tile(49,'#bbbba3',x=>{txt(x,'야간 당직실',144,34,'#304139');});
@@ -904,12 +971,16 @@ function buildSchool(world,renderer){
   for(const d of r.doors){if(d.openPassage)continue;const sgn=(Math.sin(d.rot)*(r.x-d.x)+Math.cos(d.rot)*(r.z-d.z))>0?1:-1;b.push(d.x,d.y,d.z,d.rot);b.box(0,2.54,sgn*.105,.84,.17,.025,r.kind==='corridor'?59:48+kindOrder.indexOf(r.kind));b.pop();}
   if(['gallery','corridor','landing'].includes(r.kind))continue;
   // Choose a wall centre that does not cover a door.
-  const sides=[{x:r.x,z:r.z-r.hd+.035,rot:0},{x:r.x,z:r.z+r.hd-.035,rot:Math.PI},{x:r.x-r.hw+.035,z:r.z,rot:Math.PI/2},{x:r.x+r.hw-.035,z:r.z,rot:-Math.PI/2}];sides.sort((a,b)=>Math.min(...r.doors.map(d=>Math.hypot(b.x-d.x,b.z-d.z)))-Math.min(...r.doors.map(d=>Math.hypot(a.x-d.x,a.z-d.z))));const side=sides[0];b.push(side.x,r.y,side.z,side.rot);
+  const sides=[{x:r.x,z:r.z-r.hd+.035,rot:0},{x:r.x,z:r.z+r.hd-.035,rot:Math.PI},{x:r.x-r.hw+.035,z:r.z,rot:Math.PI/2},{x:r.x+r.hw-.035,z:r.z,rot:-Math.PI/2}];sides.sort((a,b)=>Math.min(...r.doors.map(d=>Math.hypot(b.x-d.x,b.z-d.z)))-Math.min(...r.doors.map(d=>Math.hypot(a.x-d.x,a.z-d.z))));const side=sides.find(v=>r.id!==world.exitRoom||Math.hypot(v.x-world.exitPos.x,v.z-world.exitPos.z)>2.1)||sides[0];b.push(side.x,r.y,side.z,side.rot);
   if(['foyer','classroom','study'].includes(r.kind)){b.box(0,1.77,0,2.40,1.06,.045,T.BOARD);for(const x of[-1.22,1.22])b.box(x,1.77,0,.045,1.14,.075,T.DARKWOOD);b.box(0,1.21,.04,2.5,.043,.12,T.METAL);b.box(0,2.32,0,2.49,.045,.075,T.DARKWOOD);}
   else if(r.kind==='hall'){b.box(0,2.2,.01,3.1,2.4,.03,60,[.55,.59,.54],.015);b.box(0,3.42,0,3.2,.08,.10,T.DARKWOOD);}
   else{b.box(0,1.74,0,1.32,.86,.036,T.NOTICE);b.box(.91,2.1,.01,.39,.39,.045,T.CLOCK);}
   b.pop();
   for(const sp of r.setpieces){const q=get(sp.x,sp.z);q.push(sp.x,sp.y,sp.z,sp.rot);
+   if(sp.kind==='recordLectern'){
+    q.box(0,.43,0,1.14,.86,.54,T.DARKWOOD,[.86,.78,.65]);q.box(0,.88,0,1.30,.06,.68,T.DESK,[.88,.83,.72]);
+    for(const x of[-.61,.61])q.box(x,.83,0,.025,.14,.64,T.METAL,[.52,.53,.47]);
+   }
    if(sp.kind==='desk'){desk(q,0,0);chair(q,0,.54);}
    if(sp.kind==='bookcase'){q.box(0,.9,0,sp.w,1.8,sp.d,T.DARKWOOD,[.77,.72,.60]);for(let j=0;j<4;j++){q.box(0,.3+j*.44,-sp.d/2-.013,sp.w-.08,.34,.04,T.NOTICE,[.67,.66,.55]);q.box(0,.14+j*.44,-sp.d/2-.05,sp.w,.04,.14,T.DESK);} }
    if(sp.kind==='screen'){q.box(0,1.04,0,sp.w,1.88,sp.d,T.CLOTH,[.82,.80,.67]);q.box(0,1.99,0,sp.w+.055,.033,sp.d+.055,T.METAL);}
@@ -1010,12 +1081,23 @@ function rigPose(rig,e,time,bake){
  function bone(key,a,b){const Y=M.normalize(a.map((v,i)=>v-b[i])),ref=Math.abs(Y[2])>.9?[0,1,0]:[0,0,1],X=M.normalize(M.cross(Y,ref)),Z=M.cross(X,Y),len=Math.hypot(...a.map((v,i)=>v-b[i]));mesh(key,new Float32Array([X[0],X[1],X[2],0,Y[0]*len,Y[1]*len,Y[2]*len,0,Z[0],Z[1],Z[2],0,...a,1]));}
  function knee(hip,foot,len=.56){const d=foot.map((v,i)=>v-hip[i]),dist=Math.hypot(...d),mid=hip.map((v,i)=>(v+foot[i])*.5);return[mid[0],mid[1],mid[2]-Math.sqrt(Math.max(.001,len*len-(dist*.5)**2))];}
  function step(ph,stride){let p=((ph%(2*Math.PI))+2*Math.PI)%(2*Math.PI);if(!moving)return{z:0,y:0};return p<Math.PI?{z:-stride/2+stride*p/Math.PI,y:0}:{z:stride/2-stride*(p-Math.PI)/Math.PI,y:Math.sin(p-Math.PI)*(chase?.25:.10)};}
- if(type===2){
+ if(type===1&&['dormant','lureRise','awaken'].includes(e.state)){
+  const rise=e.state==='dormant'?0:Math.min(1,Math.max(0,1-e.wait/(e.state==='awaken'?.75:.70)));
+  const v=rise*rise*(3-2*rise),hip=.29+.94*v,lean=-.23*(1-v),angle=-.25*(1-v),c=Math.cos(angle),s=Math.sin(angle);
+  mesh('torso',M.mul(M.model(0,hip,lean),new Float32Array([1,0,0,0,0,c,s,0,0,-s,c,0,0,0,0,1])));
+  const hy=hip+.72+.42*v,hz=-.43*(1-v)-.03;
+  bone('neck',[0,hy-.13,hz],[0,hip+.51,lean-.08]);
+  const a=-.60*(1-v),ca=Math.cos(a),sa=Math.sin(a);mesh('head',M.mul(M.model(0,hy,hz),new Float32Array([1,0,0,0,0,ca,sa,0,0,-sa,ca,0,0,0,0,1])));
+  for(const side of[-1,1]){
+   const hp=[side*.13,hip+.03,0],ft=[side*.21,.075,-.25*(1-v)],kn=[side*.29,hip*.55+.22,-.50*(1-v)-.12*v];bone('thigh',hp,kn);bone('calf',kn,ft);mesh('foot',M.model(...ft));
+   const shoulder=[side*.23,hip+.55,lean],elbow=[side*.32,hip+.19,-.45*(1-v)],hand=[side*(.12+.18*v),hy-.12-.83*v,hz-.20*(1-v)];bone('upperarm',shoulder,elbow);bone('forearm',elbow,hand);mesh('hand',M.model(...hand));
+  }
+ }else if(type===2){
   const bodyY=.69+(moving?Math.sin(phase*2)*.035:0);const torsoRot=new Float32Array([1,0,0,0,0,.48,-.88,0,0,.88,.48,0,0,bodyY,.30,1]);mesh('torso',torsoRot);
   bone('neck',[0,bodyY+.29,-.25],[0,bodyY+.31,-.40]);mesh('head',M.model(0,bodyY+.3,-.58));
   for(const s of[-1,1]){const g=step(phase+(s<0?Math.PI:0),chase?.80:.45),shoulder=[s*.24,bodyY+.2,-.27],hand=[s*.55,.15+g.y,-.79+g.z],elbow=[s*.67,.44,-.31+g.z*.4];bone('upperarm',shoulder,elbow);bone('forearm',elbow,hand);mesh('hand',M.model(...hand));const hip=[s*.16,bodyY,.3],foot=[s*.40,.055+g.y,.72-g.z],kn=[s*.58,.60,.83];bone('thigh',hip,kn);bone('calf',kn,foot);mesh('foot',M.model(...foot));}
  }else{
-  const crouched=type===1&&['dormant','awaken'].includes(e.state),extra=type===1?.18:type===3?.15:0,hipY=crouched?.48:1.05+extra+(moving?Math.abs(Math.cos(phase))*.025:0),lean=chase?-.14:0;
+  const crouched=type===1&&['dormant','awaken','lureRise'].includes(e.state),extra=type===1?.18:type===3?.15:0,hipY=crouched?.48:1.05+extra+(moving?Math.abs(Math.cos(phase))*.025:0),lean=chase?-.14:0;
   mesh('torso',M.model(0,hipY,lean,0,type===4?1.35:1,1,type===4?1.2:1));const neckBase=[0,hipY+.65,lean],headY=hipY+.91+(type===1?.23:0);bone('neck',[0,headY-.13,lean-.015],neckBase);mesh('head',M.model(chase&&!still?Math.sin(poseTime*15)*.012:0,headY,lean-.03));
   for(const s of[-1,1]){const st=step(phase+(s<0?Math.PI:0),chase?.88:.49),hip=[s*.125,hipY+.04,.02],foot=[s*.14,.075+st.y,st.z+(crouched?-.32:0)],kn=knee(hip,foot,.58+extra/2);bone('thigh',hip,kn);bone('calf',kn,foot);mesh('foot',M.model(...foot));const swing=moving?Math.sin(phase+(s>0?Math.PI:0))*(chase?.30:.14):still?0:.025*Math.sin(poseTime*1.2+s),shoulder=[s*.235,hipY+.58,lean],elbow=[s*.32,hipY+.05,lean+swing],hand=[s*.31,hipY-.38,lean+swing*1.6-.10];if(chase&&!crouched){elbow[1]=hipY+.20;hand[1]=hipY+.30;elbow[2]=lean+swing*.8;hand[2]=lean+swing*1.45-.32;}if(crouched){elbow[2]=-.27;hand[1]=hipY+.62;hand[2]=-.24;}bone('upperarm',shoulder,elbow);bone('forearm',elbow,hand);mesh('hand',M.model(...hand));}
  }
@@ -1086,7 +1168,7 @@ class Sound{
 
  enemyStep(e){const out=this.emitters.get(e.uid);if(!out||!this.ctx||e.timeFrozen)return;const chasing=['chase','rush'].includes(e.state);this.play(e.type===4?'stomp':e.type===2?'drag':'shoe'+(e.steps%6),e.type===4?.85:chasing?.60:.44,out.route.input,0,e.type===2?1.4:chasing?1.04:.88);if(e.type===0&&e.steps%2===0)this.play('keys',.19,out.route.input,this.ctx.currentTime+.11,.86);}
  update(dt,p,enemies,world,stress,timeStopped=false){if(!this.ctx||this.ctx.state!=='running')return;const c=this.ctx,t=c.currentTime,L=c.listener,cp=Math.cos(p.pitch),dir=[Math.sin(p.yaw)*cp,Math.sin(p.pitch),-Math.cos(p.yaw)*cp];for(const[k,v]of Object.entries({positionX:p.x,positionY:p.y,positionZ:p.z,forwardX:dir[0],forwardY:dir[1],forwardZ:dir[2],upX:-Math.sin(p.yaw)*Math.sin(p.pitch),upY:cp,upZ:Math.cos(p.yaw)*Math.sin(p.pitch)}))if(L[k])L[k].setTargetAtTime(v,t,.012);this.lastPose={x:p.x,y:p.y,z:p.z,yaw:p.yaw,pitch:p.pitch};
-  for(const e of enemies){const out=this.emitters.get(e.uid);if(!out)continue;out.route.p.positionX.setTargetAtTime(e.x,t,.02);out.route.p.positionY.setTargetAtTime(e.y+(e.type===2?.55:1.2),t,.02);out.route.p.positionZ.setTargetAtTime(e.z,t,.02);out.route.balance.set(this.directionBias(e),t);}
+  for(const e of enemies){const out=this.emitters.get(e.uid);if(!out)continue;out.route.p.positionX.setTargetAtTime(e.x,t,.02);out.route.p.positionY.setTargetAtTime(e.y+(e.type===2?.55:1.2),t,.02);out.route.p.positionZ.setTargetAtTime(e.z,t,.02);out.route.balance.set(this.directionBias(e),t);if(e.type===1)for(const l of out.loops)l.g.gain.setTargetAtTime(e.state==='dormant'?.38:['lureRise','lured','lureListen','return'].includes(e.state)?.055:.13,t,.18);}
   this.dry.gain.setTargetAtTime(this.sfxVolume,t,.05);this.heartBus.gain.setTargetAtTime(this.heartbeatVolume,t,.08);this.occlusionClock-=dt;
   if(this.occlusionClock<=0){this.occlusionClock=.16;const field=world.acousticField(p,46);let near=0;
    for(const e of enemies){const out=this.emitters.get(e.uid);if(!out)continue;const a=world.acousticInfo(e,field,true);e.audibility=a;out.info=a;let gain=a.gain||0;if(e.stun>0)gain*=.23;if(timeStopped)gain=0;out.route.g.gain.setTargetAtTime(gain,t,.12);out.route.f.frequency.setTargetAtTime(a.cutoff||900,t,.12);
@@ -1137,7 +1219,7 @@ class EncounterDirector{
   if(c.pursuit||now<this.recoveryUntil||now<this.nextProposal||c.hidden)return out;
   if(!this.introduced.includes(0)){out.push({kind:'propose',type:0});this.nextProposal=now+3;return out;}
   if(this.quiet<12)return out;
-  const schedule=this.stage===1?[[1,6,35],[4,10,95]]:this.stage===2?[[4,6,35],[1,10,85],[3,16,150]]:[[1,6,35],[4,10,80],[3,15,140],[2,21,210]];
+  const schedule=this.stage===1?[[4,8,70]]:this.stage===2?[[4,6,35],[3,13,100]]:[[4,6,45],[3,12,100],[2,18,165]];
   for(const[type,rooms,elapsed]of schedule)if(!this.introduced.includes(type)&&(c.visitedRooms>=rooms||c.pages>=Math.min(2,Math.ceil(rooms/8)))&&now-this.firstAt>=elapsed){out.push({kind:'propose',type});this.nextProposal=now+6;break;}
   return out;
  }
@@ -1221,8 +1303,8 @@ const API={GEAR,LABELS,ICONS,CAPS,pickup,bandage,hurt,Hazards};if(typeof module!
 /* AFTERBELL: ROOMS / room-first search, sound-before-sight, limited survival tools. */
 (function(root){'use strict';
 const{School,CELL,RISE,clamp,rng}=ABWorld,{M,Renderer}=ABEngine,$=id=>document.getElementById(id),hide=(id,v=true)=>{const el=$(id);if(el)el.hidden=v;};
-// Keep save schema/key v12: the map and stored inventory are intentionally unchanged.
-const SAVE='afterbell.refined.save.v12',SETTINGS='afterbell.refined.settings.v11';
+// New layout content and fixed guardian: v14 has a separate save namespace.
+const SAVE='afterbell.guardian.save.v14',SETTINGS='afterbell.refined.settings.v11';
 const BALANCE=Object.freeze({staminaCapacity:1.25,sprintDrain:.19,staminaRegen:.0945,hiddenRegen:.09,sprintReserve:.05,breathDrain:.14/1.5,breathRegen:.1,breathReserve:.02,doorSpeed:1.25,enemyDoorDuration:1.30});
 // The stamina value remains a fraction. Dividing drain AND refill by capacity is
 // equivalent to increasing a 100-point tank to 125, without a refill-rate buff.
@@ -1256,7 +1338,7 @@ let saveQueued=false,surveyTime=0,lures=[],lureSequence=0,uiClock=0,mapClock=0;
 const ACTIVE=['camera','watch','bandage','mirror','survey','lure'];
 let keys=new Set(),noises=[],target=null,mapOpen=false,mapLevel=0,inventoryOpen=false,dragging=false,lockAttempt=false,toastUntil=0,tipUntil=0,lastFrame=0,frameCount=0,caughtTime=0,killer=null,storyAction='',checkpoint=null,saveClock=0,searching=null,timeStopped=0,photoFlash=0,toolCool=0,roomVisits=new Set(),searches=0,nextPlacementCheck=0;
 const names=['','본관','별관','폐쇄동'];
-const INFO={mirror:['금 간 손거울','4번 → Q. 같은 미로의 먼 안전 지점으로 이동한다. 최희귀: 맵당 0~1개. 적·함정·잠긴 보관실 안에는 도착하지 않는다. 목적지는 고를 수 없다.'],survey:['감광 순찰도','5번 → Q. 12초 동안 M 지도에서 26m 안의 연결 구조와 적 위치를 확인한다. 명단 위치나 먼 미로는 밝히지 않는다. 지도 중에도 시간은 흐른다.'],lure:['태엽 방송기','6번 → Q. 발밑에 9초간 재생되는 방송기를 놓는다. 18m 안의 소리를 듣는 적을 유도한다. 플레이어를 직접 보고 있는 적은 무시한다.'],key:['보관실 열쇠','소비품 · 장착 칸과 별개. 잠긴 기록보관실에서 E. 열쇠 1개로 영구 개방한다. 보관실에는 필름·시계가 있으며, 일부 보관실에서 희귀 장비를 찾을 수 있다. 필수 출석부는 잠긴 방 밖에서 모두 찾을 수 있다.'],page:['봉인된 출석부','필요한 수만 회수하면 된다. 맵에는 목표의 두 배가 있으며 남은 명단은 찾지 않아도 된다.'],camera:['섬광 카메라','1번 선택 → Q. 앞쪽 9m 안에서 직접 보이는 적을 4.5초, 먹선·결석표 떼를 14초 멈춘다. 필름 1장을 소비한다.'],watch:['멎은 회중시계','2번 선택 → Q. 6초 동안 배회자와 먹선·결석표 떼가 정지한다. 시계 1개를 소비한다.'],decoy:['뜯긴 이름표','장착 1칸. 귀신에게 붙잡히면 이름표가 찢어지고 5초의 탈출 기회. 다른 장비와 동시 착용 불가. 바닥·종잇조각 피해는 막지 않는다.'],shoes:['실내화 끈','장착 1칸. 이동 소음 35% 감소. 교체하면 기존 장비가 해당 사물함에 남는다.'],ribbon:['육상부 리본','장착 1칸. 스태미나 회복 35% 증가. 다른 장비 효과와 중첩되지 않는다.'],gloves:['실험용 장갑','장착 1칸. 먹선·결석표 떼에 의한 체력 피해 50% 감소. 귀신의 포획은 막지 못한다.'],bandage:['보건실 붕대','소비품. 3번 선택 → Q. 체력 40 회복. 체력이 가득 차면 소비하지 않는다.'],battery:['예비 건전지','R을 눌러 손전등 건전지를 교체한다.']};
+const INFO={mirror:['금 간 손거울','4번 → Q. 같은 미로의 먼 안전 지점으로 이동한다. 최희귀: 맵당 0~1개. 적·함정·잠긴 보관실 안에는 도착하지 않는다. 목적지는 고를 수 없다.'],survey:['감광 순찰도','5번 → Q. 12초 동안 M 지도에서 26m 안의 연결 구조와 적 위치를 확인한다. 명단 위치나 먼 미로는 밝히지 않는다. 지도 중에도 시간은 흐른다.'],lure:['태엽 방송기','6번 → Q. 발밑에 20초간 방송기를 놓는다. 우는 존재는 천천히 소리 쪽으로 이동한다. 유인 중 걷기·웅크리기는 무시하지만 달리면 즉시 추격한다. 다른 배회자의 확정 추격은 취소하지 않는다.'],key:['보관실 열쇠','소비품 · 장착 칸과 별개. 잠긴 기록보관실에서 E. 열쇠 1개로 영구 개방한다. 보관실에는 생존 도구가 배치될 수 있으며, 일부 보관실에는 희귀 장비가 있다. 필수 출석부는 잠긴 방 밖에서 모두 찾을 수 있다.'],page:['봉인된 출석부','필요한 수만 회수하면 된다. 맵에는 목표의 두 배가 있으며 남은 명단은 찾지 않아도 된다.'],camera:['섬광 카메라','1번 선택 → Q. 앞쪽 9m 안에서 직접 보이는 적을 4.5초, 먹선·결석표 떼를 14초 멈춘다. 필름 1장을 소비한다.'],watch:['멎은 회중시계','2번 선택 → Q. 6초 동안 배회자와 먹선·결석표 떼가 정지한다. 시계 1개를 소비한다.'],decoy:['뜯긴 이름표','장착 1칸. 귀신에게 붙잡히면 이름표가 찢어지고 5초의 탈출 기회. 다른 장비와 동시 착용 불가. 바닥·종잇조각 피해는 막지 않는다.'],shoes:['실내화 끈','장착 1칸. 이동 소음 35% 감소. 교체하면 기존 장비가 해당 사물함에 남는다.'],ribbon:['육상부 리본','장착 1칸. 스태미나 회복 35% 증가. 다른 장비 효과와 중첩되지 않는다.'],gloves:['실험용 장갑','장착 1칸. 먹선·결석표 떼에 의한 체력 피해 50% 감소. 귀신의 포획은 막지 못한다.'],bandage:['보건실 붕대','소비품. 3번 선택 → Q. 체력 40 회복. 체력이 가득 차면 소비하지 않는다.'],battery:['예비 건전지','R을 눌러 손전등 건전지를 교체한다.']};
 const fresh=()=>({battery:100,spares:1,camera:0,watch:0,equipped:null,health:100,bandage:0,selected:'camera',keys:0,mirror:0,survey:0,lure:0}),readSave=()=>parse(storage.get(SAVE),null);
 function inv(){return Object.fromEntries(Object.keys(fresh()).map(k=>[k,player[k]]));}
 function makePlayer(saved){return{...world.startPos,foot:world.startPos.y,y:world.startPos.y+1.62,yaw:world.startYaw,pitch:-.03,...fresh(),...saved,stamina:1,hazardSlow:1,hurtGrace:0,hidden:null,flash:true,lighter:false,crouch:false,noise:0,walk:0,travel:0,moving:false,sprint:false,invuln:4,reload:0,cooldown:0,breath:1,breathExhausted:false,holdingBreath:false};}
@@ -1268,37 +1350,128 @@ function setMode(m){mode=m;hide('menu',m!=='menu');hide('pause',m!=='paused');hi
 function fatal(e){console.error(e);mode='error';hide('loading');hide('fatal',false);$('fatalText').textContent=String(e?.message||e);unlockMouse();}
 function pause(){if(mode!=='playing')return;setMode('paused');unlockMouse();sound.suspend();hide('mapPanel');mapOpen=false;saveGame();}
 function resume(){hide('settings');hide('help');if(mode!=='paused')return;setMode('playing');sound.resume();lockMouse();}
-function makeEnemies(saved=[]){enemies=world.spawns.map((s,i)=>({...s,uid:i,active:false,yaw:Math.PI*.5,foot:s.y,state:'unintroduced',visualThreat:0,animSpeed:0,velocity:0,home:{...s},path:[],fine:[],goal:-1,repath:0,memory:0,lastKnown:null,lastSeen:-99,wait:0,searchUntil:0,suspicion:0,charge:0,chargeRest:0,stun:0,frozen:false,steps:0,stride:0,moving:false,knowsHide:null,visited:new Map(),audibility:null}));
+function makeEnemies(saved=[]){enemies=world.spawns.map((s,i)=>({...s,uid:i,active:s.type===1,yaw:Math.PI*.5,foot:s.y,state:s.type===1?'dormant':'unintroduced',visualThreat:0,animSpeed:0,velocity:0,home:{...s},path:[],fine:[],goal:-1,repath:0,memory:0,lastKnown:null,lastSeen:-99,wait:0,searchUntil:0,suspicion:0,charge:0,chargeRest:0,stun:0,frozen:false,steps:0,stride:0,moving:false,knowsHide:null,visited:new Map(),audibility:null}));
  for(const old of saved){const e=enemies.find(e=>e.type===old.type);if(e&&world.canStand(old.x,old.z,.19,true,old.level)){Object.assign(e,old,{path:[],fine:[],goal:-1,repath:0,visited:new Map()});}}
- sound.setEnemies(enemies.filter(e=>e.active));}
-function enemySnapshot(){return enemies.map(e=>Object.fromEntries(['x','z','y','level','foot','type','uid','active','yaw','state','home','memory','lastKnown','lastSeen','searchUntil','wait','suspicion','charge','chargeRest','stun','steps','stride','knowsHide','releasedAt','patrolWing','patrolHome','animSpeed','velocity','visualThreat','brain','moveTarget'].map(k=>[k,e[k]])));}
+ if(director&&!director.introduced.includes(1))director.introduced.push(1);sound.setEnemies(enemies.filter(e=>e.active));}
+function enemySnapshot(){return enemies.map(e=>Object.fromEntries(['x','z','y','level','foot','type','uid','active','yaw','state','home','memory','lastKnown','lastSeen','searchUntil','wait','suspicion','charge','chargeRest','stun','steps','stride','knowsHide','releasedAt','patrolWing','patrolHome','animSpeed','velocity','visualThreat','brain','moveTarget','guardRoom','guardItem','lureId','ignoredLure','guardHeard','guardHeardTime','patrolHint'].map(k=>[k,e[k]])));}
 async function buildStage(index,saved=null){mode='loading';hide('loading',false);$('loadingText').textContent='꺾인 복도와 광장, 교실을 이어 붙이는 중';await new Promise(r=>setTimeout(r,35));try{
  if(scene)scene.dispose();deathCommitted=false;respawnState=null;runOverSeed=null;if(Number.isInteger(saved?.lives))lives=clamp(saved.lives,1,3);stage=index;world=new School(baseSeed,stage);world.prepareRuntime();scene=ABContent.buildSchool(world,renderer);player=makePlayer(saved?.inventory);survival=new ABSurvival.Hazards(world,saved?.hazards);surveyTime=saved?.surveyTime||0;lures=saved?.lures||[];lureSequence=saved?.lureSequence||0;uiClock=0;damageFlash=0;stageTime=saved?.stageTime||0;stress=0;noises=[];searching=null;searches=saved?.searches||0;timeStopped=saved?.timeStopped||0;photoFlash=0;saveClock=0;toolCool=0;nextPlacementCheck=0;mapOpen=false;inventoryOpen=false;roomVisits=new Set(saved?.roomVisits||[world.startRoom]);hide('mapPanel');hide('inventoryPanel');hide('lockerMask');random=rng(baseSeed+stage*871);
- if(saved?.lightState){player.flash=!!saved.lightState.flash&&player.battery>0;player.lighter=!!saved.lightState.lighter;}if(saved){for(const i of world.items){i.taken=(saved.taken||[]).includes(i.id);const state=saved.itemStates?.find(v=>v.id===i.id);if(state){i.type=state.type;i.taken=state.taken;i.label=INFO[i.type]?.[0]||i.label;}}for(const c of world.containers){const old=saved.containers?.find(a=>a.id===c.id);if(old)Object.assign(c,{searched:old.searched,open:old.open,target:old.open,progress:old.progress||0});}world.visited=new Set(saved.visited||[]);for(const d of world.doors){if(d.openPassage)continue;const old=saved.doors?.find(a=>a.id===d.id);if(old){d.locked=old.locked;d.open=d.target=old.open>.86?1:0;}}const p=saved.position;if(p&&world.canStand(p.x,p.z,.21,true,p.level)){Object.assign(player,p);player.foot=world.heightAt(p.x,p.z,p.level);player.y=player.foot+1.62;}}
- director=new ABEncounterDirector(stage,saved?.director);director.resumeUntil=stageTime+(saved?18:0);makeEnemies(saved?.enemies||[]);player.invuln=saved?6:4;checkpoint=saved?.checkpoint||snapshot(false);hide('loading');setMode('playing');tipUntil=time+12;$('subtleTip').innerHTML='<kbd>E</kbd> 사물함·문 <span>·</span> <kbd>C</kbd> 웅크리기 <span>·</span> <kbd>H</kbd> 조작';notice(`${names[stage]} · 봉인된 출석부 ${world.required}장\n맵에는 ${world.pageSupply}장. 필요한 만큼만 찾아 이 방화문으로 돌아오세요.`,5);updateHUD();saveGame();
+ world.exitDiscovered=!!saved?.exitDiscovered; if(saved?.lightState){player.flash=!!saved.lightState.flash&&player.battery>0;player.lighter=!!saved.lightState.lighter;}if(saved){for(const i of world.items){i.taken=(saved.taken||[]).includes(i.id);const state=saved.itemStates?.find(v=>v.id===i.id);if(state){i.type=state.type;i.taken=state.taken;i.label=INFO[i.type]?.[0]||i.label;}}for(const c of world.containers){const old=saved.containers?.find(a=>a.id===c.id);if(old)Object.assign(c,{searched:old.searched,open:old.open,target:old.open,progress:old.progress||0});}world.visited=new Set(saved.visited||[]);for(const d of world.doors){if(d.openPassage)continue;const old=saved.doors?.find(a=>a.id===d.id);if(old){d.locked=old.locked;d.open=d.target=old.open>.86?1:0;}}const p=saved.position;if(p&&world.canStand(p.x,p.z,.21,true,p.level)){Object.assign(player,p);player.foot=world.heightAt(p.x,p.z,p.level);player.y=player.foot+1.62;}}
+ director=new ABEncounterDirector(stage,saved?.director);director.resumeUntil=stageTime+(saved?18:0);makeEnemies(saved?.enemies||[]);player.invuln=saved?6:4;checkpoint=saved?.checkpoint||snapshot(false);hide('loading');setMode('playing');tipUntil=time+12;$('subtleTip').innerHTML='<kbd>E</kbd> 사물함·문 <span>·</span> <kbd>C</kbd> 웅크리기 <span>·</span> <kbd>H</kbd> 조작';notice(`${names[stage]} · 봉인된 출석부 ${world.required}장\n맵에는 ${world.pageSupply}장. 필요한 만큼 찾고, 가장자리의 출구를 찾아 탈출하세요.`,5);updateHUD();saveGame();
  }catch(e){fatal(e);}}
 async function startNew(seed){await sound.start();applySettings();lockMouse();baseSeed=Number.isInteger(seed)?seed>>>0:crypto.getRandomValues(new Uint32Array(1))[0];totalTime=0;deaths=0;lives=3;await buildStage(1);}
-async function continueRun(){const s=readSave();if(!s||s.version!==12)return startNew();if(s.status==='runOver')return startNew(s.nextSeed);lives=clamp(s.lives??3,1,3);await sound.start();applySettings();baseSeed=s.seed;totalTime=s.totalTime||0;deaths=s.deaths||0;await buildStage(s.stage,s);lockMouse();}
-function snapshot(withCheckpoint=true){const p=player.hidden?player.hideEntry:player;return{version:12,status:'playing',lives,seed:baseSeed,stage,totalTime,deaths,stageTime,timeStopped,surveyTime,lures,lureSequence,searches,roomVisits:[...roomVisits],inventory:inv(),itemStates:world.items.map(i=>({id:i.id,type:i.type,taken:i.taken})),hazards:survival?.snapshot()||[],lightState:player.hidden?player.hideLight:{flash:player.flash,lighter:player.lighter},position:{x:p.x,z:p.z,level:p.level,yaw:player.yaw,pitch:player.pitch},taken:world.items.filter(i=>i.taken).map(i=>i.id),containers:world.containers.map(c=>({id:c.id,searched:c.searched,open:c.open>.8?1:0,progress:c.progress})),visited:[...world.visited],doors:world.doors.map(d=>({id:d.id,open:d.open,locked:d.locked})),director:director?.snapshot(),enemies:enemySnapshot(),...(withCheckpoint?{checkpoint}:{} )};}
+async function continueRun(){const s=readSave();if(!s||s.version!==14)return startNew();if(s.status==='runOver')return startNew(s.nextSeed);lives=clamp(s.lives??3,1,3);await sound.start();applySettings();baseSeed=s.seed;totalTime=s.totalTime||0;deaths=s.deaths||0;await buildStage(s.stage,s);lockMouse();}
+function snapshot(withCheckpoint=true){const p=player.hidden?player.hideEntry:player;return{version:14,status:'playing',lives,seed:baseSeed,stage,totalTime,deaths,stageTime,timeStopped,surveyTime,lures,lureSequence,exitDiscovered:world.exitDiscovered,searches,roomVisits:[...roomVisits],inventory:inv(),itemStates:world.items.map(i=>({id:i.id,type:i.type,taken:i.taken})),hazards:survival?.snapshot()||[],lightState:player.hidden?player.hideLight:{flash:player.flash,lighter:player.lighter},position:{x:p.x,z:p.z,level:p.level,yaw:player.yaw,pitch:player.pitch},taken:world.items.filter(i=>i.taken).map(i=>i.id),containers:world.containers.map(c=>({id:c.id,searched:c.searched,open:c.open>.8?1:0,progress:c.progress})),visited:[...world.visited],doors:world.doors.map(d=>({id:d.id,open:d.open,locked:d.locked})),director:director?.snapshot(),enemies:enemySnapshot(),...(withCheckpoint?{checkpoint}:{} )};}
 function saveGame(immediate=false){if(!immediate){if(!saveQueued){saveQueued=true;const commit=()=>{saveQueued=false;saveGame(true);};if(root.requestIdleCallback)root.requestIdleCallback(commit,{timeout:1500});else setTimeout(commit,60);}return;}if(world&&player&&!deathCommitted&&!['menu','loading','error','ending','dead'].includes(mode))storage.set(SAVE,JSON.stringify(snapshot()));}
 function pageCheckpoint(){checkpoint=snapshot(false);checkpoint.timeStopped=0;checkpoint.position={...world.startPos,yaw:world.startYaw,pitch:-.03};checkpoint.enemies=[];checkpoint.director={stage,phase:'orientation',introduced:[],pending:null,quiet:0,resumeUntil:stageTime+22,nextProposal:stageTime+22,log:[]};}
 function spatiallyLegalSpawn(p,type){const ds=world.distances(world.cellOf(player),'nav'),id=world.cellOf(p);if(world.hazards.some(h=>h.level===p.level&&Math.hypot(h.x-p.x,h.z-p.z)<2.5))return false;if(world.intro.cells.has(id)||world.rooms.find(r=>r.id===world.regionOf(p))?.vault||world.regionOf(p)===world.regionOf(player)||ds[id]<10||ds[id]>38||Math.hypot(p.x-player.x,p.z-player.z,p.y-player.foot)<12||!world.canStand(p.x,p.z,.2,true,p.level))return false;for(const y of[.3,1.1,2.2])if(world.visible(player,{...p,y:p.y+y}))return false;return !enemies.some(e=>e.active&&e.level===p.level&&Math.hypot(e.x-p.x,e.z-p.z)<7);}
 function proposeEncounter(type){const near=world.distances(world.cellOf(player),'nav');if(enemies.filter(e=>e.active&&near[world.cellOf(e)]>=0&&near[world.cellOf(e)]<14).length>=2)return null;const ds=world.distances(world.cellOf(player),'nav'),field=world.acousticField(player,48);let nodes=world.nodes.filter(id=>ds[id]>=10&&ds[id]<=36);nodes.sort((a,b)=>Math.abs(ds[a]-18)-Math.abs(ds[b]-18));for(const id of nodes){const p={...world.center(id),cell:id};if(!spatiallyLegalSpawn(p,type))continue;const a=world.acousticInfo(p,field,true);if(a.audible&&a.gain>.032&&a.distance<39)return p;}return null;}
-function activateEncounter(p){if(!spatiallyLegalSpawn(p.position,p.type))return false;const e=enemies.find(e=>e.type===p.type);Object.assign(e,p.position,{active:true,foot:p.position.y,home:{...p.position},state:p.type===1?'dormant':'patrol',goal:-1,path:[],repath:0,lastSeen:-99,suspicion:0,memory:0,releasedAt:stageTime,wait:2.0,patrolWing:world.rooms.find(r=>r.id===world.regionOf(p.position))?.wingId,patrolHome:world.cellOf(p.position)});sound.setEnemies(enemies.filter(e=>e.active));director.activated(e.type,stageTime);return true;}
+function activateEncounter(p){if(p.type===1)return false;if(!spatiallyLegalSpawn(p.position,p.type))return false;const e=enemies.find(e=>e.type===p.type);Object.assign(e,p.position,{active:true,foot:p.position.y,home:{...p.position},state:p.type===1?'dormant':'patrol',goal:-1,path:[],repath:0,lastSeen:-99,suspicion:0,memory:0,releasedAt:stageTime,wait:2.0,patrolWing:world.rooms.find(r=>r.id===world.regionOf(p.position))?.wingId,patrolHome:world.cellOf(p.position)});sound.setEnemies(enemies.filter(e=>e.active));director.activated(e.type,stageTime);return true;}
 function updateDirector(dt){const pursuit=enemies.some(e=>e.active&&['chase','rush','windup','awaken'].includes(e.state));for(const ev of director.update(dt,{now:stageTime,pursuit,pages:pages(),complete:pages()>=world.required,outside:world.regionOf(player)!==world.startRoom,visitedRooms:roomVisits.size,searches,hidden:!!player.hidden,timeStopped:timeStopped>0})){
  if(ev.kind==='propose'){const p=proposeEncounter(ev.type);if(p)director.reserve(ev.type,p,stageTime);}
  if(ev.kind==='cue'){const p=ev.pending.position,a=world.acousticInfo(p,world.acousticField(player,48),true);if(a.audible)sound.event(ev.pending.type===0?'bell':ev.pending.type===1?'weeper':ev.pending.type===4?'stomp':'runner',p,.65,a);}
  if(ev.kind==='activate'&&stageTime>=nextPlacementCheck){nextPlacementCheck=stageTime+1;if(!activateEncounter(ev.pending)&&stageTime-ev.pending.announcedAt>30){director.pending=null;director.nextProposal=stageTime+5;}}
  }}
 
-function noise(pos,radius,kind='step'){const n={x:pos.x,z:pos.z,y:world.heightAt(pos.x,pos.z,pos.level||0)+1.2,level:pos.level||0,radius,kind,time:stageTime,id:time+noises.length*.001};n.field=world.acousticField(n,radius+10);noises.push(n);}
+function noise(pos,radius,kind='step'){const n={x:pos.x,z:pos.z,y:world.heightAt(pos.x,pos.z,pos.level||0)+1.2,level:pos.level||0,radius,kind,sprint:!!pos.sprint,crouch:!!pos.crouch,time:stageTime,id:time+noises.length*.001};n.field=world.acousticField(n,radius+10);noises.push(n);}
 function visiblePlayer(e){if(!e.active||player.hidden||stageTime-(e.releasedAt??-99)<3)return false;const p=player,eye={x:e.x,z:e.z,level:e.level,y:e.y+(e.type===2?.75:1.72)},d=Math.hypot(p.x-e.x,p.z-e.z,p.y-eye.y);const bearing=Math.atan2(p.x-e.x,-(p.z-e.z)),angle=Math.atan2(Math.sin(bearing-e.yaw),Math.cos(bearing-e.yaw));let range=p.flash?10.5:p.lighter?5.3:p.crouch?1.8:3.8;// All types respect light-dependent visibility; the echo does not see 13m in darkness.
 if(d>range||Math.abs(angle)>1.12&&d>1.15)return false;return world.visible(eye,{...p,y:p.y-.28});}
-function inBeam(e){if(!e.active||!player.flash||player.battery<=0||player.reload||player.hidden)return false;const ey=e.y+(e.type===2?.7:1.52),dx=e.x-player.x,dy=ey-(player.y-.13),dz=e.z-player.z,d=Math.hypot(dx,dy,dz);if(d>15)return false;const cp=Math.cos(player.pitch),dot=(dx*Math.sin(player.yaw)*cp+dy*Math.sin(player.pitch)-dz*Math.cos(player.yaw)*cp)/Math.max(.01,d);return dot>.945&&world.visible({...player,y:player.y-.13},{...e,y:ey});}
+function inBeam(e){if(!e.active||!player.flash||player.battery<=0||player.reload>0||player.hidden)return false;const ey=e.y+(e.type===2?.7:1.52),dx=e.x-player.x,dy=ey-(player.y-.13),dz=e.z-player.z,d=Math.hypot(dx,dy,dz);if(d>15)return false;const cp=Math.cos(player.pitch),dot=(dx*Math.sin(player.yaw)*cp+dy*Math.sin(player.pitch)-dz*Math.cos(player.yaw)*cp)/Math.max(.01,d);return dot>.945&&world.visible({...player,y:player.y-.13},{...e,y:ey});}
 function hear(e){if(!e.active)return null;let best=null,bestScore=0;for(const n of noises){if(stageTime-n.time>1.6||n.time<=(e.heardTime??-1)||e.heardId===n.id||e.type===2&&n.radius<12)continue;const info=world.acousticInfo(e,n.field);const distance=info.distance;if(!info.audible||distance>n.radius)continue;const score=(1-distance/n.radius)*info.gain;if(score>bestScore&&score>.018){best=n;bestScore=score;}}return best;}
 function targetCell(e,pos){e.lastKnown={x:pos.x,z:pos.z,level:pos.level||0};const goal=world.cellOf(pos);if(e.goal!==goal){e.goal=goal;e.path=[];e.fine=[];e.fineGoal=-1;e.repath=0;}}
 function patrolGoal(e){const at=world.cellOf(e),dist=world.distances(at,'nav');let candidates=world.rooms.filter(r=>!r.vault&&r.id!==world.startRoom&&dist[r.anchor]>=3&&dist[r.anchor]<=28);
  let scored=candidates.map(r=>({id:r.anchor,s:random()*6+Math.min(55,stageTime-(e.visited.get(r.anchor)??-80))*.22+(r.wingId===e.patrolWing?4:0)-(enemies.some(o=>o!==e&&o.active&&o.goal===r.anchor)?14:0)}));scored.sort((a,b)=>b.s-a.s);return scored[0]?.id??at;}
+
+const WEEPER=Object.freeze({standing:4.1,crouched:2.8,hearing:8.5,runHearing:18,walk:.92,run:6.10,lureDuration:20});
+function guardianAlert(e,pos,why){
+ if(e.state==='chase'||e.state==='awaken')return;
+ e.ignoredLure=e.lureId;e.lureId=null;e.lastKnown={x:pos.x,z:pos.z,level:pos.level};e.memory=7.5;e.lastSeen=stageTime;e.awarenessReason=why;
+ forgetRoute(e);e.state='awaken';e.wait=.75;e.suspicion=1;const b=ensureBrain(e);b.senseAt=0;b.seen=false;
+ sound.event('weeper',e,.78,e.audibility);e.guardEvents=(e.guardEvents||[]).concat([{event:'alert',why,time:stageTime}]).slice(-20);
+}
+function guardAudible(e,h,max=24){if(h.level!==e.level&&Math.abs(h.y-e.y)>2.5)return false;const a=world.acousticInfo(e,world.acousticField(h,max));return a.audible&&a.distance<=max&&a.gain>.045;}
+// The guardian is a stationary encounter, not a free-roaming pursuer with a cosmetic crouch.
+// Only a working broadcaster earns a quiet approach; ordinary footsteps never override that commitment.
+function guardianThink(e,dt){
+ const p=player,b=ensureBrain(e),state=e.state;
+ if(stageTime>=(e.guardSenseAt||0)){
+  e.guardSenseAt=stageTime+.10;b.seen=false;
+  let lure=lures.find(h=>h.id===e.lureId&&h.remaining>0);
+  if(!lure&&!['awaken','chase'].includes(state)){
+   const choices=lures.filter(h=>h.remaining>0&&h.id!==e.ignoredLure&&guardAudible(e,h,24)).sort((a,c)=>Math.hypot(a.x-e.x,a.z-e.z)-Math.hypot(c.x-e.x,c.z-e.z));
+   lure=choices.find(h=>world.cellOf(h)===world.cellOf(e)||world.path(world.cellOf(e),world.cellOf(h),'nav').length>0);
+   if(lure){e.lureId=lure.id;e.memory=0;e.lastKnown=null;forgetRoute(e);e.state=state==='dormant'?'lureRise':'lured';e.wait=state==='dormant'?.70:0;e.suspicion=0;routeTo(e,lure);e.guardEvents=(e.guardEvents||[]).concat([{event:'lured',time:stageTime}]).slice(-20);}
+  }
+  if(lure){
+   if(!p.hidden&&p.sprint&&p.moving&&guardAudible(e,p,WEEPER.runHearing)){guardianAlert(e,p,'running during lure');return true;}
+   // Direction, lamp beam, pickups and walking are ignored while following this sound source.
+   b.seen=false;e.memory=0;
+  }else if(['lured','lureRise','lureListen'].includes(e.state)){
+   e.lureId=null;e.state='return';e.wait=0;forgetRoute(e);routeTo(e,e.home);
+  }else if(!['awaken','reorient'].includes(e.state)){
+   const sameLevel=e.level===p.level,dist=Math.hypot(e.x-p.x,e.z-p.z),eye={...e,y:e.y+(e.state==='dormant'?1.28:1.72)};
+   const inReach=!p.hidden&&sameLevel&&dist<=(p.crouch?WEEPER.crouched:WEEPER.standing)&&world.visible(eye,{...p,y:p.y-.06});
+   // Every noise keeps its original origin; hearing never provides live player tracking behind walls.
+   const heard=noises.filter(n=>n.kind!=='lure'&&stageTime-n.time<1.4&&n.id!==e.guardHeard&&n.time>(e.guardHeardTime??-1)&&!(n.kind==='step'&&n.radius<1)).find(n=>guardAudible(e,n,n.radius>=12?WEEPER.runHearing:WEEPER.hearing));
+   if(e.state!=='chase'&&(inReach||heard)){if(heard){e.guardHeard=heard.id;e.guardHeardTime=heard.time;}guardianAlert(e,inReach?p:heard,inReach?'proximity':'sensitive hearing');return true;}
+   if(e.state==='chase'){
+    b.seen=visiblePlayer(e);if(b.seen){e.lastKnown={x:p.x,z:p.z,level:p.level};e.lastSeen=stageTime;e.memory=7.5;routeTo(e,e.lastKnown);}
+   }
+  }
+ }
+ if(e.state==='dormant'){e.velocity=0;return true;}
+ if(e.state==='lureRise'){if(e.wait>0)return true;e.state='lured';}
+ if(e.state==='awaken'){if(e.wait>0)return true;e.state='chase';routeTo(e,e.lastKnown||e.home);e.memory=7.5;}
+ if(e.state==='reorient'){if(e.wait>0)return true;e.state='return';forgetRoute(e);routeTo(e,e.home);}
+ const lure=lures.find(h=>h.id===e.lureId&&h.remaining>0);
+ if(['lured','lureListen'].includes(e.state)){
+  if(!lure){e.state='return';forgetRoute(e);routeTo(e,e.home);}
+  else if(Math.hypot(e.x-lure.x,e.z-lure.z)<.38&&e.level===lure.level){e.state='lureListen';e.velocity=0;e.yaw=angleToward(e.yaw,Math.atan2(lure.x-e.x,-(lure.z-e.z)),dt*2);return true;}
+  else{e.state='lured';routeTo(e,lure);}
+ }
+ if(e.state==='chase'){
+  if(!b.seen)e.memory=Math.max(0,e.memory-dt);
+  if(e.memory<=0){e.state='return';e.suspicion=0;forgetRoute(e);routeTo(e,e.home);}
+  else if(e.lastKnown)routeTo(e,e.lastKnown);
+ }
+ if(e.state==='return'||e.state==='search'||e.state==='patrol'){
+  e.state='return';routeTo(e,e.home);
+  if(e.level===e.home.level&&Math.hypot(e.x-e.home.x,e.z-e.home.z)<.18){e.x=e.home.x;e.z=e.home.z;e.y=e.home.y;e.foot=e.y;e.state='dormant';e.suspicion=0;e.memory=0;e.lastKnown=null;forgetRoute(e);e.velocity=0;return true;}
+ }
+ return e.wait>0;
+}
+function guardianBlocks(item){
+ if(item.guardian==null)return false;const e=enemies.find(e=>e.uid===item.guardian);if(!e?.active)return false;
+ const near=Math.hypot(e.x-item.x,e.z-item.z)<2.20&&e.level===item.level;
+ if(!near)return false; // The guardian has physically left the lectern; no invisible quest gate.
+ const distracted=['lured','lureRise','lureListen'].includes(e.state)&&lures.some(h=>h.id===e.lureId&&h.remaining>0);
+ if(distracted&&Math.hypot(e.x-e.home.x,e.z-e.home.z)>2.0)return false;
+ if(!distracted&&e.stun<=0&&timeStopped<=0)guardianAlert(e,player,'guarded record reach');
+ notice(distracted?'우는 존재가 교탁에서 멀어질 때까지 기다리자.':'교탁을 지키고 있다 · 방송기를 다른 곳에 놓아 유인',2.5);return true;
+}
+
+// This controller changes a destination only. It never writes an enemy position or grants sight.
+function updatePatrolPressure(dt){
+ const d=director,p=player;d.pressure=d.pressure||{silent:0,next:0,release:0,history:[]};const c=d.pressure;
+ if(timeStopped>0)return;
+ const pursuit=enemies.some(e=>e.active&&['chase','rush','windup','awaken'].includes(e.state));
+ if(pursuit){c.silent=0;c.release=stageTime+24;return;}
+ if(p.hidden||world.regionOf(p)===world.startRoom||stageTime<35||stageTime<d.resumeUntil||stageTime<c.release||stageTime<d.recoveryUntil)return;
+ const near=enemies.some(e=>e.active&&e.type!==1&&(e.audibility?.gain||0)>.075&&(e.audibility?.distance||Infinity)<25);
+ c.silent=near?0:c.silent+dt;if(c.silent<35||stageTime<c.next)return;c.next=stageTime+6;
+ const available=enemies.filter(e=>e.active&&e.type!==1&&['patrol','pause'].includes(e.state)&&e.stun<=0&&!e.timeFrozen);
+ if(!available.length)return;
+ const pd=world.distances(world.cellOf(p),'nav'),field=world.acousticField(p,52);
+ const rooms=world.rooms.filter(r=>!r.vault&&!r.weeperRoom&&r.id!==world.startRoom&&r.id!==world.regionOf(p)&&pd[r.anchor]>=6&&pd[r.anchor]<=16&&world.acousticInfo(world.center(r.anchor),field).gain>.075);
+ let best=null;
+ for(const e of available){const ds=world.distances(world.cellOf(e),'nav');for(const r of rooms){const q=world.center(r.anchor);if(ds[r.anchor]<2||enemies.some(o=>o!==e&&o.active&&Math.hypot(q.x-o.x,q.z-o.z)<7))continue;
+  const distance=ds[r.anchor]*CELL,score=distance/(e.type===4?3.1:1.03)+random()*9;
+  if(!best||score<best.score)best={e,q,score,distance};}}
+ if(!best)return;
+ const e=best.e;forgetRoute(e);e.state='patrol';e.wait=0;e.patrolHint={...best.q,until:stageTime+65};routeTo(e,best.q);
+ c.history.push({at:stageTime,type:e.type,source:{x:e.x,z:e.z,level:e.level},target:{...best.q},routeM:best.distance});if(c.history.length>24)c.history.shift();
+ c.next=stageTime+20;c.silent=18;d.record('patrol-rerouted',stageTime,{type:e.type,routeM:best.distance});
+}
 
 // Evidence-led decisions. Perception is staggered; movement stays continuous.
 function ensureBrain(e){if(!e.brain)e.brain={senseAt:0,seen:false,beam:false,observed:null,velocity:{x:0,z:0},search:[],checked:[],navVersion:-1,blockedAt:0,replans:0,recoveries:0};return e.brain;}
@@ -1309,12 +1482,13 @@ function searchEvidence(e,duration=12){const b=ensureBrain(e);e.state='search';e
  b.search.push(...exits.slice(0,4));if(room.anchor>=0)b.search.push(world.center(room.anchor));}
 }
 function routeTo(e,p){const id=world.cellOf(p);if(id<0||world.cells[id]<0)return; if(e.goal!==id){e.goal=id;e.path=[];e.fine=[];e.fineGoal=-1;e.repath=0;}e.moveTarget={x:p.x,z:p.z,level:p.level||0};}
-function nextPatrol(e){const at=world.cellOf(e),ds=world.distances(at,'nav'),b=ensureBrain(e);let best=null,score=-Infinity;for(const r of world.rooms){const d=ds[r.anchor];if(r.vault||r.id===world.startRoom||d<3||d>32)continue;const age=Math.min(60,stageTime-(e.visited.get(r.anchor)??-90));const claimed=enemies.some(o=>o!==e&&o.active&&o.goal===r.anchor);let s=age*.35+random()*7-Number(claimed)*18+Math.min(d,16)*.14;if(s>score){score=s;best=r;}}return best?world.center(best.anchor):null;}
+function nextPatrol(e){if(e.patrolHint){const h=e.patrolHint;if(stageTime<h.until&&Math.hypot(e.x-h.x,e.z-h.z)>.5)return h;e.patrolHint=null;}const at=world.cellOf(e),ds=world.distances(at,'nav'),b=ensureBrain(e);let best=null,score=-Infinity;for(const r of world.rooms){const d=ds[r.anchor];if(r.vault||r.id===world.startRoom||d<3||d>32)continue;const age=Math.min(60,stageTime-(e.visited.get(r.anchor)??-90));const claimed=enemies.some(o=>o!==e&&o.active&&o.goal===r.anchor);let s=age*.35+random()*7-Number(claimed)*18+Math.min(d,16)*.14;if(s>score){score=s;best=r;}}return best?world.center(best.anchor):null;}
 function updateEnemies(dt){if(root.__AB_FREEZE_ENEMIES__)return;let navBudget=2,fineBudget=1;
  for(const e of enemies){e.moving=false;if(!e.active)continue;const b=ensureBrain(e);e.timeFrozen=timeStopped>0;if(e.timeFrozen)continue;
  e.repath-=dt;e.wait=Math.max(0,(e.wait||0)-dt);e.chargeRest=Math.max(0,e.chargeRest-dt);
  if(e.stun>0){e.stun=Math.max(0,e.stun-dt);e.state='stunned';e.frozen=false;b.seen=false;b.senseAt=0;if(e.stun>0)continue;}
  if(e.state==='stunned'){forgetRoute(e);e.state='reorient';e.wait=.6;b.recoveries++;b.senseAt=0;b.seen=false;}
+ const at=world.cellOf(e);if(e.type===1){if(guardianThink(e,dt))continue;}else{
  if(stageTime>=b.senseAt){b.senseAt=stageTime+.095+e.uid*.008;b.seen=visiblePlayer(e);b.beam=inBeam(e);
   if(b.seen){const old=b.observed;if(old){const elapsed=Math.max(.04,stageTime-old.t);b.velocity={x:clamp((player.x-old.x)/elapsed,-4,4),z:clamp((player.z-old.z)/elapsed,-4,4)};}b.observed={x:player.x,z:player.z,level:player.level,t:stageTime};if(e.state==='chase'||e.state==='rush'){e.lastKnown={x:player.x,z:player.z,level:player.level};e.lastSeen=stageTime;e.memory=7.5;e.awarenessReason='confirmed sight';}}
  }
@@ -1342,7 +1516,7 @@ function updateEnemies(dt){if(root.__AB_FREEZE_ENEMIES__)return;let navBudget=2,
  if(e.state==='chase'&&!seen&&e.memory<=0)searchEvidence(e,13);
  if(e.state==='pause'){e.yaw+=Math.sin(stageTime*1.2+e.uid)*dt*.35;if(e.wait>0)continue;e.state='patrol';forgetRoute(e);}
  if(e.wait>0)continue;
- const at=world.cellOf(e),t=e.moveTarget,arrived=e.goal>=0&&at===e.goal&&(!t||Math.hypot(e.x-t.x,e.z-t.z)<.25);
+ const t=e.moveTarget,arrived=e.goal>=0&&at===e.goal&&(!t||Math.hypot(e.x-t.x,e.z-t.z)<.25);
  if((e.state==='investigate'||e.state==='chase')&&arrived&&!seen){if(b.lureId){b.checkedLure=b.lureId;b.lureId=null;}searchEvidence(e,10);continue;}
  if(e.state==='search'){
   if(stageTime>e.searchUntil){e.knowsHide=null;e.state=e.type===1?'return':'patrol';forgetRoute(e);}
@@ -1354,6 +1528,7 @@ function updateEnemies(dt){if(root.__AB_FREEZE_ENEMIES__)return;let navBudget=2,
   if(navBudget<=0)continue;navBudget--;const q=nextPatrol(e);if(q)routeTo(e,q);else{e.wait=.5;continue;}
  }
  if(e.goal<0&&e.state==='chase'&&e.lastKnown)routeTo(e,e.lastKnown);
+ }
  if(e.goal<0)continue;
  // Keep a valid plan. Never run global BFS each frame just because the path is empty.
  if(e.repath<=0&&(e.path.length===0||b.navVersion!==world.version)){
@@ -1369,8 +1544,8 @@ function updateEnemies(dt){if(root.__AB_FREEZE_ENEMIES__)return;let navBudget=2,
   while(e.fine?.length&&Math.hypot(e.fine[0].x-e.x,e.fine[0].z-e.z)<.11)e.fine.shift();if(e.fine?.length)target=e.fine[0];
  }
  const dx=target.x-e.x,dz=target.z-e.z,len=Math.hypot(dx,dz);if(len<.08){if(e.path.length)e.path.shift();e.fineGoal=-1;continue;}
- const desired=Math.atan2(dx,-dz),turn=Math.abs(Math.atan2(Math.sin(desired-e.yaw),Math.cos(desired-e.yaw)));e.yaw=angleToward(e.yaw,desired,dt*(e.state==='chase'?5.5:2.8));
- let speed=e.state==='chase'?[3.05,2.90,2.6,2.1,3.75][e.type]:e.state==='investigate'?(e.type===4?3.1:1.62):[1.03,.93,1.24,.72,3.1][e.type];if(turn>.6)speed*=e.type===4?.45:.66;e.velocity=(e.velocity||0)+(speed-(e.velocity||0))*(1-Math.exp(-dt*8));speed=e.velocity;
+ const desired=Math.atan2(dx,-dz),turn=Math.abs(Math.atan2(Math.sin(desired-e.yaw),Math.cos(desired-e.yaw)));e.yaw=angleToward(e.yaw,desired,dt*(e.type===1&&e.state==='chase'?8:e.state==='chase'?5.5:2.8));
+ let speed=e.type===1?(e.state==='chase'?WEEPER.run:WEEPER.walk):e.state==='chase'?[3.05,2.90,2.6,2.1,3.75][e.type]:e.state==='investigate'?(e.type===4?3.1:1.62):[1.03,.93,1.24,.72,3.1][e.type];if(turn>.6)speed*=e.type===4?.45:.66;e.velocity=(e.velocity||0)+(speed-(e.velocity||0))*(1-Math.exp(-dt*8));speed=e.velocity;
  const ox=e.x,oz=e.z;world.move(e,dx/len*Math.min(len,speed*dt),dz/len*Math.min(len,speed*dt),.18,true);e.y=e.foot;const moved=Math.hypot(e.x-ox,e.z-oz);e.moving=moved>.0001;footstep(e,moved);
  if(moved<.001){e.blocked=(e.blocked||0)+dt;if(e.blocked>.65){e.fine=[];e.fineGoal=-1;e.path=[];e.repath=.1;e.blocked=0;b.blockedAt++;if(b.blockedAt>=3){b.blockedAt=0;searchEvidence(e,7);}}}else{e.blocked=0;b.blockedAt=0;}
  checkContact(e);
@@ -1394,7 +1569,7 @@ function commitLifeLoss(cause){
   current.checkpoint=null;respawnState=current;storage.set(SAVE,JSON.stringify(current));
  }else{
   runOverSeed=differentSeed();respawnState=null;
-  storage.set(SAVE,JSON.stringify({version:12,status:'runOver',lives:0,seed:baseSeed,stage,deaths,totalTime,nextSeed:runOverSeed}));
+  storage.set(SAVE,JSON.stringify({version:14,status:'runOver',lives:0,seed:baseSeed,stage,deaths,totalTime,nextSeed:runOverSeed}));
  }
 }
 function showDeath(cause){
@@ -1429,7 +1604,21 @@ function updateCaught(dt){if(mode!=='caught')return;caughtTime+=dt;
   k.captureLook=[p.x,p.y,p.z];
  }
  if(caughtTime>2.65)showDeath('capture');}
-function updatePlayer(dt){const p=player;p.invuln=Math.max(0,p.invuln-dt);p.cooldown=Math.max(0,p.cooldown-dt);if(p.reload>0){p.reload-=dt;if(p.reload<=0){p.battery=100;p.flash=true;sound.event('switch',null,.17);saveGame();}}
+function updatePlayer(dt){const p=player;p.invuln=Math.max(0,p.invuln-dt);p.cooldown=Math.max(0,p.cooldown-dt);
+ // Timer is a duration, not a Boolean. Clamp the completion frame to EXACT zero:
+ // a negative floating-point remainder used to keep !reload false indefinitely.
+ if(p.reload>0){
+  p.reload=Math.max(0,p.reload-dt);
+  if(p.reload===0){
+   p.battery=100;
+   // A completed reload selects the flashlight, never two simultaneous lights.
+   // While hidden, keep the physical light off and restore it only on exit.
+   if(p.hidden){p.hideLight={flash:true,lighter:false};p.flash=false;p.lighter=false;}
+   else{p.flash=true;p.lighter=false;}
+   sound.event('switch',null,.17);saveGame();
+  }
+ }else if(p.reload<0){p.reload=0;}
+
  if(keys.has('ArrowLeft'))p.yaw-=dt*1.5;if(keys.has('ArrowRight'))p.yaw+=dt*1.5;if(keys.has('ArrowUp'))p.pitch=clamp(p.pitch+dt*.9,-1.25,1.25);if(keys.has('ArrowDown'))p.pitch=clamp(p.pitch-dt*.9,-1.25,1.25);
  p.crouch=keys.has('KeyC')||keys.has('ControlLeft')||keys.has('ControlRight');p.moving=false;
  if(p.hidden){
@@ -1449,11 +1638,13 @@ function updatePlayer(dt){const p=player;p.invuln=Math.max(0,p.invuln-dt);p.cool
   if(p.sprint&&p.moving)p.stamina=Math.max(0,p.stamina-dt*BALANCE.sprintDrain/BALANCE.staminaCapacity);else p.stamina=Math.min(1,p.stamina+dt*BALANCE.staminaRegen/BALANCE.staminaCapacity*(p.equipped==='ribbon'?1.35:1));
   if(p.walk>(p.crouch?.85:p.sprint?1.05:.86)){p.walk=0;noise(p,(p.crouch?.5:p.sprint?16:3.3)*(p.equipped==='shoes'?.65:1),'step');sound.event(p.crouch?'softStep':'step',null,p.crouch?.11:p.sprint?.34:.19);}}
  const targetY=world.heightAt(p.x,p.z,p.level)+(p.crouch&&!p.hidden?1.04:p.hidden?1.48:1.62);p.foot=world.heightAt(p.x,p.z,p.level);p.y+=(targetY-p.y)*Math.min(1,dt*12);if(!settings.motion&&p.moving)p.y+=Math.sin(p.travel*5.8)*.007;
- if(p.flash&&p.battery>0&&!p.reload){p.battery=Math.max(0,p.battery-dt*.20);if(!p.battery){p.flash=false;notice('R 건전지 교체 · G 비상 라이터',3);}}
+ if(p.flash&&p.battery>0&&p.reload<=0){p.battery=Math.max(0,p.battery-dt*.20);if(!p.battery){p.flash=false;notice('R 건전지 교체 · G 비상 라이터',3);}}
+ if(!world.exitDiscovered&&p.level===world.exitPos.level&&Math.hypot(p.x-world.exitPos.x,p.z-world.exitPos.z)<4&&world.visible(p,{...world.exitPos,y:world.exitPos.y+1.2}))world.exitDiscovered=true;
  const id=world.cellOf(p);world.visited.add(id);if(world.cells[id]>0)roomVisits.add(world.cells[id]);for(const n of world.neighbors(id,'sight'))world.visited.add(n);
 }
 function findTarget(){if(!player||!world||mapOpen||inventoryOpen)return null;if(player.hidden)return{kind:'unhide',obj:player.hidden,label:'청소함에서 나오기'};const p=player,dir=[Math.sin(p.yaw)*Math.cos(p.pitch),Math.sin(p.pitch),-Math.cos(p.yaw)*Math.cos(p.pitch)],list=[];
  const add=(kind,obj,label,x,y,z,max,dotMin=.76)=>{const dx=x-p.x,dy=y-p.y,dz=z-p.z,d=Math.hypot(dx,dy,dz);if(d>max||obj.level!==p.level)return;const dot=(dx*dir[0]+dy*dir[1]+dz*dir[2])/Math.max(.01,d);if(dot<dotMin||!world.visible(p,{x,y,z,level:obj.level}))return;list.push({kind,obj,label,score:d+(1-dot)*5});};
+ for(const i of world.items)if(!i.containerId&&!i.taken&&i.level===p.level)add('looseItem',i,(INFO[i.type]?.[0]||i.label)+' · 가져가기',i.x,i.y+.045,i.z,1.45,.86);
  for(const c of world.runtime.query('containers',p.x-3,p.z-3,p.x+3,p.z+3)){const fx=c.x-Math.sin(c.rot)*.31,fz=c.z-Math.cos(c.rot)*.31;add('container',c,c.target>.5?((world.runtime.items.get(c.loot)&&!world.runtime.items.get(c.loot).taken)?(INFO[world.runtime.items.get(c.loot).type]?.[0]||'아이템')+(ABSurvival.GEAR.includes(world.runtime.items.get(c.loot).type)&&p.equipped?' · 장비 교환':' · 가져가기'):'비어 있음 · 문 닫기'):'사물함 열기',fx,c.y+1.08,fz,1.95,.88);}
  for(const d of world.runtime.query('doors',p.x-3,p.z-3,p.x+3,p.z+3)){if(d.openPassage)continue;const sign=Math.sign((p.x-d.x)*Math.sin(d.rot)+(p.z-d.z)*Math.cos(d.rot));add('door',d,d.locked?(p.keys>0?'열쇠로 보관실 열기':'보관실 잠김 · 열쇠 필요'): d.target>.5?'문 닫기':'문 열기',d.x+Math.sin(d.rot)*sign*.16,d.y+1.23,d.z+Math.cos(d.rot)*sign*.16,2.05,.55);}
  for(const h of world.runtime.query('hides',p.x-3,p.z-3,p.x+3,p.z+3))add('hide',h,'청소함에 숨기',h.x-Math.sin(h.rot)*.28,h.y+1.36,h.z-Math.cos(h.rot)*.28,1.85,.55);
@@ -1461,6 +1652,7 @@ function findTarget(){if(!player||!world||mapOpen||inventoryOpen)return null;if(
  list.sort((a,b)=>a.score-b.score);return list[0]||null;
 }
 function interact(){if(mode!=='playing')return;const t=findTarget();if(!t)return;const p=player,o=t.obj;
+ if(t.kind==='looseItem'){if(guardianBlocks(o))return;if(grant(o)){noise(p,1.8,'paper');saveGame();updateHUD();}return;}
  if(t.kind==='container'){
   searching=null;hide('searchUI');const item=world.items.find(i=>i.id===o.loot&&!i.taken);
   if(o.target>.5&&item){if(o.open<.65)return;grant(item);saveGame();return;}
@@ -1479,7 +1671,7 @@ function interact(){if(mode!=='playing')return;const t=findTarget();if(!t)return
  if(t.kind==='exit'){if(pages()<world.required){notice('모든 봉인 명단을 찾아야 한다.',2.5);return;}finishStage();}
 }
 function updateSearch(){searching=null;hide('searchUI');}
-function grant(item){if(item.type==='page'&&pages()>=world.required){notice('필요한 명단은 모았다. 방화문으로 돌아가자.',2);return false;}const result=ABSurvival.pickup(player,item);if(!result.ok){notice(result.reason==='same'?'같은 장비를 이미 착용 중이다.':result.reason==='full'?'소지 한도다. 물건은 사물함에 남는다.':'가져올 수 없다.',2);return false;}
+function grant(item){if(item.type==='page'&&pages()>=world.required){notice('필요한 명단은 모았다. 나침반을 따라 출구를 찾자.',2);return false;}const result=ABSurvival.pickup(player,item);if(!result.ok){notice(result.reason==='same'?'같은 장비를 이미 착용 중이다.':result.reason==='full'?'소지 한도다. 물건은 사물함에 남는다.':'가져올 수 없다.',2);return false;}
  const t=result.incoming;if(result.gear){notice(result.outgoing?`${INFO[t][0]} 장착\n${INFO[result.outgoing][0]}은 이 사물함에 놓았다.`:`${INFO[t][0]} 장착 · 왼쪽 아래 장비칸`,3);sound.event('paper',null,.18);}
  else if(t==='page'){sound.event('paper',null,.26);notice(`봉인 명단 ${pages()} / ${world.required}`,3);if(pages()>=world.required)notice('명단 회수 완료 · 나침반이 출구를 가리킨다.',4);pageCheckpoint();}
  else{notice(INFO[t][0]+'\n'+INFO[t][1],3.7);sound.event('paper',null,.18);}return true;}
@@ -1499,10 +1691,10 @@ function useTool(){if(mode!=='playing'||player.hidden||toolCool>0)return;const p
  }else if(kind==='watch'){timeStopped=6;for(const e of enemies){e.timeFrozen=true;e.moving=false;}sound.event('watch',null,.32);notice('멎은 시간 · 6초',2);}
  else if(kind==='mirror'){const yaw=p.yaw;Object.assign(p,destination,{foot:destination.y,y:destination.y+1.62,yaw,pitch:0});p.invuln=Math.max(p.invuln,1.5);world.visited.add(world.cellOf(p));roomVisits.add(world.regionOf(p));for(const e of enemies){const brain=ensureBrain(e);brain.seen=false;brain.senseAt=0;}photoFlash=.16;stress*=.4;renderer.shadowInvalid=true;sound.occlusionClock=0;sound.event('mirror',null,.28);notice('거울이 부서졌다. 여긴 다른 방이다.',2.5);}
  else if(kind==='survey'){surveyTime=12;mapOpen=true;mapLevel=p.level;hide('mapPanel',false);sound.event('paper',null,.25);drawMap();notice('12초 동안 가까운 동선과 기척이 드러난다.',2.2);}
- else if(kind==='lure'){const h={id:++lureSequence,x:p.x,z:p.z,y:p.foot+.16,level:p.level,remaining:9,cue:0};lures.push(h);sound.event('latch',null,.2);notice('태엽 방송기 · 9초 후 멎는다. 지금 멀어지자.',2.2);}
+ else if(kind==='lure'){const h={id:++lureSequence,x:p.x,z:p.z,y:p.foot+.16,level:p.level,remaining:20,cue:0};lures.push(h);sound.event('latch',null,.2);notice('태엽 방송기 · 20초 후 멎는다. 지금 멀어지자.',2.2);}
  updateHUD();saveGame();}
-function updateUtilities(dt){surveyTime=Math.max(0,surveyTime-dt);for(const h of lures){if(timeStopped>0)continue;h.remaining-=dt;h.cue-=dt;if(h.cue<=0){h.cue=1.1;noise(h,18,'lure');const n=noises.at(-1);if(n)n.lureId=h.id;sound.event('lure',h,.45,world.acousticInfo(h,world.acousticField(player,40)));}}lures=lures.filter(h=>h.remaining>0);}
-function toggleFlash(){if(player.hidden)return;if(player.battery<=0){notice('R 건전지 교체',2);return;}player.flash=!player.flash;if(player.flash)player.lighter=false;sound.event('switch',null,.11);}
+function updateUtilities(dt){surveyTime=Math.max(0,surveyTime-dt);for(const h of lures){if(timeStopped>0)continue;h.remaining-=dt;h.cue-=dt;if(h.cue<=0){h.cue=1.1;noise(h,24,'lure');const n=noises.at(-1);if(n)n.lureId=h.id;sound.event('lure',h,.45,world.acousticInfo(h,world.acousticField(player,40)));}}lures=lures.filter(h=>h.remaining>0);}
+function toggleFlash(){if(player.hidden)return;if(player.reload>0){notice('건전지 교체 중',1.3);return;}if(player.battery<=0){notice('R 건전지 교체',2);return;}player.flash=!player.flash;if(player.flash)player.lighter=false;sound.event('switch',null,.11);}
 function toggleLighter(){if(player.hidden)return;player.lighter=!player.lighter;if(player.lighter)player.flash=false;sound.event('switch',null,.14);}
 function reload(){if(player.reload>0||player.spares<=0)return;player.spares--;player.reload=1.6;player.flash=false;sound.event('latch',null,.19);noise(player,3,'reload');}
 function finishStage(){hide('mapPanel');mapOpen=false;unlockMouse();if(stage<3){setMode('transition');storyAction='next';$('storyOverline').textContent=`${names[stage]} · 출석 완료`;$('storyTitle').textContent='문 뒤에는 또 다른 방';$('storyText').textContent='방화문이 열렸다.\n다음 건물에는 더 많은 명단과 다른 소리가 기다린다.';$('storyBtn').textContent='다음 건물로';saveGame();}else{setMode('ending');storyAction='new';storage.remove(SAVE);$('storyOverline').textContent='2003. 06. 19. 05:12';$('storyTitle').textContent='마지막 출석';$('storyText').textContent='마지막 이름이 지워졌다.\n문 너머에서 아침의 공기가 들어왔다.\n\n더 이상 벽 너머의 종소리는 들리지 않았다.';$('storyBtn').textContent='다른 밤에 들어가기';}sound.suspend();$('storyStats').textContent=`${formatTime(totalTime)} · 재시도 ${deaths}회`;}
@@ -1524,7 +1716,7 @@ function drawMap(){const c=$('mapCanvas'),g=c.getContext('2d'),w=world;const [xm
  for(const r of w.rooms){if(r.level!==mapLevel||!mapped(r.id)||r.kind==='corridor')continue;const boxes=w.runtime.containersByRoom.get(r.id)||[];g.font='8px sans-serif';g.fillStyle='#e7e0c9';g.fillText(boxes.length?`${boxes.filter(c=>c.searched).length}/${boxes.length}`:'',ox+r.x/CELL*scale-7,oz+r.z/CELL*scale+3);}
  for(const d of w.doors){if(d.openPassage)continue;if(d.level!==mapLevel||!d.rooms.some(id=>mapped(id)))continue;g.fillStyle=d.locked?'#b08644':d.open>.86?'#e9dfba':'#344b3e';g.fillRect(ox+d.x/CELL*scale-1.5,oz+d.z/CELL*scale-1.5,3,3);}
  if(player.level===mapLevel){const x=ox+player.x/CELL*scale,z=oz+player.z/CELL*scale;g.fillStyle='#ad4d36';g.beginPath();g.arc(x,z,4,0,6.28);g.fill();g.strokeStyle='#ad4d36';g.beginPath();g.moveTo(x,z);g.lineTo(x+Math.sin(player.yaw)*11,z-Math.cos(player.yaw)*11);g.stroke();}
- if(!mapLevel){const p=w.exitPos;g.fillStyle='#1d4634';g.font='10px sans-serif';g.fillText('출구',ox+p.x/CELL*scale-5,oz+p.z/CELL*scale-7);}
+ if(mapLevel===w.exitPos.level&&w.exitDiscovered){const p=w.exitPos;g.fillStyle='#1d4634';g.font='10px sans-serif';g.fillText('출구',ox+p.x/CELL*scale-5,oz+p.z/CELL*scale-7);}
  if(surveyTime>0){for(const e of enemies){if(!e.active||e.level!==mapLevel||Math.hypot(e.x-player.x,e.z-player.z)>26)continue;g.fillStyle='#a42f22';g.beginPath();g.arc(ox+e.x/CELL*scale,oz+e.z/CELL*scale,4,0,Math.PI*2);g.fill();}g.fillStyle='#3c645b';g.font='12px sans-serif';g.fillText('감광 순찰도 · '+Math.ceil(surveyTime)+'초',22,582);}
  g.fillStyle='#53634c';g.font='10px sans-serif';g.fillText('기억한 길만 기록 · 황동 표시: 잠긴 보관실 · 숫자: 열어 본 칸',22,600);$('mapTitle').textContent=`${names[stage]} / ${mapLevel?'2층':'1층'} · V 층 전환`;}
 
@@ -1567,7 +1759,7 @@ function updateActionPrompts(){
  }
 }
 
-function updateHUD(){const p=player,n=pages();updateActionPrompts();$('staminaTrack').setAttribute('aria-valuenow',Math.round(p.stamina*125));$('livesHud').setAttribute('aria-label',`남은 생명 ${lives} / 3`);$('livesCount').textContent=`${lives} / 3`;[...$('lifeMarks').children].forEach((el,i)=>el.classList.toggle('spent',i>=lives));$('floorLabel').textContent=names[stage]+' / '+(p.level?'2F':'1F');$('roomLabel').textContent=world.rooms.find(r=>r.id===world.regionOf(p))?.name||'계단';$('objectiveCount').textContent=`${n} / ${world.required}`;$('objectiveText').textContent=n>=world.required?'회수 완료 · 나침반 방향의 방화문으로':'복도와 방을 탐색 · 전출 기록 표시가 단서';$('batteryLabel').textContent=p.reload?'…':Math.ceil(p.battery);$('sparesLabel').textContent='R · '+p.spares;$('staminaFill').style.width=p.stamina*100+'%';$('staminaFill').classList.toggle('low',p.stamina<.2);$('posture').textContent=p.hidden?'숨음':p.crouch?'웅크림':'';
+function updateHUD(){const p=player,n=pages();updateActionPrompts();$('staminaTrack').setAttribute('aria-valuenow',Math.round(p.stamina*125));$('livesHud').setAttribute('aria-label',`남은 생명 ${lives} / 3`);$('livesCount').textContent=`${lives} / 3`;[...$('lifeMarks').children].forEach((el,i)=>el.classList.toggle('spent',i>=lives));$('floorLabel').textContent=names[stage]+' / '+(p.level?'2F':'1F');$('roomLabel').textContent=world.rooms.find(r=>r.id===world.regionOf(p))?.name||'계단';$('objectiveCount').textContent=`${n} / ${world.required}`;$('objectiveText').textContent=n>=world.required?'회수 완료 · 나침반 방향의 방화문으로':'복도와 방을 탐색 · 전출 기록 표시가 단서';$('batteryLabel').textContent=p.reload>0?'…':Math.ceil(p.battery);$('sparesLabel').textContent='R · '+p.spares;$('staminaFill').style.width=p.stamina*100+'%';$('staminaFill').classList.toggle('low',p.stamina<.2);$('posture').textContent=p.hidden?'숨음':p.crouch?'웅크림':'';
  for(const k of ['mirror','survey','lure']){$(k+'Count').textContent=p[k];$('slot'+k[0].toUpperCase()+k.slice(1)).classList.toggle('selected',p.selected===k);}for(const k of ACTIVE){const el=$('slot'+k[0].toUpperCase()+k.slice(1));el.classList.toggle('empty',!p[k]);el.setAttribute('aria-selected',p.selected===k?'true':'false');} $('cameraCount').textContent=p.camera;$('watchCount').textContent=p.watch;$('slotCamera').classList.toggle('selected',p.selected==='camera');$('slotWatch').classList.toggle('selected',p.selected==='watch');$('accessories').textContent='';$('keyCount').textContent=p.keys;$('bandageCount').textContent=p.bandage;$('slotBandage').classList.toggle('selected',p.selected==='bandage');$('healthFill').style.width=p.health+'%';$('healthTrack').setAttribute('aria-valuenow',Math.ceil(p.health));$('healthTrack').classList.toggle('critical',p.health<26);$('hitOverlay').style.opacity=String(damageFlash*.43);const equip=p.equipped||'empty';if($('equipmentSlot').dataset.item!==equip){$('equipmentSlot').dataset.item=equip;$('equipmentIcon').innerHTML='<path d="'+ABSurvival.ICONS[equip]+'"/>';$('equipmentName').textContent=p.equipped?INFO[p.equipped][0]:'장착 없음';$('equipmentSlot').setAttribute('aria-label',p.equipped?INFO[p.equipped][0]:'빈 장비 칸');}
  const t=findTarget();target=t;hide('interaction',!t||!!searching||mapOpen);if(t)$('interactionLabel').textContent=t.label;hide('crosshair',p.hidden||mapOpen);$('toast').style.opacity=time<toastUntil?'1':'0';$('subtleTip').style.opacity=time<tipUntil?'.72':'0';$('danger').style.opacity=String(stress*.05);$('toolFlash').style.opacity=String(Math.min(.44,photoFlash*2));$('timeFreeze').style.opacity=timeStopped>0?'.8':'0';$('timeFreeze').textContent=timeStopped>0?'초침 정지 '+timeStopped.toFixed(1):'';
  if(inventoryOpen&&!$('inventoryText').dataset.built){$('inventoryText').dataset.built='1';$('inventoryText').innerHTML=Object.entries(INFO).filter(([k])=>k!=='page').map(([k,[n,d]])=>`<p><b>${n}</b><span>${d}</span></p>`).join('');}
@@ -1575,8 +1767,10 @@ function updateHUD(){const p=player,n=pages();updateActionPrompts();$('staminaTr
 function update(dt){stageTime+=dt;totalTime+=dt;saveClock+=dt;timeStopped=Math.max(0,timeStopped-dt);updateUtilities(dt);photoFlash=Math.max(0,photoFlash-dt);toolCool=Math.max(0,toolCool-dt);
  updateDoors(dt);
  for(const c of world.containers)c.open+=(c.target-c.open)*Math.min(1,dt*4);
- damageFlash=Math.max(0,damageFlash-dt*1.8);updatePlayer(dt);updateSearch(dt);updateHazards(dt);if(mode!=='playing')return;noises=noises.filter(n=>stageTime-n.time<1.7);updateDirector(dt);const before=enemies.map(e=>[e.x,e.z]);updateEnemies(dt);for(let i=0;i<enemies.length;i++){const e=enemies[i],v=Math.hypot(e.x-before[i][0],e.z-before[i][1])/Math.max(dt,.001);e.actualSpeed=v;e.animSpeed+=(v-(e.animSpeed||0))*(1-Math.exp(-dt*9));e.visualThreat+=((['chase','rush','windup','capture'].includes(e.state)?1:0)-(e.visualThreat||0))*(1-Math.exp(-dt*4));}sound.update(dt,player,enemies.filter(e=>e.active),world,stress,timeStopped);if(saveClock>15&&!player.hidden){saveClock=0;saveGame();}if(mode==='playing'){uiClock-=dt;if(uiClock<=0){uiClock=.08;updateHUD();}}}
-function dynamicScene(){const list=[];scene.pageLights=[];for(const d of world.runtime.query('doors',player.x-36,player.z-36,player.x+36,player.z+36))if(!d.openPassage&&Math.hypot(d.x-player.x,d.z-player.z)<34)list.push({mesh:scene.doorMesh,model:M.mul(M.model(d.x,d.y,d.z,d.rot),M.model(d.open*1.09,0,0)),light:scene.bake([d.x,d.y+1.4,d.z],[0,1,0])});
+ damageFlash=Math.max(0,damageFlash-dt*1.8);updatePlayer(dt);updateSearch(dt);updateHazards(dt);if(mode!=='playing')return;noises=noises.filter(n=>stageTime-n.time<1.7);updateDirector(dt);updatePatrolPressure(dt);const before=enemies.map(e=>[e.x,e.z]);updateEnemies(dt);for(let i=0;i<enemies.length;i++){const e=enemies[i],v=Math.hypot(e.x-before[i][0],e.z-before[i][1])/Math.max(dt,.001);e.actualSpeed=v;e.animSpeed+=(v-(e.animSpeed||0))*(1-Math.exp(-dt*9));e.visualThreat+=((['chase','rush','windup','capture'].includes(e.state)?1:0)-(e.visualThreat||0))*(1-Math.exp(-dt*4));}sound.update(dt,player,enemies.filter(e=>e.active),world,stress,timeStopped);if(saveClock>15&&!player.hidden){saveClock=0;saveGame();}if(mode==='playing'){uiClock-=dt;if(uiClock<=0){uiClock=.08;updateHUD();}}}
+function dynamicScene(){const list=[];scene.pageLights=[];
+ for(const i of world.items){if(i.containerId||i.taken||Math.hypot(i.x-player.x,i.z-player.z)>33)continue;list.push({mesh:scene.itemMeshes[i.type],model:M.model(i.x,i.y,i.z,i.rot||0),light:scene.bake([i.x,i.y+.1,i.z],[0,1,0])});if(i.type==='page'&&Math.hypot(i.x-player.x,i.z-player.z)<13)scene.pageLights.push({x:i.x,y:i.y+.16,z:i.z,power:.43});}
+for(const d of world.runtime.query('doors',player.x-36,player.z-36,player.x+36,player.z+36))if(!d.openPassage&&Math.hypot(d.x-player.x,d.z-player.z)<34)list.push({mesh:scene.doorMesh,model:M.mul(M.model(d.x,d.y,d.z,d.rot),M.model(d.open*1.09,0,0)),light:scene.bake([d.x,d.y+1.4,d.z],[0,1,0])});
  for(const d of world.runtime.query('doors',player.x-27,player.z-27,player.x+27,player.z+27))if(d.locked&&Math.hypot(d.x-player.x,d.z-player.z)<25){const sign=Math.sign((player.x-d.x)*Math.sin(d.rot)+(player.z-d.z)*Math.cos(d.rot))||1;list.push({mesh:scene.lockMesh,model:M.mul(M.model(d.x,d.y+1.12,d.z,d.rot),M.model(.26,0,sign*.12)),light:scene.bake([d.x,d.y+1.2,d.z],[0,1,0])});}
  for(const c of world.runtime.query('containers',player.x-30,player.z-30,player.x+30,player.z+30))if(Math.hypot(c.x-player.x,c.z-player.z)<29){list.push({mesh:scene.lockerDoorMesh,model:M.mul(M.model(c.x,c.y,c.z,c.rot),M.model(-.239,.055,-.29,c.open*1.44)),light:scene.bake([c.x,c.y+1.2,c.z],[0,1,0])});}
  for(const c of world.runtime.query('containers',player.x-19,player.z-19,player.x+19,player.z+19)){if(c.open<.12||Math.hypot(c.x-player.x,c.z-player.z)>18)continue;const item=world.runtime.items.get(c.loot);if(!item||item.taken)continue;
@@ -1586,11 +1780,11 @@ function dynamicScene(){const list=[];scene.pageLights=[];for(const d of world.r
   list.push({mesh:scene.itemMeshes[item.type],model:M.model(x,y,z,c.rot),light:scene.bake([x,c.y+.8,z],[0,1,0])});
   if(isPage&&c.open>.65&&scene.pageLights.length<3&&world.visible(player,{x:c.x-Math.sin(c.rot)*.34,y:c.y+1.02,z:c.z-Math.cos(c.rot)*.34,level:c.level}))scene.pageLights.push({x,y:y+.12,z,power:.48});}
  if(mode!=='menu')for(const e of enemies){if(!e.active||Math.hypot(e.x-player.x,e.z-player.z)>33)continue;for(const d of ABContent.rigPose(scene.rigs[e.type],e,time,scene.bake)){d.owner=e.uid;list.push(d);}}if(mode!=='menu'&&survival)list.push(...ABContent.hazardPoses(scene.hazardMeshes,survival.list,player,scene.bake));for(const h of lures)list.push({mesh:scene.itemMeshes.lure,model:M.model(h.x,h.y,h.z),shadow:false,light:scene.bake([h.x,h.y,h.z],[0,1,0])});scene.shadowStamp=world.version+':'+world.containers.filter(c=>Math.abs(c.open-c.target)>.001).map(c=>c.id+Math.round(c.open*100)).join(',');scene.dynamic=list;}
-function render(){if(!renderer||!scene||!player)return;updateExitCompass();dynamicScene();const p=player;let cam={x:p.x,y:p.y,z:p.z,yaw:p.yaw,pitch:p.pitch,flash:p.flash&&p.battery>0&&!p.reload&&!p.hidden?1:0,lighter:p.lighter&&!p.hidden?1:0,fov:p.hidden?.92:1.0};if(mode==='menu')cam={...cam,yaw:world.startYaw+Math.sin(time*.07)*.015,pitch:-.04,flash:.45};
+function render(){if(!renderer||!scene||!player)return;updateExitCompass();dynamicScene();const p=player;let cam={x:p.x,y:p.y,z:p.z,yaw:p.yaw,pitch:p.pitch,flash:p.flash&&p.battery>0&&p.reload<=0&&!p.hidden?1:0,lighter:p.lighter&&!p.hidden?1:0,fov:p.hidden?.92:1.0};if(mode==='menu')cam={...cam,yaw:world.startYaw+Math.sin(time*.07)*.015,pitch:-.04,flash:.45};
  const near=mode==='playing'?clamp((sound.metrics.presence||0)*1.65,0,1):0;
  const dip=Math.pow(Math.max(0,Math.sin(time*7.3+Math.sin(time*1.2)*.65)),12);
  cam.flash*=1-near*(settings.flicker?.10:.72)*dip;
- scene.redLights=enemies.map(e=>{const dist=Math.hypot(e.x-p.x,e.z-p.z),fade=clamp((24-dist)/8,0,1);return e.active&&fade>0?{x:e.x,y:e.y+(e.type===2?.7:1.2),z:e.z,power:(3.8+(e.visualThreat||0)*4.8)*fade,owner:e.uid}:null;});
+ scene.redLights=enemies.map(e=>{const dist=Math.hypot(e.x-p.x,e.z-p.z),fade=clamp((24-dist)/8,0,1);return e.active&&fade>0?{x:e.x,y:e.y+(e.type===2?.7:1.2),z:e.z,power:(e.type===1&&e.state==='dormant'?.65:3.8+(e.visualThreat||0)*4.8)*fade,owner:e.uid}:null;});
  scene.redLight=scene.redLights.find(Boolean)||null;
  if(mode==='caught'){cam.fov=1.0-.34*clamp(caughtTime/.45,0,1);cam.flash=.67;cam.lighter=0;for(const l of scene.redLights)if(l)l.power=1.7;}const fade=mode==='caught'?clamp((caughtTime-1.85)/.70,0,1):0;renderer.render(scene,cam,time,{brightness:settings.brightness,flicker:1,stress,fade,freeze:timeStopped>0?1:0});frameCount++;}
 const perf={frames:0,updateMs:0,renderMs:0,frameMs:0,maxUpdate:0,scale:1,samples:[],adaptiveAt:0,slow:0};
@@ -1609,8 +1803,8 @@ function bindUI(){$('startBtn').onclick=()=>startNew();$('continueBtn').onclick=
  document.querySelectorAll('[data-sound-test]').forEach(el=>el.onclick=async()=>{await sound.start();applySettings();sound.test(el.dataset.soundTest);});
  document.addEventListener('pointerlockchange',()=>{if(!document.pointerLockElement&&mode==='playing'&&!lockAttempt)pause();});document.addEventListener('mousemove',e=>{if(mode==='playing'&&(document.pointerLockElement===$('world')||dragging)){player.yaw+=e.movementX*.002*settings.sensitivity;player.pitch=clamp(player.pitch-e.movementY*.00185*settings.sensitivity,-1.27,1.27);}});$('world').onmousedown=e=>{if(mode==='playing'&&e.button===0){dragging=true;lockMouse();}};window.addEventListener('mouseup',()=>dragging=false);
  document.addEventListener('keydown',e=>{if(e.target instanceof HTMLInputElement||e.target instanceof HTMLSelectElement)return;if(['Space','Tab','ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(e.code))e.preventDefault();if(e.repeat){if(mode==='playing')keys.add(e.code);return;}if(e.code==='Escape'){if(!$('settings').hidden){hide('settings');return;}if(!$('help').hidden){hide('help');return;}if(inventoryOpen){inventoryOpen=false;hide('inventoryPanel');return;}if(mapOpen){toggleMap();return;}if(mode==='playing')pause();else if(mode==='paused')resume();return;}if(mode!=='playing')return;keys.add(e.code);if(e.code==='KeyE')interact();if(e.code==='KeyF')toggleFlash();if(e.code==='KeyG')toggleLighter();if(e.code==='KeyR')reload();if(e.code==='KeyQ')useTool();if(e.code==='Digit1')player.selected='camera';if(e.code==='Digit2')player.selected='watch';if(e.code==='Digit3')player.selected='bandage';if(e.code==='Digit4')player.selected='mirror';if(e.code==='Digit5')player.selected='survey';if(e.code==='Digit6')player.selected='lure';if(e.code==='KeyM')toggleMap();if(e.code==='KeyV'&&mapOpen){mapLevel=1-mapLevel;drawMap();}if(e.code==='KeyI'||e.code==='Tab'){inventoryOpen=!inventoryOpen;searching=null;hide('inventoryPanel',!inventoryOpen);}if(e.code==='KeyH')overlay('help');if(mode==='playing')updateHUD();});document.addEventListener('keyup',e=>keys.delete(e.code));window.addEventListener('blur',()=>{keys.clear();if(mode==='playing')pause();});window.addEventListener('beforeunload',()=>{if(mode==='playing'||mode==='paused')saveGame(true);});$('world').addEventListener('webglcontextlost',e=>{e.preventDefault();fatal(Error('그래픽이 중단되었습니다. 다시 열어 이어하기를 선택해 주세요.'));});}
-async function boot(){try{await new Promise(r=>setTimeout(r,40));renderer=new Renderer($('world'),ABContent.makeAtlas());renderer.quality=settings.quality;world=new School(baseSeed,1);world.prepareRuntime();scene=ABContent.buildSchool(world,renderer);player=makePlayer();survival=new ABSurvival.Hazards(world);director=new ABEncounterDirector(1);makeEnemies();bindUI();hide('loading');setMode('menu');requestAnimationFrame(frame);root.AFTERBELL={performance:perf,version:'13.0.0-exit-compass-and-controls',title:'종이 울린 뒤',get state(){return{mode,stage,lives,seed:baseSeed,pages:pages(),required:world.required,availablePages:world.pageSupply,searches,elapsed:totalTime,deaths,validation:world.validation,frames:frameCount,gl:renderer.gl.getError()};}};
- if(root.__AB_TEST__)root.__AB={BALANCE,compassBearing,requestDoor,updateDoors,updatePlayer,updateHUD,updateExitCompass,updateActionPrompts,get lives(){return lives;},get respawnState(){return respawnState;},get deathCommitted(){return deathCommitted;},retryRun,commitLifeLoss,showDeath,get surveyTime(){return surveyTime;},get lures(){return lures;},ensureBrain,searchEvidence,get survival(){return survival;},damagePlayer,grant,updateHazards,get world(){return world;},get player(){return player;},get enemies(){return enemies;},get sound(){return sound;},get scene(){return scene;},get renderer(){return renderer;},get mode(){return mode;},get stageTime(){return stageTime;},get director(){return director;},get roomVisits(){return roomVisits;},get target(){return findTarget();},get saved(){return readSave();},get keys(){return keys;},get searching(){return searching;},get timeStopped(){return timeStopped;},get checkpoint(){return checkpoint;},get photoFlash(){return photoFlash;},start:startNew,continueRun,buildStage,interact,useTool,reload,toggleFlash,toggleLighter,attack,finishStage,pause,resume,render,update,updateEnemies,updateDirector,updateCaught,drawMap,save:()=>saveGame(true),setMode,visiblePlayer,inBeam,hear,noise,proposeEncounter,activateEncounter,spatiallyLegalSpawn,setTime(t){stageTime=t;},advance(dt=.016,count=1){for(let i=0;i<count;i++){time+=dt;if(mode==='playing')update(dt);else if(mode==='caught')updateCaught(dt);}},tick(dt=.016,count=1){this.advance(dt,count);render();},setPlayer(p){Object.assign(player,p);},setEnemy(i,p){Object.assign(enemies[i],p);},setSetting(k,v){settings[k]=v;applySettings();},lookAt(x,y,z){if(z===undefined){z=y;y=player.y;}const dx=x-player.x,dz=z-player.z;player.yaw=Math.atan2(dx,-dz);player.pitch=Math.atan2(y-player.y,Math.hypot(dx,dz));}};
+async function boot(){try{await new Promise(r=>setTimeout(r,40));renderer=new Renderer($('world'),ABContent.makeAtlas());renderer.quality=settings.quality;world=new School(baseSeed,1);world.prepareRuntime();scene=ABContent.buildSchool(world,renderer);player=makePlayer();survival=new ABSurvival.Hazards(world);director=new ABEncounterDirector(1);makeEnemies();bindUI();hide('loading');setMode('menu');requestAnimationFrame(frame);root.AFTERBELL={performance:perf,version:'14.0.0-guardian-exits',title:'종이 울린 뒤',get state(){return{mode,stage,lives,seed:baseSeed,pages:pages(),required:world.required,availablePages:world.pageSupply,searches,elapsed:totalTime,deaths,validation:world.validation,frames:frameCount,gl:renderer.gl.getError()};}};
+ if(root.__AB_TEST__)root.__AB={WEEPER,guardianThink,guardianBlocks,updatePatrolPressure,BALANCE,compassBearing,requestDoor,updateDoors,updatePlayer,updateHUD,updateExitCompass,updateActionPrompts,get lives(){return lives;},get respawnState(){return respawnState;},get deathCommitted(){return deathCommitted;},retryRun,commitLifeLoss,showDeath,get surveyTime(){return surveyTime;},get lures(){return lures;},ensureBrain,searchEvidence,get survival(){return survival;},damagePlayer,grant,updateHazards,get world(){return world;},get player(){return player;},get enemies(){return enemies;},get sound(){return sound;},get scene(){return scene;},get renderer(){return renderer;},get mode(){return mode;},get stageTime(){return stageTime;},get director(){return director;},get roomVisits(){return roomVisits;},get target(){return findTarget();},get saved(){return readSave();},get keys(){return keys;},get searching(){return searching;},get timeStopped(){return timeStopped;},get checkpoint(){return checkpoint;},get photoFlash(){return photoFlash;},start:startNew,continueRun,buildStage,interact,useTool,reload,toggleFlash,toggleLighter,attack,finishStage,pause,resume,render,update,updateEnemies,updateDirector,updateCaught,drawMap,save:()=>saveGame(true),setMode,visiblePlayer,inBeam,hear,noise,proposeEncounter,activateEncounter,spatiallyLegalSpawn,setTime(t){stageTime=t;},advance(dt=.016,count=1){for(let i=0;i<count;i++){time+=dt;if(mode==='playing')update(dt);else if(mode==='caught')updateCaught(dt);}},tick(dt=.016,count=1){this.advance(dt,count);render();},setPlayer(p){Object.assign(player,p);},setEnemy(i,p){Object.assign(enemies[i],p);},setSetting(k,v){settings[k]=v;applySettings();},lookAt(x,y,z){if(z===undefined){z=y;y=player.y;}const dx=x-player.x,dz=z-player.z;player.yaw=Math.atan2(dx,-dz);player.pitch=Math.atan2(y-player.y,Math.hypot(dx,dz));}};
  }catch(e){fatal(e);}}
 boot();
 })(window);
