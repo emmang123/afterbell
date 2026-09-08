@@ -423,6 +423,258 @@ kbd.action-key.space-key{width:calc(88px * var(--prompt-scale));font-size:calc(1
   #hudBarsWrap{width:min(390px,52vw)!important}
 }
 
+
+
+/* v14.11 HUD refinement: commercial/minimal horror HUD with item-style icons */
+#hud{pointer-events:none}
+#hud .hud-top,#hud #toolUsePrompt,#hud .slot-select-hint,#hud #subtleTip,#hud .toolbelt small{display:none!important}
+#hud .hud-top-left{position:absolute;left:18px;top:18px;display:flex;flex-direction:column;gap:10px;z-index:6}
+#hud .quickbar{position:static!important;display:block!important;max-width:none!important;gap:0!important;pointer-events:none}
+#hud .quickbar .slots{display:flex!important;gap:8px!important;justify-content:flex-start!important}
+#hud .quickbar .tool-slot{position:relative!important;width:84px!important;height:92px!important;padding:8px 8px 7px!important;border-radius:11px!important;border:1px solid rgba(223,213,185,.16)!important;background:linear-gradient(180deg,rgba(16,18,19,.96),rgba(7,9,10,.92))!important;box-shadow:0 12px 30px rgba(0,0,0,.38), inset 0 1px 0 rgba(255,255,255,.03)!important;opacity:.92!important}
+#hud .quickbar .tool-slot.selected{border-color:rgba(239,225,181,.72)!important;box-shadow:0 0 0 1px rgba(237,220,170,.2),0 14px 35px rgba(0,0,0,.45), inset 0 0 18px rgba(245,229,189,.05)!important;opacity:1!important}
+#hud .quickbar .tool-slot.empty:not(.selected){opacity:.52!important}
+#hud .quickbar .tool-slot kbd{position:absolute!important;top:6px!important;left:8px!important;padding:0!important;background:none!important;border:0!important;color:#b5ac96!important;font-size:14px!important;font-weight:700!important;line-height:1!important;text-shadow:0 1px 4px #000}
+#hud .quickbar .tool-slot svg{position:absolute!important;left:17px!important;top:14px!important;width:45px!important;height:45px!important;overflow:visible}
+#hud .quickbar .tool-slot span{position:absolute!important;left:10px!important;bottom:8px!important;font-size:13px!important;color:#c9c1aa!important;letter-spacing:-.01em}
+#hud .quickbar .tool-slot b{position:absolute!important;right:10px!important;top:7px!important;bottom:auto!important;font-size:24px!important;line-height:1!important;color:#efe5c7!important;font-weight:700!important}
+#hud .status-row{display:flex;gap:10px;align-items:stretch}
+#hud .lives-hud,#hud .key-pocket{position:static!important;display:flex!important;align-items:center!important;gap:10px!important;min-height:48px!important;padding:9px 14px!important;border-radius:11px!important;background:linear-gradient(180deg,rgba(16,18,19,.93),rgba(9,11,12,.82))!important;border:1px solid rgba(226,218,191,.16)!important;box-shadow:0 10px 26px rgba(0,0,0,.28)!important;color:#f0e6c6!important}
+#hud .lives-hud{min-width:110px!important}
+#hud .lives-hud .status-title{display:none!important}
+#hud #lifeMarks{display:flex!important;gap:6px!important}
+#hud #lifeMarks i{width:18px!important;height:16px!important;display:block!important;clip-path:polygon(50% 92%,0 44%,0 23%,16% 7%,34% 8%,50% 22%,66% 8%,84% 7%,100% 23%,100% 44%);background:linear-gradient(180deg,#ffe6ad,#c56a64)!important;box-shadow:0 0 0 1px rgba(253,239,214,.18),0 0 10px rgba(198,96,85,.12);border:none!important}
+#hud #lifeMarks i.spent{opacity:.22!important;filter:grayscale(1)!important}
+#hud #livesCount,#hud #keyCount{font-size:19px!important;line-height:1!important;font-weight:700!important;color:#efe6ca!important}
+#hud .key-pocket svg{width:24px!important;height:18px!important;stroke:#d9c987!important;fill:none!important;stroke-width:1.6!important;opacity:.95!important}
+#hud .key-pocket span{display:none!important}
+#hud .objective-panel{display:flex!important;align-items:center!important;position:absolute!important;top:18px!important;right:18px!important;left:auto!important;width:auto!important;min-width:140px!important;padding:11px 15px!important;border-radius:12px!important;background:linear-gradient(180deg,rgba(16,18,19,.93),rgba(8,10,11,.83))!important;border:1px solid rgba(225,216,184,.16)!important;box-shadow:0 12px 30px rgba(0,0,0,.38)!important;opacity:1!important;z-index:6}
+#hud .objective-panel .goal-line{display:flex!important;align-items:center!important;gap:10px!important;justify-content:flex-end!important}
+#hud .objective-panel .goal-line svg{display:block!important;width:24px!important;height:28px!important;stroke:#dfd5b8!important;fill:none!important;stroke-width:1.6!important;flex:0 0 auto}
+#hud .objective-panel .goal-line span{display:none!important}
+#hud .objective-panel .goal-line b{padding:0!important;font-size:29px!important;line-height:1!important;font-weight:800!important;letter-spacing:-.04em!important;color:#f1ead3!important}
+#hud #objectiveText{display:none!important}
+#hud .bars-stack{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);width:min(420px,47vw);display:flex;flex-direction:column;gap:10px;z-index:5}
+#hud .hud-bottom{position:static!important;left:auto!important;right:auto!important;bottom:auto!important;display:block!important}
+#hud .battery{position:absolute!important;left:18px!important;bottom:18px!important;display:flex!important;align-items:center!important;gap:10px!important;min-height:50px!important;padding:10px 14px!important;border-radius:12px!important;background:linear-gradient(180deg,rgba(16,18,19,.93),rgba(9,11,12,.84))!important;border:1px solid rgba(226,218,191,.16)!important;box-shadow:0 10px 26px rgba(0,0,0,.28)!important;color:#efe6ca!important;z-index:6!important}
+#hud .battery svg{width:27px!important;height:16px!important;stroke:#d9d0b4!important;fill:none!important;stroke-width:1.5!important;opacity:.95!important}
+#hud #batteryStroke{fill:rgba(218,208,180,.28)!important}
+#hud .battery-copy{display:flex!important;align-items:baseline!important;gap:7px!important}
+#hud #batteryLabel{font-size:20px!important;line-height:1!important;font-weight:800!important;color:#f1ead3!important}
+#hud #sparesLabel{font-size:13px!important;font-weight:700!important;color:#cec1a0!important}
+#hud .equipped-wrap{position:absolute!important;right:18px!important;bottom:18px!important;display:block!important;min-width:auto!important;z-index:6!important}
+#hud .equip-title{display:none!important}
+#hud .equip-card{display:flex!important;align-items:center!important;gap:10px!important;padding:11px 14px!important;min-height:66px!important;border-radius:12px!important;background:linear-gradient(180deg,rgba(16,18,19,.93),rgba(9,11,12,.82))!important;border:1px solid rgba(226,218,191,.16)!important;box-shadow:0 10px 26px rgba(0,0,0,.28)!important}
+#hud #equipmentName{font-size:13px!important;font-weight:700!important;color:#f1ead3!important;white-space:nowrap!important}
+#hud .status-row{display:flex;gap:10px;align-items:stretch;margin-bottom:0!important}
+#hud .health-center,#hud .stamina-center{position:static!important;left:auto!important;bottom:auto!important;transform:none!important;width:100%!important;display:flex!important;align-items:center!important;gap:12px!important;color:#efe6d1!important;font-size:13px!important}
+#hud .health-center>span,#hud .stamina-center>.bar-title{position:static!important;left:auto!important;min-width:58px;font-size:13px;color:#e6ddc7;letter-spacing:.02em}
+#hud #healthTrack,#hud #staminaTrack{height:12px!important;width:100%!important;padding:0!important;border-radius:999px!important;overflow:hidden!important;box-shadow:0 7px 18px rgba(0,0,0,.30)!important}
+#hud #healthTrack{background:rgba(58,26,22,.72)!important;border:1px solid rgba(193,133,107,.33)!important}
+#hud #staminaTrack{background:rgba(13,21,16,.80)!important;border:1px solid rgba(112,153,118,.32)!important}
+#hud #healthFill{height:100%!important;border-radius:999px!important;background:linear-gradient(90deg,#6c2f28,#d38c73)!important}
+#hud #staminaFill{height:100%!important;border-radius:999px!important;background:linear-gradient(90deg,#497055,#89b17f)!important;box-shadow:none!important}
+#hud #staminaFill.low{background:linear-gradient(90deg,#79603a,#c9a75e)!important}
+#hud #posture{position:static!important;bottom:auto!important;min-width:50px;height:auto!important;margin-left:8px;font-size:12px;color:#c9cfbc;letter-spacing:.02em}
+#hud .hud-bottom{position:absolute!important;left:18px!important;right:18px!important;bottom:18px!important;display:flex!important;justify-content:space-between!important;align-items:flex-end!important;opacity:1!important;pointer-events:none!important}
+#hud .battery{position:static!important;display:flex!important;align-items:center!important;gap:10px!important;min-height:50px!important;padding:9px 14px!important;border-radius:11px!important;background:linear-gradient(180deg,rgba(16,18,19,.93),rgba(9,11,12,.82))!important;border:1px solid rgba(226,218,191,.16)!important;box-shadow:0 10px 26px rgba(0,0,0,.28)!important;color:#f0e6c6!important}
+#hud .battery svg{width:30px!important;height:18px!important;stroke:#d9cdb2!important;fill:none!important;stroke-width:1.6!important;opacity:.95!important}
+#hud .battery-copy{display:flex;flex-direction:column;gap:2px;line-height:1}
+#hud #batteryLabel{font-size:18px!important;font-weight:700!important;color:#f1e5c7!important}
+#hud #sparesLabel{font-size:12px!important;font-weight:600!important;color:#cec1a0!important}
+#hud .equipped-wrap{display:flex!important;flex-direction:column!important;align-items:flex-end!important;gap:6px!important;min-width:190px!important}
+#hud .equip-title{display:block!important;font-size:12px!important;letter-spacing:.12em!important;color:#b7af97!important}
+#hud .equip-card{display:flex!important;align-items:center!important;gap:10px!important;padding:11px 14px!important;min-height:66px!important;border-radius:12px!important;background:linear-gradient(180deg,rgba(16,18,19,.93),rgba(9,11,12,.82))!important;border:1px solid rgba(226,218,191,.16)!important;box-shadow:0 10px 26px rgba(0,0,0,.28)!important}
+#hud #equipmentSlot{width:48px!important;height:48px!important;border-radius:10px!important;border:1px solid rgba(225,216,184,.18)!important;background:linear-gradient(180deg,rgba(26,29,30,.92),rgba(10,12,13,.94))!important;display:grid!important;place-items:center!important;box-shadow:none!important}
+#hud #equipmentSlot[data-item="empty"]{border-style:dashed!important;opacity:.72!important}
+#hud #equipmentIcon{width:34px!important;height:34px!important;stroke:#e6d9b3!important;fill:none!important;stroke-width:1.45!important;stroke-linecap:round!important;stroke-linejoin:round!important}
+#hud #equipmentName{font-size:16px!important;color:#f1ead4!important;max-width:none!important;white-space:nowrap!important;overflow:visible!important;text-overflow:clip!important}
+#hud #accessories{display:none!important}
+#hud #surveyVision{position:fixed;inset:0;pointer-events:none;z-index:4}
+#hud .survey-marker{position:absolute;left:0;top:0;transform:translate(-50%,-50%) scale(var(--surveyScale,1));transform-origin:center;opacity:.98;filter:drop-shadow(0 0 12px rgba(255,255,255,.3))}
+#hud .survey-marker.enemy{filter:drop-shadow(0 0 10px rgba(255,255,255,.34)) drop-shadow(0 0 22px rgba(116,146,192,.24))}
+#hud .survey-marker.page{filter:drop-shadow(0 0 12px rgba(255,120,120,.34)) drop-shadow(0 0 22px rgba(255,50,50,.26))}
+#hud .survey-marker svg{display:block}
+#hud .survey-marker.enemy svg{width:58px;height:72px}
+#hud .survey-marker.page svg{width:46px;height:52px}
+#hud .survey-ring{position:absolute;inset:-15px;border-radius:999px;background:radial-gradient(circle,rgba(122,166,255,.22) 0%,rgba(122,166,255,.06) 48%,transparent 72%)}
+#hud .survey-marker.page .survey-ring{background:radial-gradient(circle,rgba(255,74,74,.22) 0%,rgba(255,74,74,.06) 48%,transparent 72%)}
+#hud #breath{z-index:7}
+@media(max-width:1100px){#hud .quickbar .tool-slot{width:76px!important;height:84px!important}#hud .quickbar .tool-slot svg{left:15px!important;top:13px!important;width:40px!important;height:40px!important}#hud .quickbar .tool-slot b{font-size:21px!important}#hud .bars-stack{width:min(380px,52vw)}#hud .equipped-wrap{min-width:160px!important}#hud #equipmentName{font-size:14px!important}}
+@media(max-width:780px){#hud .quickbar .tool-slot{width:64px!important;height:76px!important}#hud .quickbar .tool-slot span{font-size:11px!important}#hud .quickbar .tool-slot svg{left:12px!important;width:36px!important;height:36px!important}#hud .status-row{gap:8px}#hud .lives-hud,#hud .key-pocket,#hud .battery{padding:8px 11px!important}#hud .objective-panel{min-width:112px!important;padding:9px 11px!important}#hud .objective-panel .goal-line b{font-size:23px!important}#hud .bars-stack{bottom:82px;width:min(360px,65vw)}#hud .hud-bottom{bottom:14px!important}}
+
+
+/* v14.12 HUD layout hotfix */
+#hud .hud-top-left{gap:12px!important}
+#hud .status-row{margin-bottom:0!important}
+#hud .equipped-wrap > #accessories{display:none!important}
+
+/* v14.13 HUD emergency layout fix */
+#hud .equipped-wrap{
+  position:absolute!important;
+  right:18px!important;
+  bottom:18px!important;
+  left:auto!important;
+  top:auto!important;
+  display:block!important;
+  min-width:0!important;
+  padding:0!important;
+  margin:0!important;
+  background:none!important;
+  border:none!important;
+  box-shadow:none!important;
+  backdrop-filter:none!important;
+  z-index:8!important;
+}
+#hud .equipped-wrap::before{content:none!important;display:none!important}
+#hud .equipped-wrap > .equip-title{display:none!important}
+#hud .equipped-wrap > #accessories{display:none!important}
+#hud .equip-card{
+  display:flex!important;
+  align-items:center!important;
+  gap:10px!important;
+  min-height:66px!important;
+  padding:11px 14px!important;
+  border-radius:12px!important;
+  background:linear-gradient(180deg,rgba(16,18,19,.93),rgba(9,11,12,.82))!important;
+  border:1px solid rgba(226,218,191,.16)!important;
+  box-shadow:0 10px 26px rgba(0,0,0,.28)!important;
+}
+#hud #equipmentSlot{width:42px!important;height:42px!important;flex:0 0 auto!important;border-radius:8px!important;margin:0!important}
+#hud #equipmentName{font-size:16px!important;font-weight:700!important;color:#f1ead4!important;max-width:none!important;white-space:nowrap!important;overflow:visible!important;text-overflow:clip!important}
+#hud .hud-bottom{position:static!important;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;display:block!important;padding:0!important;margin:0!important}
+#hud .battery{
+  position:absolute!important;
+  left:18px!important;
+  right:auto!important;
+  bottom:18px!important;
+  top:auto!important;
+  display:flex!important;
+  align-items:center!important;
+  gap:10px!important;
+  min-height:50px!important;
+  padding:10px 14px!important;
+  border-radius:12px!important;
+  background:linear-gradient(180deg,rgba(16,18,19,.93),rgba(9,11,12,.84))!important;
+  border:1px solid rgba(226,218,191,.16)!important;
+  box-shadow:0 10px 26px rgba(0,0,0,.28)!important;
+  color:#efe6ca!important;
+  backdrop-filter: blur(7px)!important;
+  z-index:8!important;
+}
+#hud .battery-copy{display:flex!important;align-items:baseline!important;gap:7px!important}
+#hud #batteryLabel{font-size:20px!important;line-height:1!important;font-weight:800!important;color:#f1ead3!important}
+#hud #sparesLabel{font-size:13px!important;font-weight:700!important;color:#cec1a0!important}
+@media(max-width:780px){
+  #hud .battery{left:12px!important;bottom:12px!important;padding:8px 11px!important}
+  #hud .equipped-wrap{right:12px!important;bottom:12px!important}
+  #hud .equip-card{padding:9px 11px!important}
+  #hud #equipmentName{font-size:14px!important}
+}
+
+
+/* v14.14 growth HUD + matching health/stamina labels */
+#hud .bars-stack{
+  position:absolute!important;
+  left:50%!important;
+  bottom:26px!important;
+  transform:translateX(-50%)!important;
+  width:min(460px,50vw)!important;
+  display:flex!important;
+  flex-direction:column!important;
+  gap:10px!important;
+  padding:14px 16px!important;
+  border-radius:16px!important;
+  background:linear-gradient(180deg,rgba(16,18,19,.92),rgba(9,11,12,.78))!important;
+  border:1px solid rgba(229,219,190,.14)!important;
+  box-shadow:0 14px 34px rgba(0,0,0,.34)!important;
+  backdrop-filter:blur(8px)!important;
+  z-index:7!important;
+}
+#hud .xp-center{display:flex!important;flex-direction:column!important;gap:7px!important}
+#hud .xp-head{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:12px!important}
+#hud #xpLevel{font-size:15px!important;line-height:1!important;font-weight:800!important;letter-spacing:.02em!important;color:#ece4cf!important}
+#hud #xpProgressText{font-size:13px!important;line-height:1!important;font-weight:700!important;color:#c9bfa6!important}
+#hud #xpTrack{width:100%!important;height:10px!important;padding:1px!important;border-radius:999px!important;background:rgba(10,14,22,.9)!important;border:1px solid rgba(114,134,178,.55)!important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.03),0 4px 12px rgba(0,0,0,.22)!important}
+#hud #xpFill{display:block!important;height:100%!important;width:0!important;border-radius:999px!important;background:linear-gradient(90deg,#5d69d6,#98b8ff)!important;box-shadow:0 0 12px rgba(105,140,255,.35)!important;transition:width .18s linear!important}
+#hud .health-center,
+#hud .stamina-center{
+  position:static!important;
+  left:auto!important;
+  bottom:auto!important;
+  transform:none!important;
+  width:100%!important;
+  display:grid!important;
+  grid-template-columns:72px 1fr!important;
+  gap:12px!important;
+  align-items:center!important;
+  color:#efe6cd!important;
+}
+#hud .health-center>span,
+#hud .stamina-center>.bar-title{
+  position:static!important;
+  display:block!important;
+  font-size:16px!important;
+  line-height:1!important;
+  font-weight:700!important;
+  letter-spacing:-.01em!important;
+  color:#efe6cd!important;
+  white-space:nowrap!important;
+  text-align:left!important;
+}
+#hud #healthTrack,
+#hud #staminaTrack{height:10px!important;border-radius:999px!important;padding:1px!important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.03),0 4px 12px rgba(0,0,0,.22)!important}
+#hud #healthTrack{background:rgba(46,24,21,.92)!important;border:1px solid rgba(181,129,101,.58)!important}
+#hud #staminaTrack{background:rgba(9,14,11,.92)!important;border:1px solid rgba(104,137,105,.72)!important}
+#hud #healthFill,
+#hud #staminaFill{height:100%!important;border-radius:999px!important}
+#hud .stamina-center #posture{position:static!important;grid-column:2!important;margin-top:3px!important;height:12px!important;font-size:11px!important;line-height:1.1!important;text-align:left!important;color:#aeb8a5!important}
+@media(max-width:1100px){#hud .bars-stack{width:min(430px,56vw)!important}}
+@media(max-width:780px){#hud .bars-stack{width:min(390px,76vw)!important;bottom:78px!important;padding:12px 13px!important}#hud .health-center,#hud .stamina-center{grid-template-columns:64px 1fr!important;gap:10px!important}#hud .health-center>span,#hud .stamina-center>.bar-title{font-size:14px!important}#hud #xpLevel{font-size:14px!important}}
+
+
+/* v14.15: level/XP moved to top-center; health/stamina remain bottom-center */
+#hud .xp-center{
+  position:absolute!important;
+  top:18px!important;
+  left:50%!important;
+  bottom:auto!important;
+  transform:translateX(-50%)!important;
+  width:min(430px,42vw)!important;
+  display:flex!important;
+  flex-direction:column!important;
+  gap:8px!important;
+  padding:11px 15px 12px!important;
+  border-radius:13px!important;
+  background:linear-gradient(180deg,rgba(16,18,19,.94),rgba(8,10,12,.84))!important;
+  border:1px solid rgba(203,211,239,.18)!important;
+  box-shadow:0 12px 30px rgba(0,0,0,.34)!important;
+  backdrop-filter:blur(8px)!important;
+  z-index:8!important;
+}
+#hud .xp-head{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:12px!important}
+#hud #xpLevel{font-size:16px!important;line-height:1!important;font-weight:800!important;color:#eee8d6!important}
+#hud #xpProgressText{font-size:13px!important;line-height:1!important;font-weight:700!important;color:#c9c2ae!important}
+#hud #xpTrack{width:100%!important;height:9px!important;padding:1px!important;border-radius:999px!important;background:rgba(10,14,22,.92)!important;border:1px solid rgba(111,133,185,.58)!important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.03)!important}
+#hud #xpFill{display:block!important;height:100%!important;border-radius:999px!important;background:linear-gradient(90deg,#5f6dd8,#9cbaff)!important;box-shadow:0 0 12px rgba(105,140,255,.32)!important;transition:width .18s linear!important}
+#hud .bars-stack{
+  bottom:24px!important;
+  padding:13px 16px!important;
+  gap:10px!important;
+}
+@media(max-width:900px){#hud .xp-center{width:min(390px,55vw)!important;top:14px!important}}
+@media(max-width:780px){#hud .xp-center{width:min(360px,72vw)!important;top:12px!important}#hud .bars-stack{bottom:78px!important}}
+
+
+/* v14.16: remove legacy empty HUD wrap and add top-center XP reward line */
+#hudBarsWrap{display:none!important;pointer-events:none!important}
+#hud .bars-stack::before,#hud .bars-stack::after{content:none!important;display:none!important}
+#hud #posture{display:none!important}
+#hud .stamina-center{grid-template-columns:72px 1fr!important}
+#hud .xp-head{align-items:flex-start!important}
+#hud .xp-main{display:flex!important;flex-direction:column!important;gap:4px!important;min-width:0!important;flex:1 1 auto!important}
+#hud #xpReward{display:block!important;font-size:12px!important;line-height:1.15!important;font-weight:700!important;color:#91d49f!important;letter-spacing:-.01em!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}
+@media(max-width:780px){#hud #xpReward{font-size:11px!important}}
 </style></head><body>
 <canvas id="world" aria-label="종이 울린 뒤 3D 게임"></canvas><div id="shade"></div><div id="danger"></div><div id="hitOverlay" aria-hidden="true"></div><div id="toolFlash"></div><div id="lockerMask" hidden></div>
 <div id="loading"><span class="loading-mark">終</span><p id="loadingText">벽 너머의 학교를 불러오는 중</p><i></i></div>
@@ -431,23 +683,50 @@ kbd.action-key.space-key{width:calc(88px * var(--prompt-scale));font-size:calc(1
 <div class="menu-actions"><button id="continueBtn" class="primary" hidden>이어하기 <span>↗</span></button><button id="startBtn" class="primary">시작하기 <span>↗</span></button></div>
 <div class="text-actions"><button id="menuHelp">조작</button><span>/</span><button id="menuSettings">설정</button></div>
 </div></main>
-<section id="hud" hidden><div id="livesHud" class="lives-hud" aria-label="남은 생명 3 / 3"><span>생명</span><div id="lifeMarks"><i></i><i></i><i></i></div><b id="livesCount">3 / 3</b></div><div class="hud-top"><div class="place"><i></i><span id="floorLabel"></span><span id="roomLabel"></span></div></div>
-
- <aside id="exitCompass" class="exit-compass" role="img" aria-label="출구의 직선 방향" hidden>
-  <span id="compassFloor">출구 · 1F</span>
-  <div class="compass-dial"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="44" class="compass-rim"/><circle cx="50" cy="50" r="36" class="compass-inner"/><path class="compass-ticks" d="M50 7v9M93 50h-8M50 93v-8M7 50h8M20 20l5 5M80 20l-5 5M80 80l-5-5M20 80l5-5"/><path class="compass-forward" d="M45 4h10l-5 6z"/><g id="compassNeedle"><path class="needle-tail" d="M50 81l-6-28h12z"/><path class="needle-tip" d="M50 19L61 58 50 51 39 58z"/><circle cx="50" cy="50" r="3.1" class="needle-hub"/></g></svg></div>
-  <span id="compassCaption">직선 방향</span>
- </aside>
- <div class="objective-panel"><div class="goal-line"><svg viewBox="0 0 24 28"><path d="M4 2h12l4 4v20H4z M8 10h8 M8 15h8 M8 20h5"/></svg><span>봉인된 출석부</span><b id="objectiveCount">0 / 3</b></div><div id="objectiveText">교탁과 사물함에서 명단 찾기</div></div>
- <nav class="quickbar" aria-label="사용 도구"><div class="slots"><div id="slotCamera" class="tool-slot selected"><kbd>1</kbd><svg viewBox="0 0 32 32"><path d="M3 8h7l2-4h9l2 4h6v20H3z" fill="#626d69"/><rect x="5" y="10" width="6" height="4" fill="#dfd4af"/><circle cx="18" cy="18" r="7" fill="#253334" stroke="#b7bcae"/><circle cx="18" cy="18" r="4" fill="#819da3"/><path d="M15 16l4-2" stroke="#dfe9db"/></svg><span>섬광</span><b id="cameraCount">0</b></div><div id="slotWatch" class="tool-slot"><kbd>2</kbd><svg viewBox="0 0 32 32"><path d="M12 2h8v4h-8z" fill="#aa9866"/><circle cx="16" cy="18" r="12" fill="#9e8b5b"/><circle cx="16" cy="18" r="9.3" fill="#d0c8aa"/><path d="M16 10v8l5 3" stroke="#4f5346" stroke-width="1.6"/><circle cx="16" cy="18" r="1.2" fill="#675d49"/></svg><span>시계</span><b id="watchCount">0</b></div><div id="slotBandage" class="tool-slot"><kbd>3</kbd><svg viewBox="0 0 32 32"><rect x="5" y="7" width="22" height="22" rx="4" fill="#c9c4b1"/><path d="M10 2h12v6H10z" fill="#8c9688"/><path d="M13 12h6v5h5v6h-5v5h-6v-5H8v-6h5z" fill="#995747" stroke="none"/></svg><span>붕대</span><b id="bandageCount">0</b></div><div id="slotMirror" class="tool-slot"><kbd>4</kbd><svg viewBox="0 0 32 32"><path fill="#b19b65" d="M12 19h5v12h-5z"/><ellipse cx="14.5" cy="11" rx="9" ry="10" fill="#aa935f"/><ellipse cx="14.5" cy="11" rx="6.8" ry="7.8" fill="#8dafb5"/><path d="M14 3l-2 8 6 3-4 5" fill="none" stroke="#293738"/></svg><span>손거울</span><b id="mirrorCount">0</b></div><div id="slotSurvey" class="tool-slot"><kbd>5</kbd><svg viewBox="0 0 32 32"><path fill="#81a4ad" d="M3 3l25 2-2 24-24-3z"/><path d="M6 8h17v8H11v8M17 5v8h9" fill="none" stroke="#d7d7c6" stroke-width="1.4"/><circle cx="11" cy="16" r="2" fill="#ad6650"/></svg><span>순찰도</span><b id="surveyCount">0</b></div><div id="slotLure" class="tool-slot"><kbd>6</kbd><svg viewBox="0 0 32 32"><rect x="3" y="8" width="23" height="19" rx="2" fill="#9a7350"/><rect x="6" y="11" width="12" height="12" fill="#303d3b"/><path d="M8 14h9m-9 3h9m-9 3h9M26 13h4V8" fill="none" stroke="#b6b5a1" stroke-width="1.5"/><circle cx="22" cy="15" r="2" fill="#caba7c"/></svg><span>방송기</span><b id="lureCount">0</b></div></div><div id="toolUsePrompt" class="action-prompt" data-state="empty"><kbd id="toolUseKey" class="action-key">Q</kbd><div class="action-copy"><strong id="selectedToolName">섬광 카메라</strong><span id="toolUseLabel">소지품 없음 · 1–6 선택</span></div></div><small class="slot-select-hint"><kbd>1–6</kbd> 선택 <span>·</span> <kbd>I</kbd> 효과 보기</small></nav><div id="crosshair">·</div><div id="interaction" hidden><kbd>E</kbd><span id="interactionLabel"></span></div><div id="searchUI" hidden></div>
- <div id="toast" role="status"></div><div id="subtleTip"></div><div id="timeFreeze"></div>
- <div class="health-center"><span>체력</span><div id="healthTrack" role="meter" aria-label="체력" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><i id="healthFill"></i></div></div><div class="stamina-center"><div id="staminaTrack" role="meter" aria-label="스태미나" aria-valuemin="0" aria-valuemax="125" aria-valuenow="125"><i id="staminaFill"></i></div><span id="posture"></span></div>
- <div class="hud-bottom"><div class="left-kit"><div class="equipped-wrap"><div id="equipmentSlot" role="img" aria-label="빈 장비 칸"><svg id="equipmentIcon" viewBox="0 0 40 40"></svg></div><span id="equipmentName">장착 없음</span></div><div class="battery"><svg viewBox="0 0 30 16"><path d="M1 3h24v10H1z M27 6h2v4h-2"/></svg><span id="batteryLabel">100</span><small id="sparesLabel">R · 1</small></div></div><div class="toolbelt"><div class="key-pocket"><svg viewBox="0 0 30 20"><path d="M11 9a5 5 0 1 0-10 0a5 5 0 1 0 10 0M11 9h17M21 9v5M25 9v5"/></svg><span>소비 열쇠</span><b id="keyCount">0</b></div><small>Q 사용 · I 효과 확인</small><div id="accessories"></div></div></div>
- <div id="breath" class="breath-prompt" data-state="ready" hidden><div class="breath-heading"><kbd id="breathKey" class="action-key space-key">SPACE</kbd><strong id="breathLabel">숨 참기</strong></div><div id="breathTrack" role="meter" aria-label="숨을 참을 수 있는 여유" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><i id="breathFill"></i></div><span id="breathHelp">SPACE를 누르고 있는 동안 조용히</span></div>
+<section id="hud" hidden>
+  <div class="hud-top-left">
+    <nav class="quickbar" aria-label="사용 도구">
+      <div class="slots">
+        <div id="slotCamera" class="tool-slot selected"><kbd>1</kbd><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="15" width="38" height="22" rx="6" fill="#272e34" stroke="#d7ccb2" stroke-width="1.4"/><rect x="12" y="10" width="11" height="7" rx="2" fill="#535e68"/><circle cx="25" cy="26" r="9.5" fill="#1b2228" stroke="#bcb395" stroke-width="1.4"/><circle cx="25" cy="26" r="5.8" fill="#6f8c96" stroke="#d9d1b7" stroke-width="1.1"/><circle cx="25" cy="26" r="2.3" fill="#d8eef1"/><rect x="34" y="18" width="5" height="4" rx="1" fill="#f1d591"/></svg><span>섬광</span><b id="cameraCount">0</b></div>
+        <div id="slotWatch" class="tool-slot"><kbd>2</kbd><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="19" y="4" width="10" height="6" rx="2" fill="#8f7a4c"/><rect x="19" y="38" width="10" height="6" rx="2" fill="#8f7a4c"/><circle cx="24" cy="24" r="14" fill="#aa8e56" stroke="#e6d8ae" stroke-width="1.4"/><circle cx="24" cy="24" r="10.7" fill="#dcd0ac"/><path d="M24 24V16M24 24l6 4" stroke="#47473f" stroke-width="2" stroke-linecap="round"/></svg><span>시계</span><b id="watchCount">0</b></div>
+        <div id="slotBandage" class="tool-slot"><kbd>3</kbd><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="7" y="12" width="34" height="24" rx="6" fill="#d8ccb0" stroke="#8e7f65" stroke-width="1.2"/><rect x="12" y="17" width="24" height="14" rx="4" fill="#ede1c8"/><path d="M22 17h4v14h-4zM17 22h14v4H17z" fill="#b05344"/><g fill="#b8a892"><circle cx="16" cy="19" r="1.2"/><circle cx="32" cy="19" r="1.2"/><circle cx="16" cy="29" r="1.2"/><circle cx="32" cy="29" r="1.2"/></g></svg><span>붕대</span><b id="bandageCount">0</b></div>
+        <div id="slotMirror" class="tool-slot"><kbd>4</kbd><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M26 28h5v12h-5z" fill="#9b7845"/><ellipse cx="24" cy="18" rx="12" ry="14" fill="#a88f5b" stroke="#ebddb4" stroke-width="1.2"/><ellipse cx="24" cy="18" rx="8.8" ry="10.7" fill="#89a5ad" stroke="#d8ebe9" stroke-width="1"/><path d="M20 10l4 5-3 4 5 3-4 6" fill="none" stroke="#f5f3ea" stroke-width="1.4" stroke-linecap="round"/></svg><span>손거울</span><b id="mirrorCount">0</b></div>
+        <div id="slotSurvey" class="tool-slot"><kbd>5</kbd><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M9 10l24 2 6 6-2 20-24-2-4-6z" fill="#7c8f98" stroke="#e1d9bf" stroke-width="1.2"/><path d="M13 17h16M13 22h12M13 27h10" stroke="#eef5f6" stroke-width="1.3" stroke-linecap="round"/><circle cx="31" cy="28" r="6.5" fill="#293138" stroke="#d9cdb0" stroke-width="1.1"/><path d="M31 24v8M27 28h8" stroke="#90b7c8" stroke-width="1.4" stroke-linecap="round"/></svg><span>순찰도</span><b id="surveyCount">0</b></div>
+        <div id="slotLure" class="tool-slot"><kbd>6</kbd><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="7" y="14" width="28" height="20" rx="4" fill="#8e6644" stroke="#dfd1b0" stroke-width="1.2"/><rect x="12" y="18" width="15" height="11" rx="1.5" fill="#212729"/><path d="M14 20h11M14 23.5h11M14 27h8" stroke="#c8b9a1" stroke-width="1.2" stroke-linecap="round"/><path d="M35 20h5V14" fill="none" stroke="#c6ba98" stroke-width="1.5" stroke-linecap="round"/><circle cx="32" cy="24" r="3" fill="#6ea8ff"/><circle cx="32" cy="24" r="5.5" fill="none" stroke="#4c8cff" stroke-opacity=".65" stroke-width="1.4"/></svg><span>방송기</span><b id="lureCount">0</b></div>
+      </div>
+      <div id="toolUsePrompt" class="action-prompt" data-state="empty" hidden><kbd id="toolUseKey" class="action-key">Q</kbd><div class="action-copy"><strong id="selectedToolName">섬광 카메라</strong><span id="toolUseLabel">소지품 없음 · 1–6 선택</span></div></div>
+      <small class="slot-select-hint" hidden><kbd>1–6</kbd> 선택 <span>·</span> <kbd>I</kbd> 효과 보기</small>
+    </nav>
+    <div class="status-row">
+      <div id="livesHud" class="lives-hud" aria-label="남은 생명 3 / 3"><span class="status-title">생명</span><div id="lifeMarks"><i></i><i></i><i></i></div><b id="livesCount">3 / 3</b></div>
+      <div class="key-pocket" aria-label="소비 열쇠"><svg viewBox="0 0 30 20" aria-hidden="true"><path d="M11 9a5 5 0 1 0-10 0a5 5 0 1 0 10 0M11 9h17M21 9v5M25 9v5"/></svg><b id="keyCount">0</b></div>
+    </div>
+  </div>
+  <div class="hud-top" hidden><div class="place"><i></i><span id="floorLabel"></span><span id="roomLabel"></span></div></div>
+  <aside id="exitCompass" class="exit-compass" role="img" aria-label="출구의 직선 방향" hidden>
+    <span id="compassFloor">출구 · 1F</span>
+    <div class="compass-dial"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="44" class="compass-rim"/><circle cx="50" cy="50" r="36" class="compass-inner"/><path class="compass-ticks" d="M50 7v9M93 50h-8M50 93v-8M7 50h8M20 20l5 5M80 20l-5 5M80 80l-5-5M20 80l5-5"/><path class="compass-forward" d="M45 4h10l-5 6z"/><g id="compassNeedle"><path class="needle-tail" d="M50 81l-6-28h12z"/><path class="needle-tip" d="M50 19L61 58 50 51 39 58z"/><circle cx="50" cy="50" r="3.1" class="needle-hub"/></g></svg></div>
+    <span id="compassCaption">직선 방향</span>
+  </aside>
+  <div class="objective-panel"><div class="goal-line"><svg viewBox="0 0 24 28" aria-hidden="true"><path d="M4 2h12l4 4v20H4z M8 10h8 M8 15h8 M8 20h5"/></svg><b id="objectiveCount">0 / 3</b></div><div id="objectiveText">교탁과 사물함에서 명단 찾기</div></div>
+  <div id="crosshair">·</div><div id="interaction" hidden><kbd>E</kbd><span id="interactionLabel"></span></div><div id="searchUI" hidden></div>
+  <div id="toast" role="status"></div><div id="subtleTip"></div><div id="timeFreeze"></div>
+  <div class="xp-center"><div class="xp-head"><div class="xp-main"><span id="xpLevel">Lv. 1</span><span id="xpReward">다음 보상 · 최대 스태미나 +20%</span></div><b id="xpProgressText">0 / 432</b></div><div id="xpTrack" role="meter" aria-label="달리기 경험치" aria-valuemin="0" aria-valuemax="432" aria-valuenow="0"><i id="xpFill"></i></div></div>
+  <div class="bars-stack">
+    <div class="health-center"><span>체력</span><div id="healthTrack" role="meter" aria-label="체력" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><i id="healthFill"></i></div></div>
+    <div class="stamina-center"><span class="bar-title">스태미나</span><div id="staminaTrack" role="meter" aria-label="스태미나" aria-valuemin="0" aria-valuemax="125" aria-valuenow="125"><i id="staminaFill"></i></div><span id="posture"></span></div>
+  </div>
+  <div class="hud-bottom">
+    <div class="battery"><svg viewBox="0 0 30 16" aria-hidden="true"><path d="M1 3h24v10H1z M27 6h2v4h-2"/></svg><div class="battery-copy"><span id="batteryLabel">100%</span><small id="sparesLabel">× 1</small></div></div>
+    <div class="equipped-wrap"><div class="equip-card"><div id="equipmentSlot" role="img" aria-label="빈 장비 칸"><svg id="equipmentIcon" viewBox="0 0 40 40"></svg></div><span id="equipmentName">악세사리 없음</span></div><div id="accessories" hidden></div></div>
+  </div>
+  <div id="surveyVision" hidden aria-hidden="true"></div>
+  <div id="breath" class="breath-prompt" data-state="ready" hidden><div class="breath-heading"><kbd id="breathKey" class="action-key space-key">SPACE</kbd><strong id="breathLabel">숨 참기</strong></div><div id="breathTrack" role="meter" aria-label="숨을 참을 수 있는 여유" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><i id="breathFill"></i></div><span id="breathHelp">SPACE를 누르고 있는 동안 조용히</span></div>
+</section>
 </section>
 <section id="pause" class="screen dim" hidden><div class="pause-content"><div class="eyebrow">아직 끝나지 않은 밤</div><h2>숨을 고르다</h2><button id="resumeBtn" class="primary">계속 걷기 <span>↗</span></button><button id="pauseSettings" class="plain-row">설정 · 소리 확인</button><button id="pauseHelp" class="plain-row">생존 수칙</button><button id="backMenu" class="plain-row muted">처음 화면으로</button><p id="pauseSeed" class="micro"></p><p id="saveNotice" class="micro"></p></div></section>
 <section id="settings" class="overlay" hidden><div class="panel"><div class="panel-head"><h2>설정</h2><button data-close="settings" aria-label="닫기">×</button></div><label>밝기 <output id="brightnessValue"></output><input id="brightness" type="range" min=".7" max="1.5" step=".05"></label><label>전체 음량 <output id="volumeValue"></output><input id="volume" type="range" min="0" max="1" step=".01"></label><label>환경·배회자 소리 <output id="sfxValue"></output><input id="sfx" type="range" min="0" max="1.5" step=".05"></label><label>심장 소리 <output id="heartbeatValue"></output><input id="heartbeat" type="range" min="0" max="1.5" step=".05"></label><div class="sound-check"><button data-sound-test="front">정면 종소리</button><button data-sound-test="right">오른쪽</button><button data-sound-test="back">뒤쪽</button><button data-sound-test="left">왼쪽</button><button data-sound-test="steps">발걸음</button><button data-sound-test="heart">심장</button></div><label>감도 <output id="sensitivityValue"></output><input id="sensitivity" type="range" min=".3" max="2" step=".05"></label><label>렌더링 해상도<select id="quality"><option value="1">100% · 원본 해상도</option><option value=".8">80%</option><option value=".6">60%</option></select></label><label class="check"><input id="adaptive" type="checkbox" checked>프레임 우선 자동 해상도 (최저 80%)</label><label>조작 안내 크기<select id="promptScale"><option value="1">기본 · 크게 보이는 키 안내</option><option value="1.25">125%</option><option value="1.5">150%</option></select></label><label class="check"><input id="motion" type="checkbox" checked>시야 흔들림 줄이기</label><p class="micro">아주 낮은 음량에서는 접근하는 소리를 놓칠 수 있습니다.<br>이번 버전의 원음과 모델은 직접 제작한 생성형 리소스입니다.</p><button class="primary" data-close="settings">돌아가기 <span>↗</span></button></div></section>
-<section id="help" class="overlay" hidden><div class="panel wide"><div class="panel-head"><h2>밤의 학교에서</h2><button data-close="help" aria-label="닫기">×</button></div><p class="intro-copy">명단 <b>3 / 4 / 5장</b>을 각 미로에서 회수한다.<br>각 미로에는 목표의 두 배인 6 / 8 / 10장이 있다. 필요한 수만 찾으면 된다. 회수를 마치면 오른쪽 나침반이 출구의 실제 방향만 가리킨다. 벽이나 층을 돌아가는 길은 직접 찾아야 한다. 명단 대부분은 미색으로 빛나는 교탁 위에, 일부는 사물함에 있다. 출구는 시작방이 아니라 맵 가장자리의 무작위 위치에 있고 2층일 수도 있다. 시작 명단은 지급되지 않는다.<br>생명은 전체 캠페인에서 3개. 사망하면 같은 시드·스테이지·수집 상태로 부활한다. 세 번째 사망에는 새 시드의 1스테이지로 다시 시작한다.</p><div class="controls"><p><kbd>W A S D</kbd> 이동 · 마우스 시점</p><p><kbd>SHIFT</kbd> 달리기</p><p><kbd>C / CTRL</kbd> 웅크리기</p><p><kbd>E 한 번</kbd> 사물함 열기 / 가져가기</p><p><kbd>E</kbd> 문 · 청소함</p><p><kbd>F / G</kbd> 손전등 / 라이터</p><p><kbd>R</kbd> 건전지 교체</p><p><kbd>1–6 → Q</kbd> 선택한 도구 사용</p><p><kbd>M / V</kbd> 탐색 지도 / 위아래</p><p><kbd>I / H / ESC</kbd> 도구 / 수칙 / 정지</p></div><div class="rules"><p><span>우는 기록지기 / 교탁</span>방 한가운데 앉아 명단을 지킨다. 방송기를 다른 위치에 놓으면 그쪽으로 천천히 이동한다. 유인 중에는 걷고, 달리지 말 것. 방송기가 멎으면 원래 자리로 돌아간다. 무방비로 가까이 가면 매우 빠르게 추격한다.</p><p><span>장착 1칸 / 교환</span>새 장비를 가져가면 기존 장비는 그 사물함에 남는다. 이름표·끈·리본·장갑 중 하나만 착용. 열쇠와 붕대는 별도 소비품이다.</p><p><span>먹선 / 바닥</span>떨리는 검은 선을 밟으면 발이 느려지고 체력을 잃는다. 피해 걷거나 라이터로 가까이 내려다봐 물러나게 한다. 카메라도 통한다.</p><p><span>결석표 떼 / 벽</span>접힌 종이에 빛을 오래 비추거나 가까이 뛰면 떨리다가 날아오른다. 빛을 끄고 조용히 통과한다. 달아나거나 카메라로 흩뜨릴 수 있다.</p><p><span>05 / 육중한 배회자</span>느린 종 대신 쿵쿵거리는 달리기. 길을 비키고 문 뒤에 숨는다. 카메라와 시계로 멈출 수 있다.</p><p><span>01 / 하나만 더?</span>E 한 번으로 사물함을 연다. 안에 물건이 있으면 E 한 번으로 줍는다. 빈 칸도 있으며, 여는 소리는 적에게 들린다.</p><p><span>02 / 모습보다 먼저 오는 소리</span>종·구두·숨소리가 커지면 같은 방에 들어오기 전이다. 문을 닫고 빛을 끄거나, 키 큰 ‘청소함’ 안에 숨는다. 들어가는 것을 봤다면 안전하지 않다.</p><p><span>03 / 마지막 수단</span>카메라는 직접 보이는 적만 4.5초 멈춘다. 시계는 6초를 번다. 이름표는 한 번의 포획을 대신한다. I를 눌러 효과를 확인한다.</p><p><span>04 / 숨을 죽이기</span>청소함에서는 SPACE를 누르고 있어 숨을 참는다. 가득 찬 상태에서 약 10.5초. 키를 놓으면 호흡이 회복된다. 지도와 도구 설명을 여는 동안에도 시간은 흐른다.</p></div></div></section>
+<section id="help" class="overlay" hidden><div class="panel wide"><div class="panel-head"><h2>밤의 학교에서</h2><button data-close="help" aria-label="닫기">×</button></div><p class="intro-copy">명단 <b>3 / 4 / 5장</b>을 각 미로에서 회수한다.<br>각 미로에는 목표의 두 배인 6 / 8 / 10장이 있다. 필요한 수만 찾으면 된다. 회수를 마치면 오른쪽 나침반이 출구의 실제 방향만 가리킨다. 벽이나 층을 돌아가는 길은 직접 찾아야 한다. 명단 대부분은 미색으로 빛나는 교탁 위에, 일부는 사물함에 있다. 출구는 시작방이 아니라 맵 가장자리의 무작위 위치에 있고 2층일 수도 있다. 시작 명단은 지급되지 않는다.<br>생명은 전체 캠페인에서 3개. 사망하면 같은 시드·스테이지·수집 상태로 부활한다. 세 번째 사망에는 새 시드의 1스테이지로 다시 시작한다.</p><div class="controls"><p><kbd>W A S D</kbd> 이동 · 마우스 시점</p><p><kbd>SHIFT</kbd> 달리기</p><p><kbd>C / CTRL</kbd> 웅크리기</p><p><kbd>E 한 번</kbd> 사물함 열기 / 가져가기</p><p><kbd>E</kbd> 문 · 청소함</p><p><kbd>F / G</kbd> 손전등 / 라이터</p><p><kbd>R</kbd> 건전지 교체</p><p><kbd>1–6 → Q</kbd> 선택한 도구 사용</p><p><kbd>M / V</kbd> 탐색 지도 / 위아래</p><p><kbd>I / H / ESC</kbd> 도구 / 수칙 / 정지</p></div><div class="rules"><p><span>우는 기록지기 / 교탁</span>방 한가운데 앉아 명단을 지킨다. 방송기를 다른 위치에 놓으면 그쪽으로 천천히 이동한다. 유인 중에는 걷고, 달리지 말 것. 방송기가 멎으면 원래 자리로 돌아간다. 무방비로 가까이 가면 매우 빠르게 추격한다.</p><p><span>장착 1칸 / 교환</span>새 장비를 가져가면 기존 장비는 그 사물함에 남는다. 이름표·끈·리본·장갑 중 하나만 착용. 열쇠와 붕대는 별도 소비품이다.</p><p><span>먹선 / 바닥</span>떨리는 검은 선을 밟으면 발이 느려지고 체력을 잃는다. 피해 걷거나 라이터로 가까이 내려다봐 물러나게 한다. 카메라도 통한다.</p><p><span>순찰도</span>5번 선택 후 Q로 12초 동안 가까운 배회자 실루엣과 봉인된 출석부가 벽 너머로 드러난다. 최단 경로나 먼 위치는 알려주지 않는다.</p><p><span>결석표 떼 / 벽</span>접힌 종이에 빛을 오래 비추거나 가까이 뛰면 떨리다가 날아오른다. 빛을 끄고 조용히 통과한다. 달아나거나 카메라로 흩뜨릴 수 있다.</p><p><span>05 / 육중한 배회자</span>느린 종 대신 쿵쿵거리는 달리기. 길을 비키고 문 뒤에 숨는다. 카메라와 시계로 멈출 수 있다.</p><p><span>01 / 하나만 더?</span>E 한 번으로 사물함을 연다. 안에 물건이 있으면 E 한 번으로 줍는다. 빈 칸도 있으며, 여는 소리는 적에게 들린다.</p><p><span>02 / 모습보다 먼저 오는 소리</span>종·구두·숨소리가 커지면 같은 방에 들어오기 전이다. 문을 닫고 빛을 끄거나, 키 큰 ‘청소함’ 안에 숨는다. 들어가는 것을 봤다면 안전하지 않다.</p><p><span>03 / 마지막 수단</span>카메라는 직접 보이는 적만 4.5초 멈춘다. 시계는 6초를 번다. 이름표는 한 번의 포획을 대신한다. I를 눌러 효과를 확인한다.</p><p><span>04 / 숨을 죽이기</span>청소함에서는 SPACE를 누르고 있어 숨을 참는다. 가득 찬 상태에서 약 10.5초. 키를 놓으면 호흡이 회복된다. 지도와 도구 설명을 여는 동안에도 시간은 흐른다.</p></div></div></section>
 <section id="inventoryPanel" hidden><div class="inventory-card"><h3>가지고 있는 것들의 쓰임새</h3><div id="inventoryText"></div><small>I 닫기 · 시간은 계속 흐른다</small></div></section>
 <section id="mapPanel" hidden><div class="map-sheet"><header><h3 id="mapTitle"></h3><span>M 닫기</span></header><canvas id="mapCanvas" width="620" height="620"></canvas><footer><span>● 나 · □ 수색 완료 / 사물함 수</span><span>V 위아래 · 시간은 흐른다</span></footer></div></section>
 <section id="story" class="screen dim" hidden><div class="story-content"><div class="eyebrow" id="storyOverline"></div><h2 id="storyTitle"></h2><p id="storyText"></p><div id="storyStats"></div><button id="storyBtn" class="primary"></button><button id="storyMenu" class="plain-row muted">처음 화면으로</button></div></section>
@@ -1708,10 +1987,20 @@ let saveQueued=false,surveyTime=0,lures=[],lureSequence=0,uiClock=0,mapClock=0;
 const ACTIVE=['camera','watch','bandage','mirror','survey','lure'];
 let keys=new Set(),noises=[],target=null,mapOpen=false,mapLevel=0,inventoryOpen=false,dragging=false,lockAttempt=false,toastUntil=0,tipUntil=0,lastFrame=0,frameCount=0,caughtTime=0,killer=null,storyAction='',checkpoint=null,saveClock=0,searching=null,timeStopped=0,photoFlash=0,toolCool=0,roomVisits=new Set(),searches=0,nextPlacementCheck=0;
 const names=['','본관','별관','폐쇄동'];
-const INFO={mirror:['금 간 손거울','4번 → Q. 같은 미로의 먼 안전 지점으로 이동한다. 최희귀: 맵당 0~1개. 적·함정·잠긴 보관실 안에는 도착하지 않는다. 목적지는 고를 수 없다.'],survey:['감광 순찰도','5번 → Q. 12초 동안 M 지도에서 26m 안의 연결 구조와 적 위치를 확인한다. 명단 위치나 먼 미로는 밝히지 않는다. 지도 중에도 시간은 흐른다.'],lure:['태엽 방송기','6번 → Q. 발밑에 20초간 방송기를 놓는다. 우는 존재는 천천히 소리 쪽으로 이동한다. 유인 중 걷기·웅크리기는 무시하지만 달리면 즉시 추격한다. 다른 배회자의 확정 추격은 취소하지 않는다.'],key:['보관실 열쇠','소비품 · 장착 칸과 별개. 잠긴 기록보관실에서 E. 열쇠 1개로 영구 개방한다. 보관실에는 생존 도구가 배치될 수 있으며, 일부 보관실에는 희귀 장비가 있다. 필수 출석부는 잠긴 방 밖에서 모두 찾을 수 있다.'],page:['봉인된 출석부','필요한 수만 회수하면 된다. 맵에는 목표의 두 배가 있으며 남은 명단은 찾지 않아도 된다.'],camera:['섬광 카메라','1번 선택 → Q. 앞쪽 9m 안에서 직접 보이는 적을 4.5초, 먹선·결석표 떼를 14초 멈춘다. 필름 1장을 소비한다.'],watch:['멎은 회중시계','2번 선택 → Q. 6초 동안 배회자와 먹선·결석표 떼가 정지한다. 시계 1개를 소비한다.'],decoy:['뜯긴 이름표','장착 1칸. 귀신에게 붙잡히면 이름표가 찢어지고 5초의 탈출 기회. 다른 장비와 동시 착용 불가. 바닥·종잇조각 피해는 막지 않는다.'],shoes:['실내화 끈','장착 1칸. 이동 소음 35% 감소. 교체하면 기존 장비가 해당 사물함에 남는다.'],ribbon:['육상부 리본','장착 1칸. 스태미나 회복 35% 증가. 다른 장비 효과와 중첩되지 않는다.'],gloves:['실험용 장갑','장착 1칸. 먹선·결석표 떼에 의한 체력 피해 50% 감소. 귀신의 포획은 막지 못한다.'],bandage:['보건실 붕대','소비품. 3번 선택 → Q. 체력 40 회복. 체력이 가득 차면 소비하지 않는다.'],battery:['예비 건전지','R을 눌러 손전등 건전지를 교체한다.']};
-const fresh=()=>({battery:100,spares:1,camera:0,watch:0,equipped:null,health:100,bandage:0,selected:'camera',keys:0,mirror:0,survey:0,lure:0}),readSave=()=>parse(storage.get(SAVE),null);
+const INFO={mirror:['금 간 손거울','4번 → Q. 같은 미로의 먼 안전 지점으로 이동한다. 최희귀: 맵당 0~1개. 적·함정·잠긴 보관실 안에는 도착하지 않는다. 목적지는 고를 수 없다.'],survey:['감광 순찰도','5번 선택 → Q. 12초 동안 같은 층의 가까운 배회자 실루엣과 출석부를 벽 너머로 본다. 길이나 지도를 열어 주지 않는다.'],lure:['태엽 방송기','6번 → Q. 발밑에 20초간 방송기를 놓는다. 우는 존재는 천천히 소리 쪽으로 이동한다. 유인 중 걷기·웅크리기는 무시하지만 달리면 즉시 추격한다. 다른 배회자의 확정 추격은 취소하지 않는다.'],key:['보관실 열쇠','소비품 · 장착 칸과 별개. 잠긴 기록보관실에서 E. 열쇠 1개로 영구 개방한다. 보관실에는 생존 도구가 배치될 수 있으며, 일부 보관실에는 희귀 장비가 있다. 필수 출석부는 잠긴 방 밖에서 모두 찾을 수 있다.'],page:['봉인된 출석부','필요한 수만 회수하면 된다. 맵에는 목표의 두 배가 있으며 남은 명단은 찾지 않아도 된다.'],camera:['섬광 카메라','1번 선택 → Q. 앞쪽 9m 안에서 직접 보이는 적을 4.5초, 먹선·결석표 떼를 14초 멈춘다. 필름 1장을 소비한다.'],watch:['멎은 회중시계','2번 선택 → Q. 6초 동안 배회자와 먹선·결석표 떼가 정지한다. 시계 1개를 소비한다.'],decoy:['뜯긴 이름표','장착 1칸. 귀신에게 붙잡히면 이름표가 찢어지고 5초의 탈출 기회. 다른 장비와 동시 착용 불가. 바닥·종잇조각 피해는 막지 않는다.'],shoes:['실내화 끈','장착 1칸. 이동 소음 35% 감소. 교체하면 기존 장비가 해당 사물함에 남는다.'],ribbon:['육상부 리본','장착 1칸. 스태미나 회복 35% 증가. 다른 장비 효과와 중첩되지 않는다.'],gloves:['실험용 장갑','장착 1칸. 먹선·결석표 떼에 의한 체력 피해 50% 감소. 귀신의 포획은 막지 못한다.'],bandage:['보건실 붕대','소비품. 3번 선택 → Q. 체력 40 회복. 체력이 가득 차면 소비하지 않는다.'],battery:['예비 건전지','R을 눌러 손전등 건전지를 교체한다.']};
+const GROWTH_XP=[0,432,990,1710,2610,3690],GROWTH_MAX_LEVEL=6;
+const fresh=()=>({battery:100,spares:1,camera:0,watch:0,equipped:null,health:100,bandage:0,selected:'camera',keys:0,mirror:0,survey:0,lure:0,runXp:0,runLevel:1,runDistance:0}),readSave=()=>parse(storage.get(SAVE),null);
 function inv(){return Object.fromEntries(Object.keys(fresh()).map(k=>[k,player[k]]));}
-function makePlayer(saved){return{...world.startPos,foot:world.startPos.y,y:world.startPos.y+1.62,yaw:world.startYaw,pitch:-.03,...fresh(),...saved,stamina:1,hazardSlow:1,hurtGrace:0,hidden:null,flash:true,lighter:false,crouch:false,noise:0,walk:0,travel:0,moving:false,sprint:false,invuln:4,reload:0,cooldown:0,breath:1,breathExhausted:false,holdingBreath:false};}
+function growthLevelFromXp(xp){let level=1;for(let i=1;i<GROWTH_XP.length;i++)if(xp>=GROWTH_XP[i])level=i+1;return Math.min(GROWTH_MAX_LEVEL,level);}
+function growthBand(level){const index=Math.max(0,Math.min(GROWTH_XP.length-1,(level||1)-1)),current=GROWTH_XP[index],next=level>=GROWTH_MAX_LEVEL?null:GROWTH_XP[index+1];return{current,next};}
+function staminaCapacityMult(level){return level>=4?1.5:level>=2?1.2:1;}
+function staminaRegenMult(level){return level>=5?1.45:level>=3?1.15:1;}
+function staminaCapacityFor(p){return BALANCE.staminaCapacity*staminaCapacityMult(p?.runLevel||1);}
+function staminaRegenFor(p){return staminaRegenMult(p?.runLevel||1)*(p?.equipped==='ribbon'?1.35:1);}
+function canOverdriveSprint(p){return (p?.runLevel||1)>=6;}
+function growthRewardText(level){return({2:'최대 스태미나 +20%',3:'스태미나 회복 +15%',4:'최대 스태미나 총 +50%',5:'스태미나 회복 총 +45%',6:'스태미나 고갈 시 체력 2/초 소모 달리기'})[level]||'';}
+function syncGrowth(p,quiet=false){if(!p)return 1;p.runXp=Math.max(0,p.runXp||0);p.runDistance=Math.max(0,p.runDistance||0);const before=Math.max(1,p.runLevel||1),level=growthLevelFromXp(p.runXp);p.runLevel=level;if(!quiet&&level>before){for(let next=before+1;next<=level;next++)notice(`레벨 ${next} 달성 · ${growthRewardText(next)}`,3.2);saveGame();}return level;}
+function makePlayer(saved){const p={...world.startPos,foot:world.startPos.y,y:world.startPos.y+1.62,yaw:world.startYaw,pitch:-.03,...fresh(),...saved,stamina:1,hazardSlow:1,hurtGrace:0,hidden:null,flash:true,lighter:false,crouch:false,noise:0,walk:0,travel:0,moving:false,sprint:false,invuln:4,reload:0,cooldown:0,breath:1,breathExhausted:false,holdingBreath:false};syncGrowth(p,true);return p;}
 function pages(){return Math.min(world.required,world.items.filter(i=>i.type==='page'&&i.taken).length);}
 function notice(text,seconds=3){$('toast').textContent=text;toastUntil=time+seconds;}
 function unlockMouse(){try{if(document.pointerLockElement)document.exitPointerLock();}catch{}}
@@ -1974,7 +2263,7 @@ function updateCaught(dt){if(mode!=='caught')return;caughtTime+=dt;
   k.captureLook=[p.x,p.y,p.z];
  }
  if(caughtTime>2.65)showDeath('capture');}
-function updatePlayer(dt){const p=player;p.invuln=Math.max(0,p.invuln-dt);p.cooldown=Math.max(0,p.cooldown-dt);
+function updatePlayer(dt){const p=player;p.invuln=Math.max(0,p.invuln-dt);p.cooldown=Math.max(0,p.cooldown-dt);syncGrowth(p,true);const staminaCap=staminaCapacityFor(p),regenBoost=staminaRegenFor(p),overdrive=canOverdriveSprint(p);
  // Timer is a duration, not a Boolean. Clamp the completion frame to EXACT zero:
  // a negative floating-point remainder used to keep !reload false indefinitely.
  if(p.reload>0){
@@ -2000,15 +2289,30 @@ function updatePlayer(dt){const p=player;p.invuln=Math.max(0,p.invuln-dt);p.cool
   if(held)p.breath=Math.max(0,p.breath-dt*BALANCE.breathDrain);
   else{p.breath=Math.min(1,p.breath+dt*BALANCE.breathRegen);if(Math.floor(stageTime*1.5)!==Math.floor((stageTime-dt)*1.5))noise(p,p.breath<.13?3.5:.9,'breath');}
   p.noise=held?0:.035;
-  p.stamina=Math.min(1,p.stamina+dt*BALANCE.hiddenRegen/BALANCE.staminaCapacity*(p.equipped==='ribbon'?1.35:1));
+  p.stamina=Math.min(1,p.stamina+dt*BALANCE.hiddenRegen/staminaCap*regenBoost);
  }
 
  else{p.holdingBreath=false;hide('breath');
   // Breath is a physiological reserve, so it recovers while outside a shelter too.
   p.breath=Math.min(1,p.breath+dt*BALANCE.breathRegen);if(p.breath>.12)p.breathExhausted=false;
   let f=(keys.has('KeyW')?1:0)-(keys.has('KeyS')?1:0),s=(keys.has('KeyD')?1:0)-(keys.has('KeyA')?1:0),len=Math.hypot(f,s);if(len){f/=len;s/=len;if(searching)searching=null;}
-  p.sprint=(keys.has('ShiftLeft')||keys.has('ShiftRight'))&&len>0&&!p.crouch&&p.stamina>BALANCE.sprintReserve&&!searching;const speed=(p.crouch?.79:p.sprint?3.6:1.72)*(p.hazardSlow||1),dx=(Math.sin(p.yaw)*f+Math.cos(p.yaw)*s)*speed*dt,dz=(-Math.cos(p.yaw)*f+Math.sin(p.yaw)*s)*speed*dt,ox=p.x,oz=p.z;world.move(p,dx,dz,.21,true);const moved=Math.hypot(p.x-ox,p.z-oz);p.moving=moved>.0001;p.walk+=moved;p.travel+=moved;p.noise=p.moving?(p.crouch?.05:p.sprint?1:.32):searching?.43:0;
-  if(p.sprint&&p.moving)p.stamina=Math.max(0,p.stamina-dt*BALANCE.sprintDrain/BALANCE.staminaCapacity);else p.stamina=Math.min(1,p.stamina+dt*BALANCE.staminaRegen/BALANCE.staminaCapacity*(p.equipped==='ribbon'?1.35:1));
+  const sprintIntent=(keys.has('ShiftLeft')||keys.has('ShiftRight'))&&len>0&&!p.crouch&&!searching;
+  p.sprint=sprintIntent&&(p.stamina>BALANCE.sprintReserve||(overdrive&&p.health>2.5));const speed=(p.crouch?.79:p.sprint?3.6:1.72)*(p.hazardSlow||1),dx=(Math.sin(p.yaw)*f+Math.cos(p.yaw)*s)*speed*dt,dz=(-Math.cos(p.yaw)*f+Math.sin(p.yaw)*s)*speed*dt,ox=p.x,oz=p.z;world.move(p,dx,dz,.21,true);const moved=Math.hypot(p.x-ox,p.z-oz);p.moving=moved>.0001;p.walk+=moved;p.travel+=moved;p.noise=p.moving?(p.crouch?.05:p.sprint?1:.32):searching?.43:0;
+  if(p.sprint&&p.moving){
+   const drainFrac=dt*BALANCE.sprintDrain/staminaCap;
+   const before=p.stamina;
+   p.stamina=Math.max(0,before-drainFrac);
+   if(overdrive){
+    let healthCost=0;
+    if(before<drainFrac)healthCost+=(drainFrac-before)*staminaCap/BALANCE.sprintDrain*2;
+    if(before<=0)healthCost=dt*2;
+    if(healthCost>0){p.health=Math.max(0,p.health-healthCost);damageFlash=Math.max(damageFlash,.18);}
+   }
+   p.runDistance=(p.runDistance||0)+moved;
+   p.runXp=(p.runXp||0)+moved;
+   const beforeLevel=p.runLevel||1;syncGrowth(p,false);if((p.runLevel||1)!==beforeLevel){p.stamina=Math.min(1,p.stamina);} 
+   if(p.health<=0){killer=null;commitLifeLoss('exhaust');showDeath('exhaust');return;}
+  }else p.stamina=Math.min(1,p.stamina+dt*BALANCE.staminaRegen/staminaCap*regenBoost);
   if(p.walk>(p.crouch?.85:p.sprint?1.05:.86)){p.walk=0;noise(p,(p.crouch?.5:p.sprint?16:3.3)*(p.equipped==='shoes'?.65:1),'step');sound.event(p.crouch?'softStep':'step',null,p.crouch?.11:p.sprint?.34:.19);}}
  const targetY=world.heightAt(p.x,p.z,p.level)+(p.crouch&&!p.hidden?1.04:p.hidden?1.48:1.62);p.foot=world.heightAt(p.x,p.z,p.level);p.y+=(targetY-p.y)*Math.min(1,dt*12);if(!settings.motion&&p.moving)p.y+=Math.sin(p.travel*5.8)*.007;
  if(p.flash&&p.battery>0&&p.reload<=0){p.battery=Math.max(0,p.battery-dt*.20);if(!p.battery){p.flash=false;notice('R 건전지 교체 · G 비상 라이터',3);}}
@@ -2067,7 +2371,7 @@ function useTool(){if(mode!=='playing'||player.hidden||toolCool>0)return;const p
   photoFlash=.22;noise(p,16,'camera');sound.event('camera',null,.4);notice(hit?`섬광에 멎었다 · ${hit}개체`:'섬광이 어둠을 갈랐다.',1.6);
  }else if(kind==='watch'){timeStopped=6;for(const e of enemies){e.timeFrozen=true;e.moving=false;}sound.event('watch',null,.32);notice('멎은 시간 · 6초',2);}
  else if(kind==='mirror'){const yaw=p.yaw;Object.assign(p,destination,{foot:destination.y,y:destination.y+1.62,yaw,pitch:0});p.invuln=Math.max(p.invuln,1.5);world.visited.add(world.cellOf(p));roomVisits.add(world.regionOf(p));for(const e of enemies){const brain=ensureBrain(e);brain.seen=false;brain.senseAt=0;}photoFlash=.16;stress*=.4;renderer.shadowInvalid=true;sound.occlusionClock=0;sound.event('mirror',null,.28);notice('거울이 부서졌다. 여긴 다른 방이다.',2.5);}
- else if(kind==='survey'){surveyTime=12;mapOpen=true;mapLevel=p.level;hide('mapPanel',false);sound.event('paper',null,.25);drawMap();notice('12초 동안 가까운 동선과 기척이 드러난다.',2.2);}
+ else if(kind==='survey'){surveyTime=12;mapLevel=p.level;sound.event('paper',null,.25);notice('12초 동안 벽 너머의 기척과 출석부가 드러난다.',2.2);}
  else if(kind==='lure'){const h={id:++lureSequence,x:p.x,z:p.z,y:p.foot+.16,level:p.level,remaining:20,cue:0};lures.push(h);sound.event('latch',null,.2);notice('태엽 방송기 · 20초 후 멎는다. 지금 멀어지자.',2.2);}
  updateHUD();saveGame();}
 function updateUtilities(dt){surveyTime=Math.max(0,surveyTime-dt);for(const h of lures){if(timeStopped>0)continue;h.remaining-=dt;h.cue-=dt;if(h.cue<=0){h.cue=1.1;noise(h,24,'lure');const n=noises.at(-1);if(n)n.lureId=h.id;sound.event('lure',h,.45,world.acousticInfo(h,world.acousticField(player,40)));}}lures=lures.filter(h=>h.remaining>0);}
@@ -2136,8 +2440,9 @@ function updateActionPrompts(){
  }
 }
 
-function updateHUD(){const p=player,n=pages();updateActionPrompts();$('staminaTrack').setAttribute('aria-valuenow',Math.round(p.stamina*125));$('livesHud').setAttribute('aria-label',`남은 생명 ${lives} / 3`);$('livesCount').textContent=`${lives} / 3`;[...$('lifeMarks').children].forEach((el,i)=>el.classList.toggle('spent',i>=lives));$('floorLabel').textContent=names[stage]+' / '+(p.level?'2F':'1F');$('roomLabel').textContent=world.rooms.find(r=>r.id===world.regionOf(p))?.name||'계단';$('objectiveCount').textContent=`${n} / ${world.required}`;$('objectiveText').textContent=n>=world.required?'회수 완료 · 나침반 방향의 방화문으로':'복도와 방을 탐색 · 전출 기록 표시가 단서';$('batteryLabel').textContent=p.reload>0?'…':Math.ceil(p.battery)+'%';$('sparesLabel').textContent='× '+p.spares;$('staminaFill').style.width=p.stamina*100+'%';$('staminaFill').classList.toggle('low',p.stamina<.2);if(!$('posture').classList.contains('bar-label'))$('posture').textContent=p.hidden?'숨음':p.crouch?'웅크림':'';
- for(const k of ['mirror','survey','lure']){$(k+'Count').textContent=p[k];$('slot'+k[0].toUpperCase()+k.slice(1)).classList.toggle('selected',p.selected===k);}for(const k of ACTIVE){const el=$('slot'+k[0].toUpperCase()+k.slice(1));el.classList.toggle('empty',!p[k]);el.setAttribute('aria-selected',p.selected===k?'true':'false');} $('cameraCount').textContent=p.camera;$('watchCount').textContent=p.watch;$('slotCamera').classList.toggle('selected',p.selected==='camera');$('slotWatch').classList.toggle('selected',p.selected==='watch');$('accessories').textContent='';$('keyCount').textContent=p.keys;$('bandageCount').textContent=p.bandage;$('slotBandage').classList.toggle('selected',p.selected==='bandage');$('healthFill').style.width=p.health+'%';$('healthTrack').setAttribute('aria-valuenow',Math.ceil(p.health));$('healthTrack').classList.toggle('critical',p.health<26);$('hitOverlay').style.opacity=String(damageFlash*.43);const equip=p.equipped||'empty';if($('equipmentSlot').dataset.item!==equip){$('equipmentSlot').dataset.item=equip;$('equipmentIcon').innerHTML='<path d="'+ABSurvival.ICONS[equip]+'"/>';$('equipmentName').textContent=p.equipped?INFO[p.equipped][0]:'장착 없음';$('equipmentSlot').setAttribute('aria-label',p.equipped?INFO[p.equipped][0]:'빈 장비 칸');}
+function updateHUD(){const p=player,n=pages();updateActionPrompts();syncGrowth(p,true);const staminaUnits=Math.round(staminaCapacityFor(p)*100),band=growthBand(p.runLevel||1),xpCurrent=Math.max(0,Math.floor((p.runXp||0)-band.current)),xpNeed=band.next==null?0:Math.max(1,Math.floor(band.next-band.current)),xpRatio=band.next==null?1:clamp(((p.runXp||0)-band.current)/(band.next-band.current),0,1);$('staminaTrack').setAttribute('aria-valuemax',staminaUnits);$('staminaTrack').setAttribute('aria-valuenow',Math.round(p.stamina*staminaUnits));$('xpTrack').setAttribute('aria-valuemax',band.next==null?100:xpNeed);$('xpTrack').setAttribute('aria-valuenow',band.next==null?100:xpCurrent);$('xpLevel').textContent=`Lv. ${p.runLevel||1}`;const nextRewardLevel=Math.min(GROWTH_MAX_LEVEL,(p.runLevel||1)+1);const rewardText=band.next==null?'모든 성장 해금 완료':`다음 보상 · ${growthRewardText(nextRewardLevel)}`;if($('xpReward'))$('xpReward').textContent=rewardText;$('xpProgressText').textContent=band.next==null?'MAX':`${xpCurrent} / ${xpNeed}`;$('xpFill').style.width=(xpRatio*100)+'%';$('livesHud').setAttribute('aria-label',`남은 생명 ${lives} / 3`);$('livesCount').textContent=`${lives} / 3`;[...$('lifeMarks').children].forEach((el,i)=>el.classList.toggle('spent',i>=lives));$('floorLabel').textContent=names[stage]+' / '+(p.level?'2F':'1F');$('roomLabel').textContent=world.rooms.find(r=>r.id===world.regionOf(p))?.name||'계단';$('objectiveCount').textContent=`${n} / ${world.required}`;$('objectiveText').textContent=n>=world.required?'회수 완료 · 나침반 방향의 방화문으로':'복도와 방을 탐색 · 전출 기록 표시가 단서';$('batteryLabel').textContent=p.reload>0?'…':Math.ceil(p.battery)+'%';$('sparesLabel').textContent='× '+p.spares;$('staminaFill').style.width=p.stamina*100+'%';$('staminaFill').classList.toggle('low',p.stamina<.2);$('posture').textContent=p.hidden?'숨음':p.crouch?'웅크림':'';
+ for(const k of ['mirror','survey','lure']){$(k+'Count').textContent=p[k];$('slot'+k[0].toUpperCase()+k.slice(1)).classList.toggle('selected',p.selected===k);}for(const k of ACTIVE){const el=$('slot'+k[0].toUpperCase()+k.slice(1));el.classList.toggle('empty',!(p[k]||0));el.classList.toggle('selected',p.selected===k);el.setAttribute('aria-selected',p.selected===k?'true':'false');}
+ $('cameraCount').textContent=p.camera;$('watchCount').textContent=p.watch;$('bandageCount').textContent=p.bandage;$('keyCount').textContent=p.keys;$('healthFill').style.width=p.health+'%';$('healthTrack').setAttribute('aria-valuenow',Math.ceil(p.health));$('healthTrack').classList.toggle('critical',p.health<26);$('hitOverlay').style.opacity=String(damageFlash*.43);const equip=p.equipped||'empty';if($('equipmentSlot').dataset.item!==equip){$('equipmentSlot').dataset.item=equip;$('equipmentIcon').innerHTML='<path d="'+ABSurvival.ICONS[equip]+'"/>';$('equipmentName').textContent=p.equipped?INFO[p.equipped][0]:'악세사리 없음';$('equipmentSlot').setAttribute('aria-label',p.equipped?INFO[p.equipped][0]:'빈 악세사리 칸');}
  const t=findTarget();target=t;hide('interaction',!t||!!searching||mapOpen);if(t)$('interactionLabel').textContent=t.label;hide('crosshair',p.hidden||mapOpen);$('toast').style.opacity=time<toastUntil?'1':'0';$('subtleTip').style.opacity=time<tipUntil?'.72':'0';$('danger').style.opacity=String(stress*.05);$('toolFlash').style.opacity=String(Math.min(.44,photoFlash*2));$('timeFreeze').style.opacity=timeStopped>0?'.8':'0';$('timeFreeze').textContent=timeStopped>0?'초침 정지 '+timeStopped.toFixed(1):'';
  if(inventoryOpen&&!$('inventoryText').dataset.built){$('inventoryText').dataset.built='1';$('inventoryText').innerHTML=Object.entries(INFO).filter(([k])=>k!=='page').map(([k,[n,d]])=>`<p><b>${n}</b><span>${d}</span></p>`).join('');}
  if(mapOpen&&stageTime>=mapClock){mapClock=stageTime+.25;drawMap();}}
@@ -2157,7 +2462,10 @@ for(const d of world.runtime.query('doors',player.x-36,player.z-36,player.x+36,p
   list.push({mesh:scene.itemMeshes[item.type],model:M.model(x,y,z,c.rot),light:scene.bake([x,c.y+.8,z],[0,1,0])});
   if(isPage&&c.open>.65&&scene.pageLights.length<3&&world.visible(player,{x:c.x-Math.sin(c.rot)*.34,y:c.y+1.02,z:c.z-Math.cos(c.rot)*.34,level:c.level}))scene.pageLights.push({x,y:y+.12,z,power:.48});}
  if(mode!=='menu')for(const e of enemies){if(!e.active||Math.hypot(e.x-player.x,e.z-player.z)>33)continue;for(const d of ABContent.rigPose(scene.rigs[e.type],e,time,scene.bake)){d.owner=e.uid;list.push(d);}}if(mode!=='menu'&&survival)list.push(...ABContent.hazardPoses(scene.hazardMeshes,survival.list,player,scene.bake));for(const h of lures){list.push({mesh:scene.itemMeshes.lure,model:M.model(h.x,h.y,h.z),shadow:false,light:[.012,.055,.26]});if(h.remaining>0&&Math.hypot(h.x-player.x,h.z-player.z)<28)scene.lureLights.push({x:h.x,y:h.y+.22,z:h.z,power:2.85});}scene.shadowStamp=world.version+':'+world.containers.filter(c=>Math.abs(c.open-c.target)>.001).map(c=>c.id+Math.round(c.open*100)).join(',');scene.dynamic=list;}
-function render(){if(!renderer||!scene||!player)return;updateExitCompass();dynamicScene();const p=player;let cam={x:p.x,y:p.y,z:p.z,yaw:p.yaw,pitch:p.pitch,flash:p.flash&&p.battery>0&&p.reload<=0&&!p.hidden?1:0,lighter:p.lighter&&!p.hidden?1:0,fov:p.hidden?.92:1.0};if(mode==='menu')cam={...cam,yaw:world.startYaw+Math.sin(time*.07)*.015,pitch:-.04,flash:.45};
+function projectSurveyPoint(x,y,z){const canvas=$('world');const w=canvas.clientWidth||innerWidth||1280,h=canvas.clientHeight||innerHeight||720;const dx=x-player.x,dy=y-player.y,dz=z-player.z;const cy=Math.cos(player.yaw),sy=Math.sin(player.yaw);const cp=Math.cos(player.pitch),sp=Math.sin(player.pitch);const rx=dx*cy+dz*sy;const rz=-dx*sy+dz*cy;const ry=dy*cp-rz*sp;const rz2=dy*sp+rz*cp;const forward=-rz2;if(forward<=.1)return null;const vfov=1.10,hfov=2*Math.atan(Math.tan(vfov/2)*(w/h));const nx=rx/(forward*Math.tan(hfov/2));const ny=ry/(forward*Math.tan(vfov/2));if(nx<-1.25||nx>1.25||ny<-1.2||ny>1.2)return null;return{x:(nx*.5+.5)*w,y:(-.5*ny+.5)*h,forward};}
+function updateSurveyVision(){const layer=$('surveyVision');if(!layer)return;if(mode!=='playing'||surveyTime<=0||player.hidden){layer.hidden=true;layer.innerHTML='';return;}const marks=[];for(const e of enemies){if(!e.active||e.level!==player.level)continue;const d=Math.hypot(e.x-player.x,e.z-player.z);if(d>34)continue;const p=projectSurveyPoint(e.x,e.y+(e.type===2?.7:1.25),e.z);if(!p)continue;const scale=clamp(1.18-d/70,.72,1.18).toFixed(3);marks.push(`<div class="survey-marker enemy" style="left:${p.x.toFixed(1)}px;top:${p.y.toFixed(1)}px;--surveyScale:${scale}"><span class="survey-ring"></span><svg viewBox="0 0 56 72" aria-hidden="true"><path d="M28 7c5.8 0 10.4 4.9 10.4 11.1 0 5.3-3.1 9.1-7.5 11.1 7 3.1 13.2 9.5 15.3 19.8l2.6 12.4H7.2l2.6-12.4c2.1-10.3 8.3-16.7 15.3-19.8-4.4-2-7.5-5.8-7.5-11.1C17.6 11.9 22.2 7 28 7z" fill="rgba(241,244,255,.12)" stroke="rgba(235,243,255,.96)" stroke-width="2.2"/><path d="M18 60h20" stroke="rgba(188,216,255,.82)" stroke-width="2" stroke-linecap="round"/></svg></div>`);}for(const i of world.items){if(i.taken||i.type!=='page'||i.level!==player.level)continue;const d=Math.hypot(i.x-player.x,i.z-player.z);if(d>36)continue;const p=projectSurveyPoint(i.x,i.y+.24,i.z);if(!p)continue;const scale=clamp(1.10-d/78,.74,1.12).toFixed(3);marks.push(`<div class="survey-marker page" style="left:${p.x.toFixed(1)}px;top:${p.y.toFixed(1)}px;--surveyScale:${scale}"><span class="survey-ring"></span><svg viewBox="0 0 44 52" aria-hidden="true"><path d="M8 4h19l9 9v35H8z" fill="rgba(255,92,92,.10)" stroke="rgba(255,129,129,.98)" stroke-width="2.2"/><path d="M27 4v10h9" fill="none" stroke="rgba(255,173,173,.95)" stroke-width="2"/><path d="M14 21h15M14 28h15M14 35h10" stroke="rgba(255,214,214,.96)" stroke-width="1.9" stroke-linecap="round"/></svg></div>`);}layer.innerHTML=marks.join('');layer.hidden=!marks.length;}
+
+function render(){if(!renderer||!scene||!player)return;updateExitCompass();dynamicScene();updateSurveyVision();const p=player;let cam={x:p.x,y:p.y,z:p.z,yaw:p.yaw,pitch:p.pitch,flash:p.flash&&p.battery>0&&p.reload<=0&&!p.hidden?1:0,lighter:p.lighter&&!p.hidden?1:0,fov:p.hidden?.92:1.0};if(mode==='menu')cam={...cam,yaw:world.startYaw+Math.sin(time*.07)*.015,pitch:-.04,flash:.45};
  const near=mode==='playing'?clamp((sound.metrics.presence||0)*1.65,0,1):0;
  const dip=Math.pow(Math.max(0,Math.sin(time*7.3+Math.sin(time*1.2)*.65)),12);
  cam.flash*=1-near*(settings.flicker?.10:.72)*dip;
@@ -2180,7 +2488,7 @@ function bindUI(){$('startBtn').onclick=()=>startNew();$('continueBtn').onclick=
  document.querySelectorAll('[data-sound-test]').forEach(el=>el.onclick=async()=>{await sound.start();applySettings();sound.test(el.dataset.soundTest);});
  document.addEventListener('pointerlockchange',()=>{if(!document.pointerLockElement&&mode==='playing'&&!lockAttempt)pause();});document.addEventListener('mousemove',e=>{if(mode==='playing'&&(document.pointerLockElement===$('world')||dragging)){player.yaw+=e.movementX*.002*settings.sensitivity;player.pitch=clamp(player.pitch-e.movementY*.00185*settings.sensitivity,-1.27,1.27);}});$('world').onmousedown=e=>{if(mode==='playing'&&e.button===0){dragging=true;lockMouse();}};window.addEventListener('mouseup',()=>dragging=false);
  document.addEventListener('keydown',e=>{if(e.target instanceof HTMLInputElement||e.target instanceof HTMLSelectElement)return;if(['Space','Tab','ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(e.code))e.preventDefault();if(e.repeat){if(mode==='playing')keys.add(e.code);return;}if(e.code==='Escape'){if(!$('settings').hidden){hide('settings');return;}if(!$('help').hidden){hide('help');return;}if(inventoryOpen){inventoryOpen=false;hide('inventoryPanel');return;}if(mapOpen){toggleMap();return;}if(mode==='playing')pause();else if(mode==='paused')resume();return;}if(mode!=='playing')return;keys.add(e.code);if(e.code==='KeyE')interact();if(e.code==='KeyF')toggleFlash();if(e.code==='KeyG')toggleLighter();if(e.code==='KeyR')reload();if(e.code==='KeyQ')useTool();if(e.code==='Digit1')player.selected='camera';if(e.code==='Digit2')player.selected='watch';if(e.code==='Digit3')player.selected='bandage';if(e.code==='Digit4')player.selected='mirror';if(e.code==='Digit5')player.selected='survey';if(e.code==='Digit6')player.selected='lure';if(e.code==='KeyM')toggleMap();if(e.code==='KeyV'&&mapOpen){mapLevel=1-mapLevel;drawMap();}if(e.code==='KeyI'||e.code==='Tab'){inventoryOpen=!inventoryOpen;searching=null;hide('inventoryPanel',!inventoryOpen);}if(e.code==='KeyH')overlay('help');if(mode==='playing')updateHUD();});document.addEventListener('keyup',e=>keys.delete(e.code));window.addEventListener('blur',()=>{keys.clear();if(mode==='playing')pause();});window.addEventListener('beforeunload',()=>{if(mode==='playing'||mode==='paused')saveGame(true);});$('world').addEventListener('webglcontextlost',e=>{e.preventDefault();fatal(Error('그래픽이 중단되었습니다. 다시 열어 이어하기를 선택해 주세요.'));});}
-async function boot(){try{await new Promise(r=>setTimeout(r,40));renderer=new Renderer($('world'),ABContent.makeAtlas());renderer.quality=settings.quality;world=new School(baseSeed,1);world.prepareRuntime();scene=ABContent.buildSchool(world,renderer);player=makePlayer();survival=new ABSurvival.Hazards(world);director=new ABEncounterDirector(1);makeEnemies();bindUI();hide('loading');setMode('menu');requestAnimationFrame(frame);root.AFTERBELL={performance:perf,version:'14.6-locker-exit-breath-fix',title:'종이 울린 뒤',get state(){return{mode,stage,lives,seed:baseSeed,pages:pages(),required:world.required,availablePages:world.pageSupply,searches,elapsed:totalTime,deaths,validation:world.validation,frames:frameCount,gl:renderer.gl.getError()};}};
+async function boot(){try{await new Promise(r=>setTimeout(r,40));renderer=new Renderer($('world'),ABContent.makeAtlas());renderer.quality=settings.quality;world=new School(baseSeed,1);world.prepareRuntime();scene=ABContent.buildSchool(world,renderer);player=makePlayer();survival=new ABSurvival.Hazards(world);director=new ABEncounterDirector(1);makeEnemies();bindUI();hide('loading');setMode('menu');requestAnimationFrame(frame);root.AFTERBELL={performance:perf,version:'14.17-xp-10pct-reduction',title:'종이 울린 뒤',get state(){return{mode,stage,lives,seed:baseSeed,pages:pages(),required:world.required,availablePages:world.pageSupply,searches,elapsed:totalTime,deaths,validation:world.validation,frames:frameCount,gl:renderer.gl.getError()};}};
  if(root.__AB_TEST__)root.__AB={WEEPER,guardianThink,guardianBlocks,updatePatrolPressure,BALANCE,compassBearing,requestDoor,updateDoors,updatePlayer,updateHUD,updateExitCompass,updateActionPrompts,get lives(){return lives;},get respawnState(){return respawnState;},get deathCommitted(){return deathCommitted;},retryRun,commitLifeLoss,showDeath,get surveyTime(){return surveyTime;},get lures(){return lures;},ensureBrain,searchEvidence,get survival(){return survival;},damagePlayer,grant,updateHazards,get world(){return world;},get player(){return player;},get enemies(){return enemies;},get sound(){return sound;},get scene(){return scene;},get renderer(){return renderer;},get mode(){return mode;},get stageTime(){return stageTime;},get director(){return director;},get roomVisits(){return roomVisits;},get target(){return findTarget();},get saved(){return readSave();},get keys(){return keys;},get searching(){return searching;},get timeStopped(){return timeStopped;},get checkpoint(){return checkpoint;},get photoFlash(){return photoFlash;},start:startNew,continueRun,buildStage,interact,useTool,reload,toggleFlash,toggleLighter,attack,finishStage,pause,resume,render,update,updateEnemies,updateDirector,updateCaught,drawMap,save:()=>saveGame(true),setMode,visiblePlayer,inBeam,hear,noise,proposeEncounter,activateEncounter,spatiallyLegalSpawn,setTime(t){stageTime=t;},advance(dt=.016,count=1){for(let i=0;i<count;i++){time+=dt;if(mode==='playing')update(dt);else if(mode==='caught')updateCaught(dt);}},tick(dt=.016,count=1){this.advance(dt,count);render();},setPlayer(p){Object.assign(player,p);},setEnemy(i,p){Object.assign(enemies[i],p);},setSetting(k,v){settings[k]=v;applySettings();},lookAt(x,y,z){if(z===undefined){z=y;y=player.y;}const dx=x-player.x,dz=z-player.z;player.yaw=Math.atan2(dx,-dz);player.pitch=Math.atan2(y-player.y,Math.hypot(dx,dz));}};
  }catch(e){fatal(e);}}
 boot();
@@ -2204,29 +2512,6 @@ boot();
       if(!slot) continue;
       const old = slot.querySelector('svg');
       if(old) old.outerHTML = svg;
-    }
-    const hud = document.getElementById('hud');
-    const health = document.querySelector('.health-center');
-    const stamina = document.querySelector('.stamina-center');
-    if(hud && health && stamina){
-      let wrap = document.getElementById('hudBarsWrap');
-      if(!wrap){
-        wrap = document.createElement('div');
-        wrap.id = 'hudBarsWrap';
-        hud.appendChild(wrap);
-      }
-      wrap.appendChild(health);
-      wrap.appendChild(stamina);
-      const healthLabel = health.querySelector(':scope > span');
-      if(healthLabel){
-        healthLabel.textContent = '체력';
-        healthLabel.classList.add('bar-label');
-      }
-      const posture = document.getElementById('posture');
-      if(posture){
-        posture.textContent = '스태미나';
-        posture.classList.add('bar-label');
-      }
     }
     const eqSlot = document.getElementById('equipmentSlot');
     const eqIcon = document.getElementById('equipmentIcon');
